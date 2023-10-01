@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-
+    [Header("Dependencies")]
     public GameObject[] players;
 
+    [Header("Options")]
     public bool yValue = false;
-
+    [Header("Outputs")]
     public float averageDist;
 
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class CameraScript : MonoBehaviour
 
 
         Vector3 vec = getMeanVector(positions);
-        averageDist = getAverageDist(positions, transform.position); ;
+        averageDist = getMeanDistance(positions, transform.position); ;
 
         if (yValue){
             transform.position = vec;  }
@@ -36,7 +37,7 @@ public class CameraScript : MonoBehaviour
     }
 
 
-    private float getAverageDist(List<Vector3> positions, Vector3 origin)
+    private float getMeanDistance(List<Vector3> positions, Vector3 origin)
     {
         if (positions.Count == 0)
             return 0f;
@@ -76,7 +77,7 @@ public class CameraScript : MonoBehaviour
         return new Vector3(x / positions.Count, y / positions.Count, z / positions.Count);
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected() //debugs
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.blue;
