@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (secondPlayer){
+        if (!secondPlayer){
             playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         }else{
             playerMovementInput = new Vector3(Input.GetAxis("P2Horizontal"), 0f, Input.GetAxis("P2Vertical"));

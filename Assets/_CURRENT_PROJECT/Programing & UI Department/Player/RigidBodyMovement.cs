@@ -20,15 +20,22 @@ public class RigidBodyMovement : MonoBehaviour
         //records the input for the main movement keys
         playerMovementInput = playerInput.playerMovementInput;
 
-        movePlayer();
+        if (Input.GetKey(KeyCode.X)) // running mode. experimental feature for some extra movement mechanics
+        {
+            movePlayer(playerSpeed * 2);
+        }
+        else
+        {
+            movePlayer(playerSpeed);
+        }
     }
 
     //for moving the player
-    private void movePlayer()
+    private void movePlayer(float mSpeed)
     {
         //Vector3 moveVector = transform.TransformDirection(playerMovementInput) * playerSpeed;
         //playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
-        Vector3 moveVector = playerMovementInput * playerSpeed;
+        Vector3 moveVector = playerMovementInput * mSpeed;
         playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
     }
 
