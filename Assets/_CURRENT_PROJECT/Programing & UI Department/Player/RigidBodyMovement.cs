@@ -11,19 +11,21 @@ public class RigidBodyMovement : MonoBehaviour
     [Space]
     //for player's speed
     [SerializeField] private float playerSpeed;
-    //for player jumpforce
-    [SerializeField] private float playerJumpForce;
 
     // Update is called once per frame
     void Update()
     {
         //records the input for the main movement keys
         playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+
+        movePlayer();
     }
 
     //for moving the player
     private void movePlayer()
     {
+        Vector3 moveVector = transform.TransformDirection(playerMovementInput) * playerSpeed;
+        playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
 
     }
 
