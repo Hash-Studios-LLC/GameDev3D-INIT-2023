@@ -6,27 +6,37 @@ public class RigidBodyMovement : MonoBehaviour
 {
     private Vector3 playerMovementInput;
 
-    //reference to player's rigidbody
-    [SerializeField] private Rigidbody playerBody;
+    [Header("Dependencies")]
+    [SerializeField] private PlayerInput playerInput; // component that handles input
+    [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
     [Space]
-    //for player's speed
-    [SerializeField] private float playerSpeed;
+    [Header("Options")]
+    [SerializeField] private float playerSpeed; //for player's speed
+
 
     // Update is called once per frame
     void Update()
     {
         //records the input for the main movement keys
-        playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        playerMovementInput = playerInput.playerMovementInput;
 
-        movePlayer();
+        if (Input.GetKey(KeyCode.X)) // running mode. experimental feature for some extra movement mechanics
+        {
+            movePlayer(playerSpeed * 2);
+        }
+        else
+        {
+            movePlayer(playerSpeed);
+        }
     }
 
     //for moving the player
-    private void movePlayer()
+    private void movePlayer(float mSpeed)
     {
-        Vector3 moveVector = transform.TransformDirection(playerMovementInput) * playerSpeed;
+        //Vector3 moveVector = transform.TransformDirection(playerMovementInput) * playerSpeed;
+        //playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
+        Vector3 moveVector = playerMovementInput * mSpeed;
         playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
-
     }
 
 }
