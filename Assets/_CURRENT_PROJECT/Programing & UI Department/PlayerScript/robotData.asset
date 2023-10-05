@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c179c7408491e45a7afb321e38c3fa, type: 3}
+  m_Name: robotData
+  m_EditorClassIdentifier: 
+  playerHealth: 0
+  playerSpeed: 0
+  punchDamage: 0
+  punchCooldown: 0
+  rocketDamage: 0
+  rocketSpeed: 0
+  rocketCooldown: 0
