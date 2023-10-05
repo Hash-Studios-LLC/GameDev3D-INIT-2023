@@ -11,9 +11,9 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         if (!secondPlayer){
-            playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            playerMovementInput = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
         }else{
-            playerMovementInput = new Vector3(Input.GetAxis("P2Horizontal"), 0f, Input.GetAxis("P2Vertical"));
+            playerMovementInput = Vector3.Normalize(new Vector3(Input.GetAxis("P2Horizontal"), 0f, Input.GetAxis("P2Vertical")));
         }
 
     }
