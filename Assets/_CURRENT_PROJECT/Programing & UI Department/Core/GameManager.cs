@@ -18,7 +18,13 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+    // for info on how to use the gamemanager and what it is for,
+    // read this: https://gamedevbeginner.com/singletons-in-unity-the-right-way/
 
+    // the rest of the code
+    public RobotData player1_Selection;
+    public RobotData player2_Selection;
+    public int selectedMap;
 
     // Start is called before the first frame update
     void Start()
@@ -31,4 +37,21 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
+    void initializeMap() // function that initializes the battlefield.
+    {
+
+    }
+
+    void startBattle() // function that starts the battle.
+    {
+
+    }
+
+    void exitBattle() // function that returns to the main menu.
+    {
+
+    }
+
 }
