@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1844383496}
-  aAcceleration: 0.1
-  aDecceleration: 0.5
+  aAcceleration: 10
+  aDecceleration: 10
 --- !u!95 &174550893
 Animator:
   serializedVersion: 5

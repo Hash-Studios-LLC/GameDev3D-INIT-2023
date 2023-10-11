@@ -11,8 +11,8 @@ public class AnimationStateController : MonoBehaviour
 
     [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
 
-    public float aAcceleration = 0.1f; // determines rate at which aVelocity increases
-    public float aDecceleration = 0.5f; // c'mon, you took physics in high school, right?
+    public float aAcceleration = 10.0f; // determines rate at which aVelocity increases
+    public float aDecceleration = 10.0f; // c'mon, you took physics in high school, right?
 
     int VelocityHash;
 
