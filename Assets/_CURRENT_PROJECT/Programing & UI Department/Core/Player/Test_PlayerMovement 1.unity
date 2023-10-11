@@ -179,8 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aad0000e5f00449bd5d64b1dff2c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 8
-  decceleration: 8
+  playerBody: {fileID: 1844383496}
+  aAcceleration: 0.1
+  aDecceleration: 0.5
 --- !u!95 &174550893
 Animator:
   serializedVersion: 5
@@ -1185,6 +1186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5563fbf8a27647e4abfedf44bbfa60a5, type: 3}
+--- !u!54 &1844383496 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 915563916698642685, guid: 5563fbf8a27647e4abfedf44bbfa60a5, type: 3}
+  m_PrefabInstance: {fileID: 1812898071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968488989
 GameObject:
   m_ObjectHideFlags: 0

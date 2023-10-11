@@ -6,11 +6,13 @@ public class AnimationStateController : MonoBehaviour
 {
 
     Animator animator;
-    float velocity = 0.0f; // Not for physics, just for determining which animation is more prevalent 
-    // Higher velocity means more running animation, less velocity means more idle animation.
+    float aVelocity = 0.0f; // Not for physics, just for determining which animation is more prevalent 
+    // Higher aVelocity means more running animation, less velocity means more idle animation.
 
-    public float acceleration = 0.1f; // determines rate at which velocity increases
-    public float decceleration = 0.5f; // c'mon, you took physics in high school, right?
+    [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
+
+    public float aAcceleration = 0.1f; // determines rate at which aVelocity increases
+    public float aDecceleration = 0.5f; // c'mon, you took physics in high school, right?
 
     int VelocityHash;
 
@@ -29,25 +31,26 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // should be replaced with input for corresponding player
-        bool forwardPressed = Input.GetKey("w");
+        bool forwardPressed = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
 
-        if(forwardPressed && velocity < 1.0f) // as w is held down, the animator steadily transitions from idle to running
+        if(playerBody.velocity != Vector3.zero && aVelocity < 1.0f) // whenever the player's velocity is not equal to 0, the animator rapidly changes from idle to running
         {
-            velocity += Time.deltaTime * acceleration;
+            aVelocity += Time.deltaTime * aAcceleration;
         }
 
-        if (!forwardPressed && velocity > 0.0f) // as w is let go, the animator rapidly changes from running to idle
+        if (playerBody.velocity == Vector3.zero && aVelocity > 0.0f) // whenever the player's velocity equal to 0, the animator rapidly changes from running to idle
         {
-            velocity -= Time.deltaTime * decceleration;
+            aVelocity -= Time.deltaTime * aDecceleration;
         }
 
-        if (!forwardPressed && velocity < 0.0f) // contingency incase velocity ever drops below 0 (it shouldn't)
+        if (playerBody.velocity == Vector3.zero && aVelocity < 0.0f) // contingency incase velocity ever drops below 0 (it shouldn't)
         {
-            velocity = 0.0f;
+            aVelocity = 0.0f;
         }
 
         // Updates the animators velocity var with the this script's local velocity var
-        animator.SetFloat(VelocityHash, velocity);
+        animator.SetFloat(VelocityHash, aVelocity);
     }
 }
