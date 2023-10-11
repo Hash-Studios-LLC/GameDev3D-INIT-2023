@@ -798,6 +798,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &966980727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966980723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79aad0000e5f00449bd5d64b1dff2c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 2
+  decceleration: 0.5
 --- !u!1 &1090372577
 GameObject:
   m_ObjectHideFlags: 0
