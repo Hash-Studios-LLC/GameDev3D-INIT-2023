@@ -32,9 +32,6 @@ public class AnimationStateController : MonoBehaviour
     void Update()
     {
 
-        // should be replaced with input for corresponding player
-        bool forwardPressed = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
-
         if(playerBody.velocity != Vector3.zero && aVelocity < 1.0f) // whenever the player's velocity is not equal to 0, the animator rapidly changes from idle to running
         {
             aVelocity += Time.deltaTime * aAcceleration;
