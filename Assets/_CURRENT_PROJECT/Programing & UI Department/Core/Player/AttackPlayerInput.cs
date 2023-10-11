@@ -22,7 +22,7 @@ public class AttackPlayerInput : MonoBehaviour
     void Update()
     {   
         //binds player punch to the key Q
-        if(Input.GetKeyDown(KeyCode.Q)) {
+        if(Input.GetButton("Punch")) {
             playerPunch();
         }
 
