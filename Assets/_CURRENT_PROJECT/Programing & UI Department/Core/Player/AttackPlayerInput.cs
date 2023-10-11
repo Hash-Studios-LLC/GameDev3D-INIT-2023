@@ -35,7 +35,7 @@ public class AttackPlayerInput : MonoBehaviour
             {
                 timer = 0;
                 playerPunching = false;
-                punchArea.SetActive(playerPunching)
+                punchArea.SetActive(playerPunching);
             }
         }
 
@@ -45,6 +45,6 @@ public class AttackPlayerInput : MonoBehaviour
     private void playerPunch()
     {
         playerPunching = true;
-        punchArea.SetActive(playerPunching)
+        punchArea.SetActive(playerPunching);
     }
 }
