@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
@@ -8,13 +9,13 @@ public class StartScreen : MonoBehaviour
     //For the Start game button
     public void StartGame()
     {
-
+        //SceneManager.LoadScene("Game");
     }
   
     //For the Settings button
     public void GoToSettings()
     {
-
+        SceneManager.LoadScene("GameScene");
     }
 
     //For the Quit game button
