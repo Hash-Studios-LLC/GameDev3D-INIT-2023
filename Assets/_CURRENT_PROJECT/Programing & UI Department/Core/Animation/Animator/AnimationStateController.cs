@@ -15,6 +15,13 @@ public class AnimationStateController : MonoBehaviour
     public float aDecceleration = 10.0f; // c'mon, you took physics in high school, right?
 
     int VelocityHash;
+    // determines if the player can attack
+    [SerializeField] private  bool canPunch;
+    [SerializeField] private bool canShot;
+    // temporary values 
+    public float punchCD= 0.5f ;
+    public float rocketCD = 1.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +30,16 @@ public class AnimationStateController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         // Should add a reference to which player is controlling this character
-
+       
         // Assigns the animator's velocity var to VelocityHash
         VelocityHash = Animator.StringToHash("Velocity");
+      
+        
+        canPunch = true;
+       canShot = true;
+    
     }
+
 
     // Update is called once per frame
     void Update()
@@ -47,7 +60,42 @@ public class AnimationStateController : MonoBehaviour
             aVelocity = 0.0f;
         }
 
+        Attack();
         // Updates the animators velocity var with the this script's local velocity var
         animator.SetFloat(VelocityHash, aVelocity);
+    }
+    void Attack()
+    {
+        // temporary keybind   waits for the animation to end to perform another action
+        if(canPunch==true&&Input.GetKey(KeyCode.B) && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f )
+        {
+            
+            animator.SetTrigger("Punch"); 
+           StartCoroutine(PunchCd());
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
+        }
+        // temporary keybind   waits for the animation to end to perform another action
+        if (canShot == true && Input.GetKey(KeyCode.V) && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
+        {
+            animator.SetTrigger("Shot");      
+            StartCoroutine(ShotCd());
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length); // i was trying to get the animation time idk if it is accurate
+
+        }
+    }
+    //makes punch true after x amount of time 
+    IEnumerator PunchCd()
+    {
+
+        canPunch = false;
+        yield return new WaitForSeconds(punchCD);
+        canPunch =true;
+    }
+    //makes shot true after x amount of time 
+    IEnumerator ShotCd()
+    {
+        canShot = false;
+        yield return new WaitForSeconds(rocketCD);
+        canShot = true;
     }
 }
