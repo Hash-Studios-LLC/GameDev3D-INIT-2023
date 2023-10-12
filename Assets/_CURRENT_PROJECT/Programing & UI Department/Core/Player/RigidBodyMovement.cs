@@ -38,7 +38,10 @@ public class RigidBodyMovement : MonoBehaviour
         Vector3 moveVector = playerMovementInput * mSpeed;
         playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
 
-        playerBody.transform.forward = moveVector; // Changes rotation to match movement direction
+        if (moveVector != Vector3.zero)
+        {
+            playerBody.transform.forward = moveVector; // Changes rotation to match movement direction
+        }
     }
 
 }
