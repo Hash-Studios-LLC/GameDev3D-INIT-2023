@@ -8,9 +8,13 @@ public class AttackPlayerInput : MonoBehaviour
     private GameObject punchArea = default;
 
     private bool playerPunching = false;
+    private bool playerShooting = false;
     
+    private float timeToShoot = 0.15f;
+    private float timerForShoot = 0f;
+
     private float timeToPunch = 0.25f;
-    private float timer = 0f;
+    private float timerForPunch = 0f;
 
     void Start()
     {
