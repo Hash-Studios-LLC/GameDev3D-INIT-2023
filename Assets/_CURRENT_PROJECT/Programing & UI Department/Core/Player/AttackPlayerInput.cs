@@ -70,6 +70,12 @@ public class AttackPlayerInput : MonoBehaviour
     {
         playerPunching = true;
         punchArea.SetActive(playerPunching);
+<<<<<<< Updated upstream
+=======
+        if(playerPunching){
+            robotData.playerHealth -= robotData.punchDamage;
+        }
+>>>>>>> Stashed changes
     }
 
     private void playerShoot()
