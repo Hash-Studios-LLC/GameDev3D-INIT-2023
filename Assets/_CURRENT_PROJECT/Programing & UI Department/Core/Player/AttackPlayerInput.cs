@@ -32,12 +32,12 @@ public class AttackPlayerInput : MonoBehaviour
 
 
         if(playerPunching) {
-            timer += Time.deltaTime;
+            timerForPunch += Time.deltaTime;
 
             //resets the punch attack
-            if(timer >= timeToPunch)
+            if(timerForPunch >= timeToPunch)
             {
-                timer = 0;
+                timerForPunch = 0;
                 playerPunching = false;
                 punchArea.SetActive(playerPunching);
             }
