@@ -15,7 +15,9 @@ public class SettingsScene : MonoBehaviour
     int index = 0; // initialize index for resolution
 
     public TMP_Text currentResText;
-    
+    public string labelGraphicsQualityList;
+
+
     public void Start()
     {
         SceneManager.LoadScene("SettingsScreen");
@@ -24,6 +26,7 @@ public class SettingsScene : MonoBehaviour
         System.Diagnostics.Debug.WriteLine(resolutionList);
         addGraphicsQuality(graphicsQualityList);
 
+        //change resolution
         void changeResolutionDown() //to do: make accesible for the buttons
         {
             //if the list is on the first position go to the last value in the list
@@ -80,9 +83,7 @@ public class SettingsScene : MonoBehaviour
         audioMixer.SetFloat("MusicVolume", volume);
     }
 
-    //change resolution
     
-    //to-do:decrement resolution
     //to-do:increment graphics quality
     //to-do:decrement graphics quality
     //to-do:enable post processing
@@ -93,5 +94,39 @@ public class SettingsScene : MonoBehaviour
         graphicsQualityList.Add("Medium");
         graphicsQualityList.Add("High");
         return graphicsQualityList;
+    }
+
+    void changeGraphicsDown() 
+    {
+        //if the list is on the first position go to the last value in the list
+        if (index == 0)
+        {
+            int final = graphicsQualityList.Count - 1;
+            labelGraphicsQualityList = graphicsQualityList[final];
+            index = final;
+        }
+        //if the list is in a valid position on the list go back one GQ option
+        else
+        {
+            labelGraphicsQualityList = graphicsQualityList[index--];
+        }
+
+    }
+
+    void changeGraphicsUp()
+    {
+        //if the list is in the last position restart the list
+        if (index == graphicsQualityList.Count - 1)
+        {
+            labelGraphicsQualityList = graphicsQualityList[0];
+            index = 0;
+        }
+        //if the index of the list is in a valid position go forward on the list
+        else
+        {
+            labelGraphicsQualityList = graphicsQualityList[index++];
+        }
+
+
     }
 }
