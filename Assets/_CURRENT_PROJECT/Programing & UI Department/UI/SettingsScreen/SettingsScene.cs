@@ -23,7 +23,7 @@ public class SettingsScreen : MonoBehaviour
 
     List<string> addResolutions(List<string> resolutionList) //returns a list of the resolution options 
     {
-        Resolution[] resolutions = SettingsScreen.resolutions;
+        Resolution[] resolutions = Screen.resolutions;
 
         foreach (Resolution resolution in resolutions)
         {
