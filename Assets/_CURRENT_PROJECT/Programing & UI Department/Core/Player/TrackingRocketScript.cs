@@ -27,7 +27,7 @@ public class TrackingRocketScript : MonoBehaviour
     {
        playerPosition = playerReference.transform.localPosition;
 
-        if(Input.GetButton("Rocket") && Time.time >= timeToFire){
+        if(Input.GetButtonDown("Rocket") && Time.time >= timeToFire){
             timeToFire = Time.time * 1/fireRate;
             ShootProjectile();
         }
@@ -35,6 +35,7 @@ public class TrackingRocketScript : MonoBehaviour
     /*BUG: MASSIVE BUG WITH THE SHOOTPROJECTILE OR THE INSTANTIATE PROJECTILE FUNCTIONS
      *IT SPAWNS A LOT OF PROJECTILES FOR SOME REASON ALSO IT'S 5 AM IT'S REALLY LATE I WANT TO SLEEP
      **/
+    // Woodhouse3d: use GetButtonDown as it only triggers the frame the button is pushed.
     void ShootProjectile(){
        Ray ray = new Ray(playerPosition, transform.forward);
        RaycastHit hit;

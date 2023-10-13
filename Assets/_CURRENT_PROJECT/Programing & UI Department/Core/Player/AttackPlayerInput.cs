@@ -19,8 +19,12 @@ public class AttackPlayerInput : MonoBehaviour
 
     void Start()
     {
-        punchArea = transform.GetChild(0).gameObject;
-        shootArea = transform.GetChild(0).gameObject;
+        if (transform.childCount > 0)
+        {
+            punchArea = transform.GetChild(0).gameObject;
+            shootArea = transform.GetChild(0).gameObject;
+        }
+
     }
 
 
