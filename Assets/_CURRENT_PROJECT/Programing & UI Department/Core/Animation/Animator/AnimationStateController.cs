@@ -43,7 +43,6 @@ public class AnimationStateController : MonoBehaviour
         
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -74,7 +73,7 @@ public class AnimationStateController : MonoBehaviour
         {
             
             animator.SetTrigger("Punch");
-            ActivatePunchCollider();
+            SendCustomEvenDelayedSeconds(ActivatePunchCollider,0.4f);
            StartCoroutine(PunchCd());
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
         }
@@ -89,6 +88,8 @@ public class AnimationStateController : MonoBehaviour
     }
     void ActivatePunchCollider()
     {
+
+
         // Instantiate the punch collider object
         GameObject punch = Instantiate(punchCollider, transform.position + transform.forward, transform.rotation);
 
@@ -98,7 +99,20 @@ public class AnimationStateController : MonoBehaviour
         punch.transform.position = new Vector3(punchCollider.transform.position.x, punchCollider.transform.position.y, punchCollider.transform.position.z);
       
     
-         Destroy(punch, 0.5f); // Adjust this time as needed
+        Destroy(punch, 0.5f); // Adjust this time as needed
+    }
+
+    private IEnumerator RunFunctionAfterDelay(float delayInSeconds, System.Action functionToRun)
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+
+        // Call the function after the delay
+        functionToRun.Invoke();
+    }
+
+    public void SendCustomEvenDelayedSeconds(System.Action functionToRun, float delayInSeconds)
+    {
+        StartCoroutine(RunFunctionAfterDelay(delayInSeconds, functionToRun));
     }
     //makes punch true after x amount of time 
     IEnumerator PunchCd()
