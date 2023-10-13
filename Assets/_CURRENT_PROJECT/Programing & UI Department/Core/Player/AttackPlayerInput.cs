@@ -6,6 +6,7 @@ public class AttackPlayerInput : MonoBehaviour
 {
     //area in which attack happens
     private GameObject punchArea = default;
+    private GameObject shootArea = default;
 
     private bool playerPunching = false;
     private bool playerShooting = false;
@@ -19,6 +20,7 @@ public class AttackPlayerInput : MonoBehaviour
     void Start()
     {
         punchArea = transform.GetChild(0).gameObject;
+        shootArea = transform.GetChild(0).gameObject;
     }
 
 
@@ -43,6 +45,24 @@ public class AttackPlayerInput : MonoBehaviour
             }
         }
 
+        //binds player punch to the key E
+        if(Input.GetButton("Rocket")) {
+            playerShoot();
+        }
+
+
+        if(playerShooting) {
+            timerForShoot += Time.deltaTime;
+
+            //resets the shoot attack
+            if(timerForShoot >= timeToShoot)
+            {
+                timerForShoot = 0;
+                playerShooting = false;
+                shootArea.SetActive(playerShooting);
+            }
+        }
+
         
     }
 
@@ -50,5 +70,11 @@ public class AttackPlayerInput : MonoBehaviour
     {
         playerPunching = true;
         punchArea.SetActive(playerPunching);
+    }
+
+    private void playerShoot()
+    {
+        playerShooting = true;
+        shootArea.SetActive(playerShooting);
     }
 }
