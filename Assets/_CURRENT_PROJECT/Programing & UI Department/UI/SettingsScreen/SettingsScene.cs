@@ -10,25 +10,63 @@ using TMPro;
 
 public class SettingsScene : MonoBehaviour
 {
-    List<string> resolutionList = new List<string>();
+    
     List<string> graphicsQualityList = new List<string>();
+    int index = 0; // initialize index for resolution
 
     public TMP_Text currentResText;
-    void Start()
-    {   
-        //to:do load current graphics quality in graphics quality label
-    }
+    public string labelGraphicsQualityList;
 
-    
-    public void LoadSettingsMenu()
+
+    public void Start()
     {
         SceneManager.LoadScene("SettingsScreen");
         // Call the functions to populate the lists
-        //addResolutions(resolutionList);
-        //addGraphicsQuality(graphicsQualityList);
+        Resolution[] resolutionList = Screen.resolutions;
+        System.Diagnostics.Debug.WriteLine(resolutionList);
+        addGraphicsQuality(graphicsQualityList);
+
+        //change resolution
+        void changeResolutionDown() //to do: make accesible for the buttons
+        {
+            //if the list is on the first position go to the last value in the list
+            if (index == 0)
+            {
+                int final = resolutionList.Length - 1;
+                //currentResText = ToString(resolutionList[final]);
+                index = final;
+            }
+            //if the list is in a valid position on the list go back one resolution option
+            else
+            {
+                //currentResText = ToString(resolutionList[index--]);
+            }
+
+        }
+
+        void changeResolutionUp()  //to do: make accesible for the buttons
+        {
+            //if the list is in the last position restart the list
+            if (index == resolutionList.Length - 1)
+            {
+                //currentResText = ToString(resolutionList[0]);
+                index = 0;
+            }
+            //if the index of the list is in a valid position go forward on the list
+            else
+            {
+                //currentResText = ToString(resolutionList[index++]);
+            }
+
+
+        }
+
+
+        //to:do load current graphics quality in graphics quality label
+
     }
 
-    
+
     public AudioMixer audioMixer;
     public void SetMenuVolume(float volume)//for the menu mixer for the menu audio slider
     {
@@ -45,37 +83,50 @@ public class SettingsScene : MonoBehaviour
         audioMixer.SetFloat("MusicVolume", volume);
     }
 
-    //increment resolution
-    public void incrementResolution() //to do
-    {
-        
-    }
-    //to-do:decrement resolution
+    
     //to-do:increment graphics quality
     //to-do:decrement graphics quality
     //to-do:enable post processing
-    //to-do:go back button
 
-    /*List<string> addResolutions(List<string> resolutionList) //returns a list of the resolution options 
+    List<string> addGraphicsQuality(List<string> graphicsQualityList) // returns a list of the graphics quality options
     {
-        Resolution[] resolutions = Screen.resolutions;
-
-        foreach (Resolution resolution in resolutions)
-        {
-            string option = resolution.width + "x" + resolution.height;
-            resolutionList.Add(option);
-        }
-        return resolutionList;
-    }*/
-
-    /*List<string> addGraphicsQuality(List<string> graphicsQualityList) // returns a list of the graphics quality options
-    {
-        graphicsQualityList.Add("placeholder1");
-        graphicsQualityList.Add("placeholder2");
-        graphicsQualityList.Add("placeholder3");
-        graphicsQualityList.Add("placeholder4");
-        graphicsQualityList.Add("placeholder5");
-        graphicsQualityList.Add("placeholder6");
+        graphicsQualityList.Add("Low");
+        graphicsQualityList.Add("Medium");
+        graphicsQualityList.Add("High");
         return graphicsQualityList;
-    }*/
+    }
+
+    void changeGraphicsDown() 
+    {
+        //if the list is on the first position go to the last value in the list
+        if (index == 0)
+        {
+            int final = graphicsQualityList.Count - 1;
+            labelGraphicsQualityList = graphicsQualityList[final];
+            index = final;
+        }
+        //if the list is in a valid position on the list go back one GQ option
+        else
+        {
+            labelGraphicsQualityList = graphicsQualityList[index--];
+        }
+
+    }
+
+    void changeGraphicsUp()
+    {
+        //if the list is in the last position restart the list
+        if (index == graphicsQualityList.Count - 1)
+        {
+            labelGraphicsQualityList = graphicsQualityList[0];
+            index = 0;
+        }
+        //if the index of the list is in a valid position go forward on the list
+        else
+        {
+            labelGraphicsQualityList = graphicsQualityList[index++];
+        }
+
+
+    }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   playerHealth: 100
-  playerSpeed: 100
+  playerSpeed: 1
   punchDamage: 25
   punchCooldown: 1
   rocketDamage: 15

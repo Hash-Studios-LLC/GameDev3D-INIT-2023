@@ -9,13 +9,13 @@ public class StartScreen : MonoBehaviour
     //For the Start game button
     public void StartGame()
     {
-        //SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Fighter Menu");
     }
   
     //For the Settings button
     public void GoToSettings()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("SettingsScreen");
     }
 
     //For the Quit game button

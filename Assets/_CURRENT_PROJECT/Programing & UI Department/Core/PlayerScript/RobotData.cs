@@ -6,7 +6,7 @@ using UnityEngine;
 public class RobotData : ScriptableObject
 {
     public int playerHealth;
-    public int playerSpeed;
+    public float playerSpeed;
 
     public int punchDamage;
     public float punchCooldown;
