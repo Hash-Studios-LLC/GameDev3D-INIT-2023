@@ -8,9 +8,13 @@ public class AttackPlayerInput : MonoBehaviour
     private GameObject punchArea = default;
 
     private bool playerPunching = false;
+    private bool playerShooting = false;
     
+    private float timeToShoot = 0.15f;
+    private float timerForShoot = 0f;
+
     private float timeToPunch = 0.25f;
-    private float timera = 0f;
+    private float timerForPunch = 0f;
 
     void Start()
     {
@@ -22,18 +26,18 @@ public class AttackPlayerInput : MonoBehaviour
     void Update()
     {   
         //binds player punch to the key Q
-        if(Input.GetKeyDown(KeyCode.Q)) {
+        if(Input.GetButton("Punch")) {
             playerPunch();
         }
 
 
         if(playerPunching) {
-            timera += Time.deltaTime;
+            timerForPunch += Time.deltaTime;
 
             //resets the punch attack
-            if(timera >= timeToPunch)
+            if(timerForPunch >= timeToPunch)
             {
-                timera = 0;
+                timerForPunch = 0;
                 playerPunching = false;
                 punchArea.SetActive(playerPunching);
             }

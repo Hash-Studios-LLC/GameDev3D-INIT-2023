@@ -16,32 +16,31 @@ public class SettingsScreen : MonoBehaviour
         addGraphicsQuality(graphicsQualityList);
     }
 
-    void SetVolume(float volume)
+    public static void SetVolume(float volume)
     {
         Debug.Log(volume);
     }
 
-
-    void changeResolution()
-    {
-
-    }
-
     List<string> addResolutions(List<string> resolutionList) //returns a list of the resolution options 
     {
-        resolutionList.Add("1920 x 1080");
-        resolutionList.Add("2560 x 1440");
-        resolutionList.Add("3840 x 2160");
-        resolutionList.Add("7680 x 4320");
+        Resolution[] resolutions = Screen.resolutions;
 
+        foreach (Resolution resolution in resolutions)
+        {
+            string option = resolution.width + "x" + resolution.height;
+            resolutionList.Add(option);
+        }
         return resolutionList;
     }
 
     List<string> addGraphicsQuality(List<string> graphicsQualityList) // returns a list of the graphics quality options
     {
-        graphicsQualityList.Add("Low");
-        graphicsQualityList.Add("Medium");
-        graphicsQualityList.Add("High");
+        graphicsQualityList.Add("placeholder1");
+        graphicsQualityList.Add("placeholder2");
+        graphicsQualityList.Add("placeholder3");
+        graphicsQualityList.Add("placeholder4");
+        graphicsQualityList.Add("placeholder5");
+        graphicsQualityList.Add("placeholder6");
         return graphicsQualityList;
     }
 }
