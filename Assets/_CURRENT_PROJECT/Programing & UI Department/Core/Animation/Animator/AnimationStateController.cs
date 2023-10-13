@@ -73,6 +73,7 @@ public class AnimationStateController : MonoBehaviour
         {
 
             animator.SetTrigger("Punch");
+            
             SendCustomEvenDelayedSeconds(ActivatePunchCollider, 0.4f);
             StartCoroutine(PunchCd());
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
@@ -97,8 +98,6 @@ public class AnimationStateController : MonoBehaviour
         punch.SetActive(true);
         //creates an instance of punch where punchCollider is
         punch.transform.position = new Vector3(punchCollider.transform.position.x, punchCollider.transform.position.y, punchCollider.transform.position.z);
-
-
         Destroy(punch, 0.5f); // Adjust this time as needed
     }
 
@@ -129,4 +128,5 @@ public class AnimationStateController : MonoBehaviour
         yield return new WaitForSeconds(rocketCD);
         canShot = true;
     }
+
 }
