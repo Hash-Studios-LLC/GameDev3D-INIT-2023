@@ -16,6 +16,9 @@ public class AttackPlayerInput : MonoBehaviour
 
     private float timeToPunch = 0.25f;
     private float timerForPunch = 0f;
+    
+    public RobotData robotData;
+
 
     void Start()
     {
@@ -31,7 +34,7 @@ public class AttackPlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        //binds player punch to the key Q
+        //binds player punch to the key 
         if(Input.GetButton("Punch")) {
             playerPunch();
         }
@@ -49,7 +52,7 @@ public class AttackPlayerInput : MonoBehaviour
             }
         }
 
-        //binds player punch to the key E
+        //binds player punch to the key 
         if(Input.GetButton("Rocket")) {
             playerShoot();
         }
@@ -71,9 +74,13 @@ public class AttackPlayerInput : MonoBehaviour
     }
 
     private void playerPunch()
-    {
+    {   
+
         playerPunching = true;
         punchArea.SetActive(playerPunching);
+        if(playerPunching){
+            robotData.playerHealth -= robotData.playerPunch;
+        }
     }
 
     private void playerShoot()
