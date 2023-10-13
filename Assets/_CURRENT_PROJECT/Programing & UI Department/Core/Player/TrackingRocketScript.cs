@@ -14,7 +14,9 @@ public class TrackingRocketScript : MonoBehaviour
     public float fireRate = 4f;
     private Vector3 playerPosition;
     private Vector3 destination;
-    private float timeToFire;
+    public float shootcooldown = 0.5f;
+
+    private bool canshoot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,17 +27,31 @@ public class TrackingRocketScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       playerPosition = playerReference.transform.localPosition;
+       playerPosition = playerReference.transform.localPosition + Vector3.left * 3; 
+        /* Woodhouse3d: added offset, you were spawing rigidbodies inside other rigidbodies.
+         * use an empty object instead for more control over the spawnpoint.
+         */
 
-        if(Input.GetButtonDown("Rocket") && Time.time >= timeToFire){
-            timeToFire = Time.time * 1/fireRate;
-            ShootProjectile();
+        if(Input.GetButton("Rocket") && canshoot){
+            Debug.Log("pew");
+            StartCoroutine(Shoot());
+            canshoot = false;
         }
     }
     /*BUG: MASSIVE BUG WITH THE SHOOTPROJECTILE OR THE INSTANTIATE PROJECTILE FUNCTIONS
      *IT SPAWNS A LOT OF PROJECTILES FOR SOME REASON ALSO IT'S 5 AM IT'S REALLY LATE I WANT TO SLEEP
      **/
-    // Woodhouse3d: use GetButtonDown as it only triggers the frame the button is pushed.
+    // woodhouse3d: the problem was that you had the bullet spawner object set as the projectileReference. that means
+    // that the script was spawning itself, which spawned itself and spawned itself again.
+    IEnumerator Shoot()
+    {
+        ShootProjectile();
+        yield return new WaitForSeconds(shootcooldown);
+        canshoot = true;
+    }
+
+
+
     void ShootProjectile(){
        Ray ray = new Ray(playerPosition, transform.forward);
        RaycastHit hit;
