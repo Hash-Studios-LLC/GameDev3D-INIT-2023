@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tank
   m_EditorClassIdentifier: 
   playerHealth: 175
-  playerSpeed: 75
+  playerSpeed: 0.75
   punchDamage: 25
   punchCooldown: 1.5
   rocketDamage: 10

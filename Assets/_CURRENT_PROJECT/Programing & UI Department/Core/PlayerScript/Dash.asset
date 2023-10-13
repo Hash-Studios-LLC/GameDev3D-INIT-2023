@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   playerHealth: 70
-  playerSpeed: 125
+  playerSpeed: 1.25
   punchDamage: 10
   punchCooldown: 0.5
   rocketDamage: 25

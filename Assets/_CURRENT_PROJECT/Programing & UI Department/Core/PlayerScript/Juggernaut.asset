@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Juggernaut
   m_EditorClassIdentifier: 
   playerHealth: 200
-  playerSpeed: 115
+  playerSpeed: 1.15
   punchDamage: 15
   punchCooldown: 0.5
   rocketDamage: 0

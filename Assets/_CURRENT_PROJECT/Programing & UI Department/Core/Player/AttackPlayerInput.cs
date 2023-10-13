@@ -5,22 +5,32 @@ using UnityEngine;
 public class AttackPlayerInput : MonoBehaviour
 {
     //area in which attack happens
-    private GameObject punchArea = default;
-    private GameObject shootArea = default;
+    private GameObject punchArea;
+    private GameObject shootArea;
 
     private bool playerPunching = false;
     private bool playerShooting = false;
     
-    private float timeToShoot = 0.15f;
+    private float timeToShoot = 1f;
     private float timerForShoot = 0f;
 
     private float timeToPunch = 0.25f;
     private float timerForPunch = 0f;
+    
+    public RobotData robotData;
+
+
+
+    private bool canshoot;
 
     void Start()
     {
-        punchArea = transform.GetChild(0).gameObject;
-        shootArea = transform.GetChild(0).gameObject;
+        if (transform.childCount > 0)
+        {
+            punchArea = transform.GetChild(0).gameObject;
+            shootArea = transform.GetChild(0).gameObject;
+        }
+
     }
 
 
@@ -28,7 +38,7 @@ public class AttackPlayerInput : MonoBehaviour
     void Update()
     {   
         //binds player punch to the key Q
-        if(Input.GetButton("Punch")) {
+        if(Input.GetButtonDown("Punch")) {
             playerPunch();
         }
 
@@ -46,10 +56,12 @@ public class AttackPlayerInput : MonoBehaviour
         }
 
         //binds player punch to the key E
-        if(Input.GetButton("Rocket")) {
+        if(Input.GetButton("Rocket") && canshoot) {
             playerShoot();
+            //canshoot = false;
+           // StartCoroutine(ShootCooldown()); // Woodhouse3d: not needed, tracking rocket script already handles input already for some reason.
         }
-
+        // Woodhouse3d: just a getButton for shoot? no wonder it was just exploding everwhere.
 
         if(playerShooting) {
             timerForShoot += Time.deltaTime;
@@ -66,10 +78,22 @@ public class AttackPlayerInput : MonoBehaviour
         
     }
 
-    private void playerPunch()
+
+    IEnumerator ShootCooldown()
     {
+        yield return new WaitForSeconds(timeToShoot);
+        canshoot = true;
+    }
+
+
+    private void playerPunch()
+    {   
+
         playerPunching = true;
         punchArea.SetActive(playerPunching);
+        if(playerPunching){
+            robotData.playerHealth -= robotData.playerPunch;
+        }
     }
 
     private void playerShoot()
