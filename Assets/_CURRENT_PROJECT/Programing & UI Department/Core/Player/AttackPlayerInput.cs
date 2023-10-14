@@ -92,7 +92,7 @@ public class AttackPlayerInput : MonoBehaviour
         playerPunching = true;
         punchArea.SetActive(playerPunching);
         if(playerPunching){
-            robotData.playerHealth -= robotData.playerPunch;
+            robotData.playerHealth -= robotData.punchDamage;
         }
     }
 
