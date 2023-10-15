@@ -351,7 +351,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 704895967}
         m_TargetAssemblyTypeName: SettingsScene, Assembly-CSharp
-        m_MethodName: SetMusicVolume
+        m_MethodName: SetMenuVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3976,7 +3976,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 704895967}
         m_TargetAssemblyTypeName: SettingsScene, Assembly-CSharp
-        m_MethodName: SetMusicVolume
+        m_MethodName: SetGameVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

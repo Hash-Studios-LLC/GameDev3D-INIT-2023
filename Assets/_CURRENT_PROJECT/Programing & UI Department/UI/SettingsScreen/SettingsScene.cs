@@ -20,7 +20,7 @@ public class SettingsScene : MonoBehaviour
 
     public void Start()
     {
-        SceneManager.LoadScene("SettingsScreen");
+        //SceneManager.LoadScene("SettingsScreen"); // this line is bugging out when running the scene
         // Call the functions to populate the lists
         Resolution[] resolutionList = Screen.resolutions;
         System.Diagnostics.Debug.WriteLine(resolutionList);
