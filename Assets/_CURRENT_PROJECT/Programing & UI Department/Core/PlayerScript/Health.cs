@@ -5,15 +5,24 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     private int health;
-  
+   
+    public RobotData robot;
     void Start()
     {
         // gets value from attributes 
-      PlayerAttributes  att=GetComponent<PlayerAttributes>();
-        health = att.playerHealth;
-
+      //RobotData  robot=GetComponent<RobotData>();
+        health = robot.playerHealth;
+        
        
     }
+
+    public void  getDamage(int damage)
+    {
+        health -= damage;
+    }
+
+
+
 
     
 }
