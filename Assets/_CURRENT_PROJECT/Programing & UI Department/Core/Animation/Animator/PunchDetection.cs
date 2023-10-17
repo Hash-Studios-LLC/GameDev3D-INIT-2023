@@ -19,11 +19,11 @@ public class PunchDetection : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other != null)
+        if (other.GetComponent<Health>() != null)
         {
-            var health = other.GetComponent<Health>();
-            health.getDamage(15);
-            Debug.Log("i wanna be free");
+            var health = other.GetComponent<Health>();//gets component
+            health.getDamage(robot.punchDamage);//sends damage
+            Debug.Log("hit confirmed");
         }
         }
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int health;
+    [SerializeField]
+     private int health;
    
     public RobotData robot;
     void Start()
@@ -15,7 +16,7 @@ public class Health : MonoBehaviour
         
        
     }
-
+    // call to damage the player
     public void  getDamage(int damage)
     {
         health -= damage;
