@@ -446,7 +446,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 704895967}
         m_TargetAssemblyTypeName: SettingsScene, Assembly-CSharp
-        m_MethodName: Start
+        m_MethodName: changeResolutionDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 306386385}
   - component: {fileID: 306386384}
   - component: {fileID: 306386383}
+  - component: {fileID: 306386386}
   m_Layer: 5
   m_Name: buttonIncreaseRes
   m_TagString: Untagged
@@ -692,7 +693,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 704895967}
         m_TargetAssemblyTypeName: SettingsScene, Assembly-CSharp
-        m_MethodName: Start
+        m_MethodName: changeResolutionUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -740,6 +741,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306386381}
   m_CullTransparentMesh: 1
+--- !u!114 &306386386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306386381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f257830468a373144972f7799ba4c0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &399199160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,8 +1521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df671c4b26233984fa2f4c3f62337813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResText: {fileID: 0}
-  labelGraphicsQualityList: 
   audioMixer: {fileID: 24100000, guid: 204ae77320b536d459d12c2126255a73, type: 2}
 --- !u!1 &727964290
 GameObject:
@@ -4073,6 +4084,7 @@ GameObject:
   - component: {fileID: 1973725614}
   - component: {fileID: 1973725616}
   - component: {fileID: 1973725615}
+  - component: {fileID: 1973725617}
   m_Layer: 5
   m_Name: labelResolutionOption
   m_TagString: Untagged
@@ -4120,7 +4132,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1920 x 1080 @ 144 hz
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3199409928624324999b9336dd1ed8f3, type: 2}
   m_sharedMaterial: {fileID: 21032597133445202, guid: 3199409928624324999b9336dd1ed8f3, type: 2}
@@ -4197,6 +4209,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973725613}
   m_CullTransparentMesh: 1
+--- !u!114 &1973725617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973725613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4df8bcdeb4dbf499602e652f1005d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974628718
 GameObject:
   m_ObjectHideFlags: 0

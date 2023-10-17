@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
@@ -10,64 +11,100 @@ using TMPro;
 
 public class SettingsScene : MonoBehaviour
 {
+    List<string> resolutionListString = new List<string>();
+    private Resolution[] resolutionList;
+    private List<int> resolutionToSet;
+    public AudioMixer audioMixer;
     
-    List<string> graphicsQualityList = new List<string>();
-    int index = 0; // initialize index for resolution
-
-    public TMP_Text currentResText;
-    public string labelGraphicsQualityList;
-
-
     public void Start()
     {
-        //SceneManager.LoadScene("SettingsScreen"); // this line is bugging out when running the scene
-        // Call the functions to populate the lists
-        Resolution[] resolutionList = Screen.resolutions;
-        System.Diagnostics.Debug.WriteLine(resolutionList);
-        addGraphicsQuality(graphicsQualityList);
-
-        //change resolution
-        void changeResolutionDown() //to do: make accesible for the buttons
-        {
-            //if the list is on the first position go to the last value in the list
-            if (index == 0)
-            {
-                int final = resolutionList.Length - 1;
-                //currentResText = ToString(resolutionList[final]);
-                index = final;
-            }
-            //if the list is in a valid position on the list go back one resolution option
-            else
-            {
-                //currentResText = ToString(resolutionList[index--]);
-            }
-
-        }
-
-        void changeResolutionUp()  //to do: make accesible for the buttons
-        {
-            //if the list is in the last position restart the list
-            if (index == resolutionList.Length - 1)
-            {
-                //currentResText = ToString(resolutionList[0]);
-                index = 0;
-            }
-            //if the index of the list is in a valid position go forward on the list
-            else
-            {
-                //currentResText = ToString(resolutionList[index++]);
-            }
-
-
-        }
-
-
-        //to:do load current graphics quality in graphics quality label
-
+        resolutionList = Screen.resolutions;
+        initializeResolutionList();
     }
+    private void initializeResolutionList()
+    {
+        foreach (Resolution res in resolutionList)
+        {
+            resolutionListString.Add(res.width.ToString() + "x" + res.height.ToString() + " @ " + res.refreshRate.ToString());
+        }
+    }
+        #region ChangeResolution
+        public void changeResolutionUp()  //to do: make accesible for the buttons
+        {
+            string currentResText;
+            string currentRes = Screen.currentResolution.width.ToString() + "x" + Screen.currentResolution.height.ToString() + " @ " + Screen.currentResolution.refreshRate.ToString();
+            int index = resolutionListString.IndexOf(currentRes); //getting the index of the current resolution
+            foreach (Resolution res in resolutionList)
+            {
+                resolutionListString.Add(res.width.ToString() +"x" + res.height.ToString() + " @ " + res.refreshRate.ToString());
+            }
+            
+            if (index == resolutionListString.Count - 1) //if the list is in the last position restart the list
+            {
+                index = 0;
+                
+            }
+                //if the index of the list is in a valid position go forward on the list
+            else
+            {
+                index +=1;
+            }
+            resolutionToSet = getResolutionWHhz(resolutionListString[index]); // gets first item from the resolution list created earlier and returns 3 ints, width, height, refresh rate
+            Screen.SetResolution(resolutionToSet[0], resolutionToSet[1], true, resolutionToSet[2]); //setting the new resolution and refresh rate
+            currentResText = resolutionListString[index]; //this will be used to display the new resolution in the unity object
+            Debug.Log(currentResText);
 
+        }
+        public void changeResolutionDown() //to do: make accesible for the buttons
+            {
+                string currentResText;
+                string currentRes = Screen.currentResolution.width.ToString() + "x" + Screen.currentResolution.height.ToString() + " @ " + Screen.currentResolution.refreshRate.ToString();
+                int index = resolutionListString.IndexOf(currentRes); //getting the index of the current resolution
+                foreach (Resolution res in resolutionList)
+                {
+                    resolutionListString.Add(res.width.ToString() +"x" + res.height.ToString() + " @ " + res.refreshRate.ToString());
+                }
+            
+                if (index == 0 ) //if the list is in the first position restart the list
+                {
+                    index = resolutionListString.Count - 1;
+                }
+                //if the index of the list is in a valid position go back on the list
+                else
+                {
+                    index -=1;
+                }
+                resolutionToSet = getResolutionWHhz(resolutionListString[index]); // gets item from the resolution list created earlier and returns 3 ints, width, height, refresh rate
+                Screen.SetResolution(resolutionToSet[0], resolutionToSet[1], true, resolutionToSet[2]); //setting the new resolution and refresh rate
+                currentResText = resolutionListString[index]; //this will be used to display the new resolution in the unity object
+                Debug.Log(currentResText);
 
-    public AudioMixer audioMixer;
+            }
+    
+
+    public List<int> getResolutionWHhz(string inputString) // returns a list of 3 ints, width and height and refresh rate. this is to be used when changing the resolution up or down
+    {
+        //inputString should be something like "1920x1080 @ 144hz"
+        string[] fullRes = inputString.Split(' ');  // splitting the string by space, we only want the 1920x1080 and 144hz aka the first element and third element
+        string wh = fullRes[0]; //getting the first element only for the resolution width and height
+        
+        string[] widthheight = wh.Split('x');
+        int width = int.Parse(widthheight[0]);
+        int height = int.Parse(widthheight[1]);
+
+        string hz = fullRes[2]; //getting the third element which is the refresh rate 144hz in the example but we only want the number
+        string numericPart = new string(hz.TakeWhile(char.IsDigit).ToArray());
+
+        int hzNum = int.Parse(numericPart);
+        List<int> fullResInt = new List<int>();
+        fullResInt.Add(width);
+        fullResInt.Add(height);
+        fullResInt.Add(hzNum);
+        return fullResInt; 
+    }
+    #endregion
+
+    #region audioMixer
     public void SetMenuVolume(float volume)//for the menu mixer for the menu audio slider
     {
         audioMixer.SetFloat("MenuVolume", volume);
@@ -82,21 +119,17 @@ public class SettingsScene : MonoBehaviour
     {
         audioMixer.SetFloat("MusicVolume", volume);
     }
-
+    #endregion
     
-    //to-do:increment graphics quality
-    //to-do:decrement graphics quality
-    //to-do:enable post processing
-
-    List<string> addGraphicsQuality(List<string> graphicsQualityList) // returns a list of the graphics quality options
+    /*List<string> addGraphicsQuality(List<string> graphicsQualityList) // returns a list of the graphics quality options
     {
         graphicsQualityList.Add("Low");
         graphicsQualityList.Add("Medium");
         graphicsQualityList.Add("High");
         return graphicsQualityList;
-    }
-
-    void changeGraphicsDown() 
+    }*/
+    #region ChangeGraphics
+    /*void changeGraphicsDown() 
     {
         //if the list is on the first position go to the last value in the list
         if (index == 0)
@@ -111,9 +144,9 @@ public class SettingsScene : MonoBehaviour
             labelGraphicsQualityList = graphicsQualityList[index--];
         }
 
-    }
+    }*/
 
-    void changeGraphicsUp()
+    /*void changeGraphicsUp()
     {
         //if the list is in the last position restart the list
         if (index == graphicsQualityList.Count - 1)
@@ -128,5 +161,6 @@ public class SettingsScene : MonoBehaviour
         }
 
 
-    }
+    }*/
+    #endregion
 }
