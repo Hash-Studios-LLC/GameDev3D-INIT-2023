@@ -14,7 +14,6 @@ public class RigidBodyMovement : MonoBehaviour
     [Header("Options")]
     [SerializeField] private float basePlayerSpeed; // the base speed, before the specific speed modifiers for each robot
 
-
     // Update is called once per frame
     void Update()
     {
