@@ -4,33 +4,18 @@ using UnityEngine;
 
 public class AttackPlayerInput : MonoBehaviour
 {
-    //area in which attack happens
-    private GameObject punchArea;
-    private GameObject shootArea;
-
-    private bool playerPunching = false;
-    private bool playerShooting = false;
+  
     
-    private float timeToShoot = 1f;
-    private float timerForShoot = 0f;
-
-    private float timeToPunch = 0.25f;
-    private float timerForPunch = 0f;
-    
-    public RobotData robotData;
+ 
+    //need to select where the animation controller is
+    public AnimationStateController anim;
 
 
-
-    private bool canshoot;
 
     void Start()
     {
-        if (transform.childCount > 0)
-        {
-            punchArea = transform.GetChild(0).gameObject;
-            shootArea = transform.GetChild(0).gameObject;
-        }
 
+     
     }
 
 
@@ -38,67 +23,38 @@ public class AttackPlayerInput : MonoBehaviour
     void Update()
     {   
         //binds player punch to the key Q
-        if(Input.GetButtonDown("Punch")) {
-            playerPunch();
-        }
-
-
-        if(playerPunching) {
-            timerForPunch += Time.deltaTime;
-
-            //resets the punch attack
-            if(timerForPunch >= timeToPunch)
+        //Carlos C the key Q does not work. Action binded to T
+        if(Input.GetButtonDown("Punch"))
+        {
+            if (anim != null)
             {
-                timerForPunch = 0;
-                playerPunching = false;
-                punchArea.SetActive(playerPunching);
+                //reference from AnimationStateController
+                anim.Punch();
             }
+            Debug.Log("punching");
+        
         }
+
 
         //binds player punch to the key E
-        if(Input.GetButton("Rocket") && canshoot) {
-            playerShoot();
+        //Carlos C the key E does not work. Action binded to Y
+        if (Input.GetButton("Rocket") ) {
+    
+            Debug.Log("rocket");
+            if (anim != null)
+            {
+                anim.Shoot();
+            }
             //canshoot = false;
-           // StartCoroutine(ShootCooldown()); // Woodhouse3d: not needed, tracking rocket script already handles input already for some reason.
+            // StartCoroutine(ShootCooldown()); // Woodhouse3d: not needed, tracking rocket script already handles input already for some reason.
         }
         // Woodhouse3d: just a getButton for shoot? no wonder it was just exploding everwhere.
 
-        if(playerShooting) {
-            timerForShoot += Time.deltaTime;
-
-            //resets the shoot attack
-            if(timerForShoot >= timeToShoot)
-            {
-                timerForShoot = 0;
-                playerShooting = false;
-                shootArea.SetActive(playerShooting);
-            }
-        }
+ 
 
         
     }
 
 
-    IEnumerator ShootCooldown()
-    {
-        yield return new WaitForSeconds(timeToShoot);
-        canshoot = true;
-    }
 
-
-    private void playerPunch()
-    {   
-
-        playerPunching = true;
-        punchArea.SetActive(playerPunching);
-        if(playerPunching){
-            robotData.playerHealth -= robotData.punchDamage;
-        }
-    }
-
-    private void playerShoot()
-    {
-        playerShooting = true;
-        shootArea.SetActive(playerShooting);
-    }
 }

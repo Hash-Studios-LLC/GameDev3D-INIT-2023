@@ -962,6 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ba260dbc503814bb75a34ad2164715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   robot: {fileID: 11400000, guid: 80eea7ea4faaf794898f7672f4be500c, type: 2}
 --- !u!1 &918362786
 GameObject:
@@ -1591,15 +1592,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_Size.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_IsTrigger
@@ -2008,6 +2009,7 @@ GameObject:
   - component: {fileID: 174550893}
   - component: {fileID: 174550892}
   - component: {fileID: 919132148792426832}
+  - component: {fileID: 919132148792426833}
   m_Layer: 0
   m_Name: Dasher (1)
   m_TagString: Untagged
@@ -2029,6 +2031,19 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &919132148792426833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148792426831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090ffa30ff4e2ee4ea2e295dd001591b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 174550892}
 --- !u!1 &965368017212783396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,7 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090ffa30ff4e2ee4ea2e295dd001591b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotData: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1 &1743004946166785167
 GameObject:
   m_ObjectHideFlags: 0

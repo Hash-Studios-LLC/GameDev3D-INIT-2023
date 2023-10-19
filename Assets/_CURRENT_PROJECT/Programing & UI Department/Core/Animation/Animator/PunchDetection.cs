@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PunchDetection : MonoBehaviour
 {
-   
+   // don't apply the script to player or model,it goes with punchCollider 
+  
    public RobotData robot;
     void Start()
     {
