@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public static SpawnManager Instance;
+    public static SpawnManager Instance { get; private set; }
 
-    SpawnPoint[] spawnPoints;
+    public Transform player1SpawnPoint;
+    public Transform player2SpawnPoint;
 
-    void Awake()
+    private void Awake()
     {
-        Instance = this;
-        spawnPoints = GetComponentsInChildren<SpawnPoint>();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    //spawns the player in a random spawn point
-    public Transform GetSpawnPoint()
+    public Transform GetPlayerSpawnPoint(int playerNumber)
     {
-        return spawnPoints[Random.Range(0, spawnPoints.Length)].transform;
+        switch (playerNumber)
+        {
+            case 1:
+                return player1SpawnPoint;
+            case 2:
+                return player2SpawnPoint;
+            default:
+                Debug.LogError("Invalid player number");
+                return null;
+        }
     }
 
 }
