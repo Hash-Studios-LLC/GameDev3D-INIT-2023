@@ -80,7 +80,7 @@ public class AnimationStateController : MonoBehaviour
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
         }
     }
-       public  void Shoot() { 
+    public  void Shoot() { 
         // temporary keybind   waits for the animation to end to perform another action
         if (canShot == true && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
         {

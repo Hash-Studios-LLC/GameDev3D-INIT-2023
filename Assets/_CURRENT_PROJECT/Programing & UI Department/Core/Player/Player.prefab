@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0ef96505cf5434ba9a7715667b7b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 4493843645385060771}
   playerref: {fileID: 965368016473889331}
   projectileReference: {fileID: 797244940192844239, guid: 610f9327c81d10041ab5ff3d7fe4b943, type: 3}
   bulletSpawnPoint: {fileID: 717997741899684931}

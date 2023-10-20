@@ -6,6 +6,7 @@ public class TrackingRocketScript : MonoBehaviour
 {
     //reference to player
     //TODO: edit with GameManager later maybe?
+    public AnimationStateController anim;
     public GameObject playerref;
     RobotData robotData;
     public GameObject projectileReference;
@@ -33,8 +34,10 @@ public class TrackingRocketScript : MonoBehaviour
 
         if(canshoot){
             Debug.Log("pew");
+            anim.Shoot();
             StartCoroutine(Shoot());
             canshoot = false;
+            
         }
     }
     /*BUG: MASSIVE BUG WITH THE SHOOTPROJECTILE OR THE INSTANTIATE PROJECTILE FUNCTIONS
@@ -52,12 +55,6 @@ public class TrackingRocketScript : MonoBehaviour
 
 
     void ShootProjectile(){
-       Ray ray = new Ray(playerPosition, transform.forward);
-       RaycastHit hit;
-
-       if(Physics.Raycast(ray, out hit)){
-          destination = hit.point;
-       }
        InstantiateProjectile();
     }
     void InstantiateProjectile(){
