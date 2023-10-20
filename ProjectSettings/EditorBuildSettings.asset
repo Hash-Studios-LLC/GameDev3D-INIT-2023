@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_CURRENT_PROJECT/Programing & UI Department/Core/_preload.unity
     guid: 9bdb4d428b49fa341b1890e5e1971ea7
+  - enabled: 1
+    path: Assets/_CURRENT_PROJECT/Programing & UI Department/UI/StartScreen/StartScreen.unity
+    guid: 2d19ccc403c358a4ab2d4615d9f58922
   m_configObjects: {}

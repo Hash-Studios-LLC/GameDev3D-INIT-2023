@@ -54,4 +54,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void respawnPlayer()
+    {
+
+    }
+
+    public void playerDies()
+    {
+
+    }
+
 }
