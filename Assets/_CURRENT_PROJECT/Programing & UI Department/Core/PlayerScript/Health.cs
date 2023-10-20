@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-     private int health;
-   
-    public RobotData robot;
+    private int currentHP;
+
+    public RobotData robotData;
+
     void Start()
     {
-        // gets value from attributes 
-      //RobotData  robot=GetComponent<RobotData>();
-        health = robot.playerHealth;
-        
-       
+        currentHP = robotData.playerHealth;
     }
-    // call to damage the player
-    public void  getDamage(int damage)
+
+    public void bulletHit(int damage)
     {
-        health -= damage;
+        if (currentHP <= 0) { return; }
+        takeDamage(damage);
     }
 
+    public void punchHit(int damage)
+    {
+        if (currentHP <= 0) { return; }
+        takeDamage(damage);
+    }
 
+    public void takeDamage(int damage)
+    {
+        currentHP -= damage;
+        Debug.Log("took " + damage);
+        if (currentHP <= 0)
+        {
+            playerDie();
+        }
+    }
 
+    private void playerDie()
+    {
+        Debug.Log("ded");
+        // do something else like despawning the player
+    }
 
-    
 }
