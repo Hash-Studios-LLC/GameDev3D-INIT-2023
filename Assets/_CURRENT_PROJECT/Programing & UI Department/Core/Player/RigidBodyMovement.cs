@@ -46,8 +46,16 @@ public class RigidBodyMovement : MonoBehaviour
     public void RespawnPlayer()
     {
         Transform spawnPoint = SpawnManager.Instance.GetPlayerSpawnPoint(playerNumber);
-        playerBody.position = spawnPoint.position;
-        playerBody.rotation = spawnPoint.rotation;
+        if(spawnPoint != null)
+        {
+            Debug.Log("Spawn Point Found: " + spawnPoint.position);
+            playerBody.position = spawnPoint.position;
+            playerBody.rotation = spawnPoint.rotation;
+        }
+        else
+        {
+            Debug.Log("Spawn Point Not Found");
+        }
     }
 
 }

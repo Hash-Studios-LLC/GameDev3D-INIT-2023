@@ -24,15 +24,19 @@ public class SpawnManager : MonoBehaviour
 
     public Transform GetPlayerSpawnPoint(int playerNumber)
     {
+        Debug.Log("Getting Spawn Point for Player " + playerNumber);
+        
         switch (playerNumber)
         {
-            case 1:
-                return player1SpawnPoint;
-            case 2:
-                return player2SpawnPoint;
-            default:
-                Debug.LogError("Invalid player number");
-                return null;
+        case 1:
+            Debug.Log("Player 1 Spawn Point: " + player1SpawnPoint.position);
+            return player1SpawnPoint;
+        case 2:
+            Debug.Log("Player 2 Spawn Point: " + player2SpawnPoint.position);
+            return player2SpawnPoint;
+        default:
+            Debug.LogError("Invalid player number");
+            return null;
         }
     }
 
