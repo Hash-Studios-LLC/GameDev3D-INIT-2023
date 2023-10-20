@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Options")]
     [SerializeField] private float lifespan = 2f; //length of time untill bullet despawns
-    public float damage;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,16 @@ public class Bullet : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("hit object");
-        Destroy(this.gameObject);
+        if (other.tag == "Hitbox")
+        {
+            other.GetComponent<Health>().bulletHit(damage);
+        }
+        if (other.tag != "Player" && other.tag != "PunchHitbox")
+        {
+            Destroy(this.gameObject);
+        }
+
     }
+
 
 }

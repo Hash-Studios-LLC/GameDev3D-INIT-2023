@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - SpawnPoint
+  - Hitbox
+  - PunchHitbox
   layers:
   - Default
   - TransparentFX

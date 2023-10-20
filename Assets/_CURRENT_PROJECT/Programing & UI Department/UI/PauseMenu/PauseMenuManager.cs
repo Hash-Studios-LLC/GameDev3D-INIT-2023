@@ -33,6 +33,7 @@ public class PauseMenuManager : MonoBehaviour
      */
     public void Resume()
     {
+        Debug.Log("Resuming game... FIGHT!!!!! >:)");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -45,6 +46,7 @@ public class PauseMenuManager : MonoBehaviour
      */
     public void Pause()
     {
+        Debug.Log("STOP! Hammer time. (Pausing game...)");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -68,6 +70,6 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Going back to Menu, I always forget to set the rules to stock smh");
-        //SceneManager.LoadScene("GameScene");
+        
     }
 }

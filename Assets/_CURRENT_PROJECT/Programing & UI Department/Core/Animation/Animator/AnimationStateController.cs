@@ -62,24 +62,27 @@ public class AnimationStateController : MonoBehaviour
             aVelocity = 0.0f;
         }
 
-        Attack();
+    
         // Updates the animators velocity var with the this script's local velocity var
         animator.SetFloat(VelocityHash, aVelocity);
     }
-    void Attack()
+    public void Punch()
     {
         // temporary keybind   waits for the animation to end to perform another action
-        if (canPunch == true && Input.GetKey(KeyCode.B) && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
+        if (canPunch == true  && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
         {
 
             animator.SetTrigger("Punch");
-            
+
             SendCustomEvenDelayedSeconds(ActivatePunchCollider, 0.4f);
+            // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
         }
+    }
+    public  void Shoot() { 
         // temporary keybind   waits for the animation to end to perform another action
-        if (canShot == true && Input.GetKey(KeyCode.V) && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
+        if (canShot == true && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
         {
             animator.SetTrigger("Shot");
             StartCoroutine(ShotCd());

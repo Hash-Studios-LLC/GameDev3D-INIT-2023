@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//NOTE: PROJECTILE SCRIPT
-//BUG: THERE IS A BUG WHERE PUTTING A RIGIDBODY PROPERTY SPAWNS A TON OF CYLINDERS IDK HOW TO FIX IT.
 public class TrackingRocketScript : MonoBehaviour
 {
     //reference to player
     //TODO: edit with GameManager later maybe?
-    public GameObject playerReference;
+    public AnimationStateController anim;
+    public GameObject playerref;
+    RobotData robotData;
     public GameObject projectileReference;
-    public float projectileSpeed = 30f;
+    public GameObject bulletSpawnPoint;
+    public float baseRocketSpeed = 10f;
     public float fireRate = 4f;
     private Vector3 playerPosition;
     private Vector3 destination;
@@ -18,24 +19,25 @@ public class TrackingRocketScript : MonoBehaviour
 
     private bool canshoot = true;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-     //TODO: Lock projectile on the y axis because they start floating due to gravity
+        robotData = playerref.GetComponent<Robot_Initalization>().rob;
+        shootcooldown = robotData.rocketCooldown;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void shootInput()
     {
-       playerPosition = playerReference.transform.localPosition + Vector3.left * 3; 
         /* Woodhouse3d: added offset, you were spawing rigidbodies inside other rigidbodies.
          * use an empty object instead for more control over the spawnpoint.
          */
 
-        if(Input.GetButton("Rocket") && canshoot){
+        if(canshoot){
             Debug.Log("pew");
+            anim.Shoot();
             StartCoroutine(Shoot());
             canshoot = false;
+            
         }
     }
     /*BUG: MASSIVE BUG WITH THE SHOOTPROJECTILE OR THE INSTANTIATE PROJECTILE FUNCTIONS
@@ -53,17 +55,15 @@ public class TrackingRocketScript : MonoBehaviour
 
 
     void ShootProjectile(){
-       Ray ray = new Ray(playerPosition, transform.forward);
-       RaycastHit hit;
-
-       if(Physics.Raycast(ray, out hit)){
-          destination = hit.point;
-       }
-       InstantiateProjectile(playerPosition);
+       InstantiateProjectile();
     }
-    void InstantiateProjectile(Vector3 characterPosition){
+    void InstantiateProjectile(){
 
-       var projectileObj = Instantiate(projectileReference, characterPosition, Quaternion.identity) as GameObject;
-       projectileObj.GetComponent<Rigidbody>().velocity = (destination - characterPosition).normalized * projectileSpeed;
+       var projectileObj = Instantiate(projectileReference, bulletSpawnPoint.transform.position, Quaternion.identity) as GameObject;
+
+
+        // set bullet properties
+        projectileObj.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * robotData.rocketSpeed * baseRocketSpeed;
+        projectileObj.GetComponent<Bullet>().damage = robotData.rocketDamage;
     }
 }
