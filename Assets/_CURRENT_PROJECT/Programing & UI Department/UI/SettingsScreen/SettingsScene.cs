@@ -14,18 +14,29 @@ public class SettingsScene : MonoBehaviour
     List<string> resolutionListString = new List<string>();
     private Resolution[] resolutionList;
     private List<int> resolutionToSet;
+
+    private List<string> graphicsQualityList = new List<string>();
+
     public AudioMixer audioMixer;
     public TextMeshProUGUI resText;
+    public TextMeshProUGUI graText;
+    public string currGraphicsQuality;
+
     void Start()
     {
         resolutionList = Screen.resolutions;
         initializeResolutionList();
+        initializeGraphicsList();
         resText = GameObject.Find("labelResolutionOption").GetComponent<TextMeshProUGUI>();
+        graText = GameObject.Find("labelGraphicQualityOption").GetComponent<TextMeshProUGUI>();
+        currGraphicsQuality = "high"; // this is hard coded, should be changed later
+        
     }
 
     void Update ()
     {
         resText.GetComponent<TextMeshProUGUI>().text = Screen.width.ToString() + "x" + Screen.height.ToString();
+        graText.GetComponent<TextMeshProUGUI>().text = currGraphicsQuality;
     }
     private void initializeResolutionList()
     {
@@ -33,6 +44,12 @@ public class SettingsScene : MonoBehaviour
         {
             resolutionListString.Add(res.width.ToString() + "x" + res.height.ToString());
         }
+    }
+    private void initializeGraphicsList()
+    {
+        graphicsQualityList.Add("low");
+        graphicsQualityList.Add("medium");
+        graphicsQualityList.Add("high");
     }
         #region ChangeResolution
         public void changeResolutionUp() 
@@ -126,46 +143,42 @@ public class SettingsScene : MonoBehaviour
     }
     #endregion
     
-    /*List<string> addGraphicsQuality(List<string> graphicsQualityList) // returns a list of the graphics quality options
-    {
-        graphicsQualityList.Add("Low");
-        graphicsQualityList.Add("Medium");
-        graphicsQualityList.Add("High");
-        return graphicsQualityList;
-    }*/
     #region ChangeGraphics
-    /*void changeGraphicsDown() 
+
+    public void changeGraphicsDown() 
     {
+        
+        int index = graphicsQualityList.IndexOf(currGraphicsQuality);
         //if the list is on the first position go to the last value in the list
         if (index == 0)
         {
-            int final = graphicsQualityList.Count - 1;
-            labelGraphicsQualityList = graphicsQualityList[final];
-            index = final;
+            index = graphicsQualityList.Count - 1;
         }
         //if the list is in a valid position on the list go back one GQ option
         else
         {
-            labelGraphicsQualityList = graphicsQualityList[index--];
+            index -= 1;
         }
 
-    }*/
+        currGraphicsQuality = graphicsQualityList[index];
+    }
 
-    /*void changeGraphicsUp()
+    public void changeGraphicsUp()
     {
-        //if the list is in the last position restart the list
-        if (index == graphicsQualityList.Count - 1)
+        
+        int index = graphicsQualityList.IndexOf(currGraphicsQuality);
+        //if the list is on the last position go to the last value in the list
+        if (index == graphicsQualityList.Count -1 )
         {
-            labelGraphicsQualityList = graphicsQualityList[0];
             index = 0;
         }
-        //if the index of the list is in a valid position go forward on the list
+        //if the list is in a valid position on the list go back one GQ option
         else
         {
-            labelGraphicsQualityList = graphicsQualityList[index++];
+            index += 1;
         }
 
-
-    }*/
+        currGraphicsQuality = graphicsQualityList[index];
+    }
     #endregion
 }
