@@ -6,10 +6,12 @@ public class Health : MonoBehaviour
 {
     private int currentHP;
 
-    public RobotData robotData;
+    private RobotData robotData;
+    public GameObject playerRef;
 
     void Start()
     {
+        robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
     }
 

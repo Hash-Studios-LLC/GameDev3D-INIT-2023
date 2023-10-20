@@ -6,12 +6,13 @@ public class Puncher : MonoBehaviour
 {
     //reference to player
     //TODO: edit with GameManager later maybe?
+
     public PlayerInput playerInput;
     public RobotData robotData;
     public float shootcooldown = 0.5f;
     public float punchLength = 0.2f;
     int punchdamage = 10;
-
+    public GameObject playerRef;
 
     public BoxCollider punchCollider;
 
@@ -21,6 +22,7 @@ public class Puncher : MonoBehaviour
 
     private void Start()
     {
+        robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         shootcooldown = robotData.punchCooldown;
         punchdamage = robotData.punchDamage;
     }

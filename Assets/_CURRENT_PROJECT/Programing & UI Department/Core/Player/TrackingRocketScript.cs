@@ -6,8 +6,8 @@ public class TrackingRocketScript : MonoBehaviour
 {
     //reference to player
     //TODO: edit with GameManager later maybe?
-    public PlayerInput playerInput;
-    public RobotData robotData;
+    public GameObject playerref;
+    RobotData robotData;
     public GameObject projectileReference;
     public GameObject bulletSpawnPoint;
     public float baseRocketSpeed = 10f;
@@ -21,6 +21,7 @@ public class TrackingRocketScript : MonoBehaviour
 
     private void Start()
     {
+        robotData = playerref.GetComponent<Robot_Initalization>().rob;
         shootcooldown = robotData.rocketCooldown;
     }
 
