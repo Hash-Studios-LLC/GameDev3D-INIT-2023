@@ -31,7 +31,7 @@ public class TrackingRocketScript : MonoBehaviour
          * use an empty object instead for more control over the spawnpoint.
          */
 
-        if(Input.GetButton("Rocket") && canshoot){
+        if(canshoot){
             Debug.Log("pew");
             StartCoroutine(Shoot());
             canshoot = false;

@@ -7,6 +7,7 @@ public class Puncher : MonoBehaviour
     //reference to player
     //TODO: edit with GameManager later maybe?
 
+    public AnimationStateController anim;
     public PlayerInput playerInput;
     public RobotData robotData;
     public float shootcooldown = 0.5f;
@@ -34,6 +35,7 @@ public class Puncher : MonoBehaviour
             Debug.Log("pow");
             StartCoroutine(Punch());
             canshoot = false;
+            anim.Punch();
         }
     }
 
