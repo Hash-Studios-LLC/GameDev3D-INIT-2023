@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PunchDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
+   // don't apply the script to player or model,it goes with punchCollider 
+  
+   public RobotData robot;
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -18,7 +20,12 @@ public class PunchDetection : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("i wanna be free");
-    }
+        if (other.GetComponent<Health>() != null)
+        {
+            var health = other.GetComponent<Health>();//gets component
+            health.getDamage(robot.punchDamage);//sends damage
+            Debug.Log("hit confirmed");
+        }
+        }
 
 }
