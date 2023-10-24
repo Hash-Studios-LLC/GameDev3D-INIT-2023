@@ -7,8 +7,7 @@ public class iconFollowCamera : MonoBehaviour
     public Transform cam;
     private void Start()
     {
-        cam = Camera.main.transform;
-        cam = GameObject.Find("MainCamera").transform;
+        cam = Camera.main.transform; // Assign MainCamera to this value
     }
     void LateUpdate()
     {

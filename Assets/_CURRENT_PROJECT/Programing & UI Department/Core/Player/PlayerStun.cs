@@ -2,43 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHit : MonoBehaviour
+public class PlayerStun : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private bool secondPlayer = false;
     [SerializeField] private bool isStunned = false;
     [SerializeField] private RobotData rd;
-    private int healthPoints;
-
-    private void Start()
-    {
-        healthPoints = rd.playerHealth; // Assigns health with the value of the corresponding robotData
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (healthPoints <= 0) // CZ: Would be best to refine this later into a proper death animation
-        {
-            Destroy(player);
-        }
-
-        // CZ: The functions below should be eventually removed and replaced with an appropriate
-        // connection to the AttackPlayerInput script or communicate with the colliders for rockets
-        // and punches.
-
-        if (Input.GetKeyDown("h") && !secondPlayer) // Debug code, remove later
-        {
-            healthPoints -= 25;
-            Debug.Log("Player HP = " + healthPoints);
-        }
-
-        if (Input.GetKeyDown("q") && secondPlayer) // Debug code, remove later 
-        {
-            healthPoints -= 25;
-            Debug.Log("Player HP = " + healthPoints);
-        }
-
         // CZ: The stunned script should stay mostly as is, all that is missing is a external trigger
         // that switches "isStunned" to being True. Feel free to tweak the stun time. Also thanks to Dan for the coroutine!
         if(isStunned)
