@@ -10,7 +10,7 @@ public class getCurrentRes : MonoBehaviour
     void Start()
     {
         currentRes = GetComponent<TMP_Text>();
-        currentRes.text = Screen.currentResolution.ToString();
+        currentRes.text = Screen.width.ToString() + "x" + Screen.height.ToString();
     }
 
     // Update is called once per frame

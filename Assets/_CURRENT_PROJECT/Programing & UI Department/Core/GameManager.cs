@@ -49,7 +49,17 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void exitBattle() // function that returns to the main menu.
+    public void exitBattle() // function that returns to the main menu.
+    {
+
+    }
+
+    void respawnPlayer()
+    {
+
+    }
+
+    public void playerDies()
     {
 
     }

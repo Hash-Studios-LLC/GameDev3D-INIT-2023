@@ -12,7 +12,7 @@ public class StartScreen : MonoBehaviour
     {
         Debug.Log("Loading to fighting menu...");
 
-        SceneManager.LoadScene("Fighter Menu");
+        //SceneManager.LoadScene("Fighter Menu");
     }
   
     //For the Settings button
@@ -20,7 +20,7 @@ public class StartScreen : MonoBehaviour
     {
         Debug.Log("Loading to setting screen...");
 
-        SceneManager.LoadScene("SettingsScreen");
+        //SceneManager.LoadScene("SettingsScreen");
     }
 
     //For the Quit game button
