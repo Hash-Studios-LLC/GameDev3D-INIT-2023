@@ -811,6 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ce7ad5c41727043b2dbca4388e52a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robot: {fileID: 0}
 --- !u!1 &918362786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1231,27 @@ Transform:
   m_Father: {fileID: 58357772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1826418619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 965368016473889331, guid: 5563fbf8a27647e4abfedf44bbfa60a5, type: 3}
+  m_PrefabInstance: {fileID: 915563916931493173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1826418628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826418619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a2e4f5e9cc3b24799b0cd07446e5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1826418619}
+  hitPoints: 100
+  secondPlayer: 1
+  isStunned: 0
 --- !u!1001 &1964529289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1643,7 +1665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 4021643256861680630}
   playerBody: {fileID: 915563918375668202}
-  playerSpeed: 5
+  robotData: {fileID: 11400000, guid: 27e62baac68be0747a48e19280ec262a, type: 2}
+  basePlayerSpeed: 5
 --- !u!33 &915563918375668196
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1758,6 +1781,7 @@ GameObject:
   - component: {fileID: 4021643256861680630}
   - component: {fileID: 915563918375668202}
   - component: {fileID: 3514411188528778669}
+  - component: {fileID: 8067613981010310705}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2512,6 +2536,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8067613981010310705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965368017212783396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a2e4f5e9cc3b24799b0cd07446e5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 965368017212783396}
+  hitPoints: 100
+  secondPlayer: 0
+  isStunned: 0
 --- !u!4 &8162835552966981968
 Transform:
   m_ObjectHideFlags: 0
