@@ -23,7 +23,7 @@ public class AnimationStateController : MonoBehaviour
     public float rocketCD = 1.5f;
 
     //finds the object
-    public GameObject punchCollider;
+    //public GameObject punchCollider;
 
 
     // Start is called before the first frame update
@@ -74,7 +74,7 @@ public class AnimationStateController : MonoBehaviour
 
             animator.SetTrigger("Punch");
 
-            SendCustomEvenDelayedSeconds(ActivatePunchCollider, 0.4f);
+           // SendCustomEvenDelayedSeconds(ActivatePunchCollider, 0.4f);
             // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
@@ -90,6 +90,7 @@ public class AnimationStateController : MonoBehaviour
 
         }
     }
+    /* not being used atm
     void ActivatePunchCollider()
     {
 
@@ -103,7 +104,7 @@ public class AnimationStateController : MonoBehaviour
         punch.transform.position = new Vector3(punchCollider.transform.position.x, punchCollider.transform.position.y, punchCollider.transform.position.z);
         Destroy(punch, 0.5f); // Adjust this time as needed
     }
-
+    */
     private IEnumerator RunFunctionAfterDelay(float delayInSeconds, System.Action functionToRun)
     {
         yield return new WaitForSeconds(delayInSeconds);
