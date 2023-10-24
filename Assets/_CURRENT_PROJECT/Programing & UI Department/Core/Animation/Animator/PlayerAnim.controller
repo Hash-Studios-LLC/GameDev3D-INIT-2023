@@ -181,7 +181,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Base Layer
     m_StateMachine: {fileID: 3085339154520231861}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: f407bb46936adac448bfea645e376da6, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -193,7 +193,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Upperbody
     m_StateMachine: {fileID: -3302739086156307405}
-    m_Mask: {fileID: 31900000, guid: 9454ab79deb6b494f8c470658e2d7a24, type: 2}
+    m_Mask: {fileID: 31900000, guid: 7501fa95f8c151a458fbb1d8a1fad95c, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
