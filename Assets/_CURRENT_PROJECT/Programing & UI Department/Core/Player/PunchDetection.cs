@@ -22,9 +22,9 @@ public class PunchDetection : MonoBehaviour
     {
         if (other.GetComponent<Health>() != null)
         {
-           // var health = other.GetComponent<Health>();//gets component
-          //  health.getDamage(robot.punchDamage);//sends damage
-          //  Debug.Log("hit confirmed");
+            var health = other.GetComponent<Health>();//gets component
+            health.punchHit(robot.punchDamage);//sends damage
+            Debug.Log("hit confirmed");
         }
         }
 

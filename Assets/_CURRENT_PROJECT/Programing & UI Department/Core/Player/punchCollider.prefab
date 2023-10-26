@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288619065042344788}
   - component: {fileID: 6761954734863058390}
+  - component: {fileID: -7320043393044789412}
   m_Layer: 0
   m_Name: punchCollider
   m_TagString: Untagged
@@ -40,8 +41,21 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5810848711664056381}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 7, y: 7, z: 1.0237578}
+  m_Center: {x: 0, y: 0.5835799, z: -0.2618789}
+--- !u!114 &-7320043393044789412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5810848711664056381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ce7ad5c41727043b2dbca4388e52a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 11400000, guid: 86bbff0a05ec7924d800e91fc0ba5284, type: 2}

@@ -33,7 +33,7 @@ public class AnimationStateController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         // Should add a reference to which player is controlling this character
-
+        punchCollider.SetActive(false);
         // Assigns the animator's velocity var to VelocityHash
         VelocityHash = Animator.StringToHash("Velocity");
 
