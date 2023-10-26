@@ -26,7 +26,9 @@ public class AnimationStateController : MonoBehaviour
     public GameObject punchCollider;
     [SerializeField] private float shootDelay;//  how much the delay to spawn the bullet
     [SerializeField] private float PunchDelay;// how much time it takes the punch collider to appear
-   
+   [SerializeField] private float rocketCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
+    [SerializeField] private float PunchCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,7 +85,8 @@ public class AnimationStateController : MonoBehaviour
             
         }
     }
-    public  void Shoot() { 
+    public  void Shoot() {
+       
         // temporary keybind   waits for the animation to end to perform another action
         if (canShot == true && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
         {
@@ -100,7 +103,7 @@ public class AnimationStateController : MonoBehaviour
     void ActivatePunchCollider()
     {
 
-
+     
         // Instantiate the punch collider object
         GameObject punch = Instantiate(punchCollider, transform.position + transform.forward, transform.rotation);
 
@@ -128,19 +131,22 @@ public class AnimationStateController : MonoBehaviour
     {
 
         canPunch = false;
-        yield return new WaitForSeconds(punchCD+animator.GetCurrentAnimatorStateInfo(1).length);
+        yield return new WaitForSeconds(punchCD+PunchCD_AnimTime);
         canPunch = true;
-      //  Debug.Log("animation lasted: " + animator.GetCurrentAnimatorStateInfo(1).length);
+       // Debug.Log("animation lasted: " + animator.GetCurrentAnimatorStateInfo(1).length);
     }
     //makes shot true after x amount of time 
     IEnumerator ShotCd()
     {
         
+ 
         canShot = false;
-        yield return new WaitForSeconds(rocketCD);
+        yield return new WaitForSeconds(rocketCD+rocketCD_AnimTime);
         canShot = true;
        
       
     }
-  
+   
+
+
 }
