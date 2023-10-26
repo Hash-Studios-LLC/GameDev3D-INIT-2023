@@ -6,7 +6,7 @@ public class TrackingRocketScript : MonoBehaviour
 {
     //reference to player
     //TODO: edit with GameManager later maybe?
-    public AnimationStateController anim;
+    //public AnimationStateController anim;
     public GameObject playerref;
     RobotData robotData;
     public GameObject projectileReference;
@@ -34,7 +34,7 @@ public class TrackingRocketScript : MonoBehaviour
 
         if(canshoot){
             Debug.Log("pew");
-            anim.Shoot();
+         //   anim.Shoot();
             StartCoroutine(Shoot());
             canshoot = false;
             
@@ -54,7 +54,7 @@ public class TrackingRocketScript : MonoBehaviour
 
 
 
-    void ShootProjectile(){
+  public  void ShootProjectile(){
        InstantiateProjectile();
     }
     void InstantiateProjectile(){
