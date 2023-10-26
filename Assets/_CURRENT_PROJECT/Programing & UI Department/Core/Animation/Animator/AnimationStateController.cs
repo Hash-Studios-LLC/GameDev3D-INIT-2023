@@ -8,7 +8,7 @@ public class AnimationStateController : MonoBehaviour
     Animator animator;
     float aVelocity = 0.0f; // Not for physics, just for determining which animation is more prevalent 
     // Higher aVelocity means more running animation, less velocity means more idle animation.
-
+    RobotData robotData;
     [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
 
     public float aAcceleration = 10.0f; // determines rate at which aVelocity increases
@@ -19,28 +19,31 @@ public class AnimationStateController : MonoBehaviour
     [SerializeField] private bool canPunch;
     [SerializeField] private bool canShot;
     // temporary values 
-    public float punchCD = 0.5f;
-    public float rocketCD = 1.5f;
+    private float punchCD ;
+    private float rocketCD ;
     public TrackingRocketScript track;
     //finds the object
     public GameObject punchCollider;
-
-
+    [SerializeField] private float shootDelay;//  how much the delay to spawn the bullet
+    [SerializeField] private float PunchDelay;// how much time it takes the punch collider to appear
+   
     // Start is called before the first frame update
     void Start()
     {
         // set reference for animator
         animator = GetComponent<Animator>();
-
+        robotData = GetComponentInParent< Robot_Initalization>().rob;
+        Debug.Log(robotData);
         // Should add a reference to which player is controlling this character
         punchCollider.SetActive(false);
         // Assigns the animator's velocity var to VelocityHash
         VelocityHash = Animator.StringToHash("Velocity");
-
-
+        punchCD = robotData.punchCooldown;
+        rocketCD = robotData.rocketCooldown;
         canPunch = true;
         canShot = true;
-
+        Debug.Log("punch cd: "+punchCD);// check if it matches
+        Debug.Log("rocket cd: "+rocketCD);// check if it matches
     }
 
     // Update is called once per frame
@@ -74,10 +77,10 @@ public class AnimationStateController : MonoBehaviour
 
             animator.SetTrigger("Punch");
 
-            SendCustomEvenDelayedSeconds(ActivatePunchCollider, 0.4f);
+            SendCustomEvenDelayedSeconds(ActivatePunchCollider, PunchDelay);
             // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
+            
         }
     }
     public  void Shoot() { 
@@ -85,9 +88,11 @@ public class AnimationStateController : MonoBehaviour
         if (canShot == true && animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 1.0f)
         {
             animator.SetTrigger("Shot");
-            track.ShootProjectile();
+        
+            SendCustomEvenDelayedSeconds(track.ShootProjectile,shootDelay);// delays the bullet spawn
             StartCoroutine(ShotCd());
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length); // i was trying to get the animation time idk if it is accurate
+           
+           
 
         }
     }
@@ -103,7 +108,7 @@ public class AnimationStateController : MonoBehaviour
         punch.SetActive(true);
         //creates an instance of punch where punchCollider is
         punch.transform.position = new Vector3(punchCollider.transform.position.x, punchCollider.transform.position.y, punchCollider.transform.position.z);
-        Destroy(punch, 0.5f); // Adjust this time as needed
+        Destroy(punch, 0.5f); //Destruction of object, Adjust this time as needed
     }
    
     private IEnumerator RunFunctionAfterDelay(float delayInSeconds, System.Action functionToRun)
@@ -123,15 +128,19 @@ public class AnimationStateController : MonoBehaviour
     {
 
         canPunch = false;
-        yield return new WaitForSeconds(punchCD);
+        yield return new WaitForSeconds(punchCD+animator.GetCurrentAnimatorStateInfo(1).length);
         canPunch = true;
+      //  Debug.Log("animation lasted: " + animator.GetCurrentAnimatorStateInfo(1).length);
     }
     //makes shot true after x amount of time 
     IEnumerator ShotCd()
     {
+        
         canShot = false;
         yield return new WaitForSeconds(rocketCD);
         canShot = true;
+       
+      
     }
-
+  
 }

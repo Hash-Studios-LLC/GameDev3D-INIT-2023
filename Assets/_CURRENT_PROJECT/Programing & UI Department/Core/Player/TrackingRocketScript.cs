@@ -24,6 +24,7 @@ public class TrackingRocketScript : MonoBehaviour
     {
         robotData = playerref.GetComponent<Robot_Initalization>().rob;
         shootcooldown = robotData.rocketCooldown;
+       
     }
 
     public void shootInput()
