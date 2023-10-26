@@ -17,5 +17,5 @@ MonoBehaviour:
   punchDamage: 10
   punchCooldown: 0.5
   rocketDamage: 25
-  rocketSpeed: 0
+  rocketSpeed: 1
   rocketCooldown: 1.5

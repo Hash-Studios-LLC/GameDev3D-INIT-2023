@@ -6,16 +6,16 @@ public class TrackingRocketScript : MonoBehaviour
 {
     //reference to player
     //TODO: edit with GameManager later maybe?
-    public AnimationStateController anim;
+    //public AnimationStateController anim;
     public GameObject playerref;
     RobotData robotData;
     public GameObject projectileReference;
     public GameObject bulletSpawnPoint;
     public float baseRocketSpeed = 10f;
-    public float fireRate = 4f;
+    //public float fireRate = 4f;
     private Vector3 playerPosition;
     private Vector3 destination;
-    public float shootcooldown = 0.5f;
+    //public float shootcooldown = 0.5f;
 
     private bool canshoot = true;
 
@@ -23,7 +23,8 @@ public class TrackingRocketScript : MonoBehaviour
     private void Start()
     {
         robotData = playerref.GetComponent<Robot_Initalization>().rob;
-        shootcooldown = robotData.rocketCooldown;
+      //  shootcooldown = robotData.rocketCooldown;
+       
     }
 
     public void shootInput()
@@ -34,8 +35,8 @@ public class TrackingRocketScript : MonoBehaviour
 
         if(canshoot){
             Debug.Log("pew");
-            anim.Shoot();
-            StartCoroutine(Shoot());
+         //   anim.Shoot();
+         //  StartCoroutine(Shoot());
             canshoot = false;
             
         }
@@ -45,16 +46,17 @@ public class TrackingRocketScript : MonoBehaviour
      **/
     // woodhouse3d: the problem was that you had the bullet spawner object set as the projectileReference. that means
     // that the script was spawning itself, which spawned itself and spawned itself again.
+   /*
     IEnumerator Shoot()
     {
         ShootProjectile();
         yield return new WaitForSeconds(shootcooldown);
         canshoot = true;
     }
+   **/
 
 
-
-    void ShootProjectile(){
+  public  void ShootProjectile(){
        InstantiateProjectile();
     }
     void InstantiateProjectile(){
