@@ -179,10 +179,12 @@ MonoBehaviour:
   aDecceleration: 10
   canPunch: 0
   canShot: 0
-  punchCD: 0.5
-  rocketCD: 1.5
   track: {fileID: 919132148792426833}
   punchCollider: {fileID: 788682259}
+  shootDelay: 0
+  PunchDelay: 0
+  rocketCD_AnimTime: 0
+  PunchCD_AnimTime: 0
 --- !u!95 &174550893
 Animator:
   serializedVersion: 5
@@ -891,19 +893,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
   m_PrefabInstance: {fileID: 1964529289}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &788682262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788682259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ce7ad5c41727043b2dbca4388e52a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  robot: {fileID: 11400000, guid: 86bbff0a05ec7924d800e91fc0ba5284, type: 2}
 --- !u!1 &869900009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,8 +1890,6 @@ MonoBehaviour:
   projectileReference: {fileID: 797244940192844239, guid: 610f9327c81d10041ab5ff3d7fe4b943, type: 3}
   bulletSpawnPoint: {fileID: 788682259}
   baseRocketSpeed: 10
-  fireRate: 4
-  shootcooldown: 0.5
 --- !u!1 &965368017212783396
 GameObject:
   m_ObjectHideFlags: 0

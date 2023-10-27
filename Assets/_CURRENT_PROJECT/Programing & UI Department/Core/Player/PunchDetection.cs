@@ -9,7 +9,7 @@ public class PunchDetection : MonoBehaviour
    public RobotData robot;
     void Start()
     {
-       
+        robot = GetComponentInParent<Robot_Initalization>().rob;
     }
 
     // Update is called once per frame
