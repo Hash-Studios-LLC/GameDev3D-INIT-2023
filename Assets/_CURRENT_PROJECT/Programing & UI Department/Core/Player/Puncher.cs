@@ -21,17 +21,26 @@ public class Puncher : MonoBehaviour
 
     private Health punchableObject;
 
+    //creating object for punch cooldown ui element
+    public PunchCD punchCD;
+
     private void Start()
     {
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         shootcooldown = robotData.punchCooldown;
         punchdamage = robotData.punchDamage;
+
+        //setting max value for punch Cool down UI element
+        punchCD.setMaxCoolDown(shootcooldown);
     }
 
     public void punchInput()
     {
         if (canshoot)
         {
+            //setting punch cooldown ui element to show its ready
+            punchCD.setCurrentCDVal(0);
+
             Debug.Log("pow");
             StartCoroutine(Punch());
             canshoot = false;
@@ -48,6 +57,7 @@ public class Puncher : MonoBehaviour
         }
 
         yield return new WaitForSeconds(shootcooldown);
+        punchCD.setCurrentCDVal(shootcooldown);
         canshoot = true;
     }
 

@@ -9,11 +9,15 @@ public class Health : MonoBehaviour
 
     private RobotData robotData;
     public GameObject playerRef;
+    public HPbar healthBar;
 
     void Start()
     {
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
+
+        //setting the ui health bar to match the player data
+        healthBar.setMaxHealth(currentHP);
     }
 
     public void bulletHit(int damage)
@@ -31,6 +35,10 @@ public class Health : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHP -= damage;
+
+        //updating the health bar in the UI
+        healthBar.setHealth(currentHP);
+
         Debug.Log("took " + damage);
         if (currentHP <= 0)
         {
