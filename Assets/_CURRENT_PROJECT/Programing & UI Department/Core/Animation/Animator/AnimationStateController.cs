@@ -106,7 +106,7 @@ public class AnimationStateController : MonoBehaviour
      
         // Instantiate the punch collider object
         GameObject punch = Instantiate(punchCollider, transform.position + transform.forward, transform.rotation);
-
+        punch.transform.SetParent(transform);
         //since punchCollider is false
         punch.SetActive(true);
         //creates an instance of punch where punchCollider is

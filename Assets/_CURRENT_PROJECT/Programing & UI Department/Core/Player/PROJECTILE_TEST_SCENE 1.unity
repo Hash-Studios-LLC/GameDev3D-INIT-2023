@@ -180,7 +180,7 @@ MonoBehaviour:
   canPunch: 0
   canShot: 0
   track: {fileID: 919132148792426833}
-  punchCollider: {fileID: 788682259}
+  punchCollider: {fileID: 285936802}
   shootDelay: 0
   PunchDelay: 0
   rocketCD_AnimTime: 0
@@ -300,6 +300,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &285936802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5810848711664056381, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
+  m_PrefabInstance: {fileID: 1933191613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &285936803 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
+  m_PrefabInstance: {fileID: 1933191613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &304154051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,16 +893,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 106648c001bb549408a4cb9559c10381, type: 3}
---- !u!1 &788682259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5810848711664056381, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-  m_PrefabInstance: {fileID: 1964529289}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &788682260 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-  m_PrefabInstance: {fileID: 1964529289}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &869900009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1373,7 @@ Transform:
   m_Father: {fileID: 58357772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1964529289
+--- !u!1001 &1933191613
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1386,15 +1386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9
+      value: 0.366
       objectReference: {fileID: 0}
     - target: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.66
+      value: 6.11
       objectReference: {fileID: 0}
     - target: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.15
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 288619065042344788, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1427,26 +1427,6 @@ PrefabInstance:
     - target: {fileID: 5810848711664056381, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
       propertyPath: m_Name
       value: punchCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 5810848711664056381, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-      propertyPath: m_Size.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761954734863058390, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3b15da48a43e8f4db6a4fadbfd9091b, type: 3}
@@ -1721,7 +1701,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 788682260}
+  - {fileID: 285936803}
   - {fileID: 8839400473335594136}
   - {fileID: 8162835552966981968}
   - {fileID: 963309944}
@@ -1888,7 +1868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerref: {fileID: 965368017212783396}
   projectileReference: {fileID: 797244940192844239, guid: 610f9327c81d10041ab5ff3d7fe4b943, type: 3}
-  bulletSpawnPoint: {fileID: 788682259}
+  bulletSpawnPoint: {fileID: 963309943}
   baseRocketSpeed: 10
 --- !u!1 &965368017212783396
 GameObject:
