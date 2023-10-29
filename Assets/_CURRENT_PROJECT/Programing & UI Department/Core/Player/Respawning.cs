@@ -21,23 +21,42 @@ public class Respawning : MonoBehaviour
     {
         if (id==1 && Player1Stock >0)
         {
-            GameObject newRobot = Instantiate(Player1, spawnPlace.transform.position + spawnPlace.transform.forward, spawnPlace.transform.rotation);
-         
+            //SpawnLocation();
+            GameObject newRobot = Instantiate(Player1, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
+
             Debug.Log("player 1 spawnned");
             Player1Stock--;
         }
         if (id==2 && Player2Stock > 0)
         {
-            GameObject newRobot = Instantiate(Player2, spawnPlace.transform.position + spawnPlace.transform.forward, spawnPlace.transform.rotation);
+           // SpawnLocation();
+            GameObject newRobot = Instantiate(Player2, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
             Debug.Log("player 2 spawnned");
             Player2Stock--;
         }
 
     }
    
-    public void SpawnLocation()
+    public Transform SpawnLocation()
     {
         int randomIndex = Random.Range(0, 2);
-        Debug.Log(randomIndex);
+        Debug.Log("random value: "+randomIndex);
+        if (randomIndex == 0)
+        {
+            Transform location1Transform = GameObject.Find("Location 1").transform;
+            return location1Transform;
+        }
+        else if (randomIndex == 1)
+        {
+
+            Transform location2Transform = GameObject.Find("Location 2").transform;
+           
+            return location2Transform;
+        }
+        else
+        {
+            return spawnPlace.transform;
+        }
     }
 }
+    

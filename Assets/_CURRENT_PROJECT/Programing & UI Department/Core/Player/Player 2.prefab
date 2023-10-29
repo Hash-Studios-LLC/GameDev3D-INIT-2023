@@ -403,7 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rob: {fileID: 11400000, guid: 083f62b54d7e39d4e9a8595ca778e188, type: 2}
   isPlayer1: 0
-  isPlayer2: 0
+  isPlayer2: 1
 --- !u!1 &668550209370290099
 GameObject:
   m_ObjectHideFlags: 0

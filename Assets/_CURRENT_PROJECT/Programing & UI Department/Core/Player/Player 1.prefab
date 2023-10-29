@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rob: {fileID: 11400000, guid: 27e62baac68be0747a48e19280ec262a, type: 2}
-  isPlayer1: 0
+  isPlayer1: 1
   isPlayer2: 0
 --- !u!1 &1513974764957797229
 GameObject:
