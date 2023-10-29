@@ -6,11 +6,21 @@ public class Robot_Initalization : MonoBehaviour
 {
 
     public RobotData rob;
-    
+    [SerializeField]
+    private bool isPlayer1;
+    [SerializeField]
+    private bool isPlayer2;
+
+
+
+    private int id;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isPlayer1)
+            id = 1;
+        if (isPlayer2)
+            id = 2;
     }
 
     // Update is called once per frame
@@ -24,6 +34,11 @@ public class Robot_Initalization : MonoBehaviour
         rob = rb;
         // initializasion stuff
         setRobotModel(0);
+    }
+    public int getID()
+    {
+        Debug.Log("id= "+id);
+        return id;
     }
 
     private void setRobotModel(int rob)

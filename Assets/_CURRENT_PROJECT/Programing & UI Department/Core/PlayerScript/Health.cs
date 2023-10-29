@@ -11,12 +11,14 @@ public class Health : MonoBehaviour
     public GameObject playerRef;
    
     public Respawning respawning;
-  
+    
+    
     void Start()
     {
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
        respawning= GameObject.Find("Spawn Manager").GetComponent<Respawning>();
+        
     }
     private void Update()
     {
@@ -53,9 +55,10 @@ public class Health : MonoBehaviour
         // do something else like despawning the player
          currentHP++;
         Destroy(playerRef);
-      
-     
-        respawning.Spawn();
+
+        var player = playerRef.GetComponent<Robot_Initalization>();
+        int id = player.getID();
+        respawning.Spawn(id);
     }
 
 }

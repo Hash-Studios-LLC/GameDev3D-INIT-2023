@@ -283,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8518063903081839634
 Transform:
   m_ObjectHideFlags: 0
@@ -454,6 +454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rob: {fileID: 11400000, guid: 27e62baac68be0747a48e19280ec262a, type: 2}
+  isPlayer1: 0
+  isPlayer2: 0
 --- !u!1 &1513974764957797229
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +584,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   playerRef: {fileID: 1488013951116554502}
-  Stock: 0
   respawning: {fileID: 0}
 --- !u!1 &1781589142923782267
 GameObject:
