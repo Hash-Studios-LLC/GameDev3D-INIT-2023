@@ -9,9 +9,10 @@ public class RigidBodyMovement : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private PlayerInput playerInput; // component that handles input
     [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
+    public RobotData robotData;
     [Space]
     [Header("Options")]
-    [SerializeField] private float playerSpeed; //for player's speed
+    [SerializeField] private float basePlayerSpeed; // the base speed, before the specific speed modifiers for each robot
 
 
     // Update is called once per frame
@@ -22,11 +23,11 @@ public class RigidBodyMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X)) // running mode. experimental feature for some extra movement mechanics
         {
-            movePlayer(playerSpeed * 2);
+            movePlayer(basePlayerSpeed * 2 * robotData.playerSpeed);
         }
         else
         {
-            movePlayer(playerSpeed);
+            movePlayer(basePlayerSpeed * robotData.playerSpeed);
         }
     }
 
@@ -37,6 +38,11 @@ public class RigidBodyMovement : MonoBehaviour
         //playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
         Vector3 moveVector = playerMovementInput * mSpeed;
         playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
+
+        if (moveVector != Vector3.zero)
+        {
+            playerBody.transform.forward = moveVector; // Changes rotation to match movement direction
+        }
     }
 
 }

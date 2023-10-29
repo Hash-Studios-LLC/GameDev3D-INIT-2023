@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c179c7408491e45a7afb321e38c3fa, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  playerSpeed: 0
-  punchDamage: 0
-  punchCooldown: 0
-  rocketDamage: 0
-  rocketSpeed: 0
-  rocketCooldown: 0
+  playerHealth: 70
+  playerSpeed: 1.25
+  punchDamage: 10
+  punchCooldown: 0.5
+  rocketDamage: 25
+  rocketSpeed: 1
+  rocketCooldown: 1.5

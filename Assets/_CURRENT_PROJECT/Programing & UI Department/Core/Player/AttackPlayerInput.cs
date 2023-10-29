@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class AttackPlayerInput : MonoBehaviour
 {
-    //area in which attack happens
-    private GameObject punchArea = default;
-
-    private bool playerPunching = false;
-    private bool playerShooting = false;
+  
     
-    private float timeToShoot = 0.15f;
-    private float timerForShoot = 0f;
+ 
+    //need to select where the animation controller is
+    public AnimationStateController anim;
 
-    private float timeToPunch = 0.25f;
-    private float timerForPunch = 0f;
+
 
     void Start()
     {
-        punchArea = transform.GetChild(0).gameObject;
+
+     
     }
 
 
@@ -26,29 +23,38 @@ public class AttackPlayerInput : MonoBehaviour
     void Update()
     {   
         //binds player punch to the key Q
-        if(Input.GetButton("Punch")) {
-            playerPunch();
-        }
-
-
-        if(playerPunching) {
-            timerForPunch += Time.deltaTime;
-
-            //resets the punch attack
-            if(timerForPunch >= timeToPunch)
+        //Carlos C the key Q does not work. Action binded to T
+        if(Input.GetButtonDown("Punch"))
+        {
+            if (anim != null)
             {
-                timerForPunch = 0;
-                playerPunching = false;
-                punchArea.SetActive(playerPunching);
+                //reference from AnimationStateController
+                anim.Punch();
             }
+            Debug.Log("punching");
+        
         }
+
+
+        //binds player punch to the key E
+        //Carlos C the key E does not work. Action binded to Y
+        if (Input.GetButton("Rocket") ) {
+    
+            Debug.Log("rocket");
+            if (anim != null)
+            {
+                anim.Shoot();
+            }
+            //canshoot = false;
+            // StartCoroutine(ShootCooldown()); // Woodhouse3d: not needed, tracking rocket script already handles input already for some reason.
+        }
+        // Woodhouse3d: just a getButton for shoot? no wonder it was just exploding everwhere.
+
+ 
 
         
     }
 
-    private void playerPunch()
-    {
-        playerPunching = true;
-        punchArea.SetActive(playerPunching);
-    }
+
+
 }
