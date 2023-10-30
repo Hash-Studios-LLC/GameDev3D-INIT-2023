@@ -864,6 +864,17 @@ Transform:
   m_Father: {fileID: 201961170765248501}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522154412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3823199851227321327, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+  m_PrefabInstance: {fileID: 599884727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &599884727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1378,7 +1389,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255204083}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1573,7 +1584,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873349626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1747,6 +1758,7 @@ MonoBehaviour:
   Player2: {fileID: 618747210247583930, guid: 734678a91767989449bc73c72b4e491e, type: 3}
   Player2Stock: 3
   Player1Stock: 3
+  target: {fileID: 522154412}
 --- !u!4 &2091310955
 Transform:
   m_ObjectHideFlags: 0
