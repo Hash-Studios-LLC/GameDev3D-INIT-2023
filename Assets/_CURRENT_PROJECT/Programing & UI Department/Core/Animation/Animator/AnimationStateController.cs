@@ -37,7 +37,6 @@ public class AnimationStateController : MonoBehaviour
         // Assigns the animator's velocity var to VelocityHash
         VelocityHash = Animator.StringToHash("Velocity");
 
-
         canPunch = true;
         canShot = true;
 
@@ -78,6 +77,7 @@ public class AnimationStateController : MonoBehaviour
             // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
+
         }
     }
     public  void Shoot() { 
