@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class Respawning : MonoBehaviour
 {
    
@@ -15,22 +15,24 @@ public class Respawning : MonoBehaviour
     private int Player2Stock=3;
     [SerializeField]
     private int Player1Stock=3;
-   
+    public CinemachineTargetGroup target;
     //spawns the player based on the id and location
-    public void Spawn(int id)
+    public void Spawn(int id,Transform player)
     {
         if (id==1 && Player1Stock >0)
         {
-            //SpawnLocation();
+            target.RemoveMember(player);
             GameObject newRobot = Instantiate(Player1, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
-
+            target.AddMember(newRobot.transform, 1, 2);
+        
             Debug.Log("player 1 spawnned");
             Player1Stock--;
         }
         if (id==2 && Player2Stock > 0)
         {
-           // SpawnLocation();
+            target.RemoveMember(player);
             GameObject newRobot = Instantiate(Player2, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
+            target.AddMember(newRobot.transform, 1, 2);
             Debug.Log("player 2 spawnned");
             Player2Stock--;
         }

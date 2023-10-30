@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
 
         var player = playerRef.GetComponent<Robot_Initalization>();
         int id = player.getID();
-        respawning.Spawn(id);
+        respawning.Spawn(id,playerRef.transform);
     }
 
 }
