@@ -9,13 +9,24 @@ public class Health : MonoBehaviour
 
     private RobotData robotData;
     public GameObject playerRef;
-
+   
+    public Respawning respawning;
+    
+    
     void Start()
     {
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
+       respawning= GameObject.Find("Spawn Manager").GetComponent<Respawning>();
+        
     }
-
+    private void Update()
+    {
+        if (currentHP <= 0)
+        {
+            playerDie();
+        }
+    }
     public void bulletHit(int damage)
     {
         if (currentHP <= 0) { return; }
@@ -42,6 +53,12 @@ public class Health : MonoBehaviour
     {
         Debug.Log("ded");
         // do something else like despawning the player
+         currentHP++;
+        Destroy(playerRef);
+
+        var player = playerRef.GetComponent<Robot_Initalization>();
+        int id = player.getID();
+        respawning.Spawn(id,playerRef.transform);
     }
 
 }
