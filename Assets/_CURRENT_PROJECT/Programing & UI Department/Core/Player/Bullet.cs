@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Dependencies")]
-
+    Rigidbody rb;
 
     [Header("Options")]
     [SerializeField] private float lifespan = 2f; //length of time untill bullet despawns
@@ -14,7 +14,9 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         StartCoroutine(BulletLifespan());
+        transform.forward = rb.velocity;
     }
 
 
