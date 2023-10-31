@@ -41,7 +41,7 @@ public class Robot_Initalization : MonoBehaviour
         return id;
     }
 
-    private void setRobotModel(int rob)
+    public void setRobotModel(int rob)
     {
         switch (rob)
         {

@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         currentHP = robotData.playerHealth;
         
        //setting the ui health bar to match the player data
-       healthBar.setMaxHealth(currentHP);
+      // healthBar.setMaxHealth(currentHP);
        respawning= GameObject.Find("Spawn Manager").GetComponent<Respawning>();
         
     }
