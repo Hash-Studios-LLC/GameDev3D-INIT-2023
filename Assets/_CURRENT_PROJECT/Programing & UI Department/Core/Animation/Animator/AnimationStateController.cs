@@ -40,8 +40,7 @@ public class AnimationStateController : MonoBehaviour
         punchCollider.SetActive(false);
         // Assigns the animator's velocity var to VelocityHash
         VelocityHash = Animator.StringToHash("Velocity");
-        punchCD = robotData.punchCooldown;
-        rocketCD = robotData.rocketCooldown;
+
         canPunch = true;
         canShot = true;
         Debug.Log("punch cd: "+punchCD);// check if it matches
@@ -83,6 +82,8 @@ public class AnimationStateController : MonoBehaviour
             // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
             
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
+
         }
     }
     public  void Shoot() {

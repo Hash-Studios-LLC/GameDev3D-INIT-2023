@@ -11,12 +11,15 @@ public class Health : MonoBehaviour
     public GameObject playerRef;
    
     public Respawning respawning;
-    
-    
+    public HPbar healthBar;
+        
     void Start()
     {
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
+        
+       //setting the ui health bar to match the player data
+       healthBar.setMaxHealth(currentHP);
        respawning= GameObject.Find("Spawn Manager").GetComponent<Respawning>();
         
     }
@@ -26,6 +29,7 @@ public class Health : MonoBehaviour
         {
             playerDie();
         }
+
     }
     public void bulletHit(int damage)
     {
@@ -42,6 +46,10 @@ public class Health : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHP -= damage;
+
+        //updating the health bar in the UI
+        healthBar.setHealth(currentHP);
+
         Debug.Log("took " + damage);
         if (currentHP <= 0)
         {
