@@ -29,7 +29,7 @@ public class TrackingRocketScript : MonoBehaviour
       //  shootcooldown = robotData.rocketCooldown;
       
       //sam fara: setting highest val of ui cooldown indicator
-      rocketCD.setMaxCD(shootcooldown);
+      //rocketCD.setMaxCD(shootcooldown);
        
     }
 

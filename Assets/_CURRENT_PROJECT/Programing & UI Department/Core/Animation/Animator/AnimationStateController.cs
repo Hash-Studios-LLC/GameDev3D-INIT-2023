@@ -147,7 +147,13 @@ public class AnimationStateController : MonoBehaviour
        
       
     }
-   
-
+   public float getPunchCDTime()
+    {
+        return punchCD + PunchCD_AnimTime;
+    }
+    public float getShotCDTime()
+    {
+        return rocketCD+rocketCD_AnimTime;
+    }
 
 }
