@@ -40,7 +40,8 @@ public class AnimationStateController : MonoBehaviour
         punchCollider.SetActive(false);
         // Assigns the animator's velocity var to VelocityHash
         VelocityHash = Animator.StringToHash("Velocity");
-
+        punchCD = robotData.punchCooldown;
+        rocketCD = robotData.rocketCooldown;
         canPunch = true;
         canShot = true;
         Debug.Log("punch cd: "+punchCD);// check if it matches
