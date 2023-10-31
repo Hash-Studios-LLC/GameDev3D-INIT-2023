@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public TrackingRocketScript shooter;
-    public Puncher puncher;
+   
+
+    public AnimationStateController anim;
     public bool secondPlayer = false;
     public Vector3 playerMovementInput;
     // Update is called once per frame
@@ -15,22 +16,22 @@ public class PlayerInput : MonoBehaviour
             playerMovementInput = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
             if (Input.GetButton("Rocket"))
             {
-                shooter.shootInput();
+                anim.Shoot();
             }
             if (Input.GetButton("Punch"))
             {
-                puncher.punchInput();
+                anim.Punch();
             }
         }
         else{
             playerMovementInput = Vector3.Normalize(new Vector3(Input.GetAxis("P2Horizontal"), 0f, Input.GetAxis("P2Vertical")));
             if (Input.GetButton("P2Rocket"))
             {
-                shooter.shootInput();
+                anim.Shoot();
             }
             if (Input.GetButton("P2Punch"))
             {
-                puncher.punchInput();
+                anim.Punch();
             }
         }
 

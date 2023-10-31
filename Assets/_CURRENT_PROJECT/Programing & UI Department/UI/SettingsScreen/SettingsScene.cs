@@ -54,39 +54,31 @@ public class SettingsScene : MonoBehaviour
         #region ChangeResolution
         public void changeResolutionUp() 
         {
-            string currentResText;
-            string currentRes = Screen.currentResolution.width.ToString() + "x" + Screen.currentResolution.height.ToString();
+            //string currentResText;
+            string currentRes = Screen.width.ToString() + "x" + Screen.height.ToString();
             int index = resolutionListString.IndexOf(currentRes); //getting the index of the current resolution
-            foreach (Resolution res in resolutionList)
-                {
-                    resolutionListString.Add(res.width.ToString() +"x" + res.height.ToString());
-                }
             
-            if (index == resolutionListString.Count()-1 ) //if the list is in the first position restart the list
+            if (index == resolutionListString.Count-1 ) //if the list is in the first position restart the list
                 {
                     index = 0;
                 }
-                //if the index of the list is in a valid position go back on the list
+                //if the index of the list is in a valid position go up on the list
             else
                 {
                     index +=1;
                 }
             resolutionToSet = getResolutionWHhz(resolutionListString[index]); // gets item from the resolution list created earlier and returns 3 ints, width, height, refresh rate
             Screen.SetResolution(resolutionToSet[0], resolutionToSet[1], true); //setting the new resolution, the paramater true is a fullscreen boolean
-            currentResText = resolutionListString[index]; //this will be used to debug
-            Debug.Log(currentResText);
+            //currentResText = resolutionListString[index]; //this will be used to debug
+            Debug.Log(resolutionToSet[0]);
+            Debug.Log(resolutionToSet[1]);
         }
 
         public void changeResolutionDown() 
             {
                 string currentResText;
-                string currentRes = Screen.currentResolution.width.ToString() + "x" + Screen.currentResolution.height.ToString();
+                string currentRes = Screen.width.ToString() + "x" + Screen.height.ToString();
                 int index = resolutionListString.IndexOf(currentRes); //getting the index of the current resolution
-                foreach (Resolution res in resolutionList)
-                {
-                    resolutionListString.Add(res.width.ToString() +"x" + res.height.ToString());
-                }
-            
                 if (index == 0 ) //if the list is in the first position restart the list
                 {
                     index = resolutionListString.Count - 1;
