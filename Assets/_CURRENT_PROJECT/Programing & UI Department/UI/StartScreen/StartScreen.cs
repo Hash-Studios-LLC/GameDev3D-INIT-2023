@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
-    //TO-DO: Make the Start Screen functionalities:
     //For the Start game button
 
     public void StartGame()
     {
         Debug.Log("Loading to fighting menu...");
 
-        //SceneManager.LoadScene("Fighter Menu");
+        SceneManager.LoadScene("Fighter Menu");
     }
   
     //For the Settings button
@@ -20,14 +19,14 @@ public class StartScreen : MonoBehaviour
     {
         Debug.Log("Loading to setting screen...");
 
-        //SceneManager.LoadScene("SettingsScreen");
+        SceneManager.LoadScene("SettingsScreen");
     }
 
     //For the credits button
     public void GoToCredits()
     {
         Debug.Log("Wow they wanna see the credits...");
-        //SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("CreditsScene");
     }
 
     //For the instructions screen
