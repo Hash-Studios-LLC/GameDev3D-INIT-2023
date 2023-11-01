@@ -10,12 +10,13 @@ public class Robot_Initalization : MonoBehaviour
     private bool isPlayer1;
     [SerializeField]
     private bool isPlayer2;
+    [SerializeField]// only to test/ display accuracy
+    private int robotNum;
 
-
-
+  
     private int id;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (isPlayer1)
             id = 1;
@@ -28,19 +29,19 @@ public class Robot_Initalization : MonoBehaviour
     {
         
     }
-
+    /*
     public void setRobot(RobotData rb)
     {
         rob = rb;
         // initializasion stuff
         setRobotModel(0);
-    }
+    }**/
     public int getID()
     {
         Debug.Log("id= "+id);
         return id;
     }
-
+   /*
     public void setRobotModel(int rob)
     {
         switch (rob)
@@ -55,6 +56,13 @@ public class Robot_Initalization : MonoBehaviour
             case 3:
                 break;
         }
+    } **/
+    public void setRobotNum(int num)
+    {
+        robotNum = num;
     }
-
+    public int getRobotNum()
+    {
+        return robotNum;
+    }
 }

@@ -19,13 +19,19 @@ public class Respawning : MonoBehaviour
     public CinemachineTargetGroup target;
     private int selection;
     //spawns the player based on the id and location
-
-    private void Awake()
+    [SerializeField] private int p1Number;// only to show it works
+    [SerializeField]private int p2Number;// 
+    private void Start()
     {
+        // spawns player for the first time no need to add them to the scene
         GameObject newRobot = Instantiate(Player1, FirstSpawn().position + FirstSpawn().forward, FirstSpawn().rotation);
         target.AddMember(newRobot.transform, 1, 2);//adds new player to camera
+        
         GameObject newRobot2 = Instantiate(Player2, FirstSpawn().position + FirstSpawn().forward, FirstSpawn().rotation);
         target.AddMember(newRobot2.transform, 1, 2);//adds new player to camera
+        // selects model
+        sendSelection(newRobot2);
+       sendSelection(newRobot);
     }
     public void Spawn(int id,Transform player)
     {
@@ -34,20 +40,23 @@ public class Respawning : MonoBehaviour
         {
             target.RemoveMember(player);//removes old player from camera
             GameObject newRobot = Instantiate(Player1, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
-            target.AddMember(newRobot.transform, 1, 2);//adds new player to camera
-           // newRobot.GetComponent<Robot_Initalization>().setRobotModel(0);
+            target.AddMember(newRobot.transform, 1, 2);//adds new player to camera                                         
+            sendSelection(newRobot);
             Debug.Log("player 1 spawnned");
             Player1Stock--;
+
         }
         if (id==2 && Player2Stock > 0)
         {
             target.RemoveMember(player);//removes old player from camera
             GameObject newRobot = Instantiate(Player2, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
             target.AddMember(newRobot.transform, 1, 2);//adds new player to camera
+              sendSelection(newRobot);
             Debug.Log("player 2 spawnned");
             Player2Stock--;
+      
         }
-
+        
     }
    // gets a random value and searches for a location
     public Transform SpawnLocation()
@@ -71,7 +80,7 @@ public class Respawning : MonoBehaviour
             return spawnPlace.transform;
         }
     }
-    public Transform FirstSpawn()
+    public Transform FirstSpawn()//players may respawn on the same place needs to be fixed
     {
         int randomIndex = Random.Range(0, 2);
         Debug.Log("random value: " + randomIndex);
@@ -94,9 +103,26 @@ public class Respawning : MonoBehaviour
             return spawnPlace.transform;
         }
     }
-    public void intSelection(int number)
+    //character selection ui  use this to set character
+    public void intSelection(int p1Number, int p2Number)
     {
-        selection = number;
+        this.p1Number = p1Number;
+        this.p2Number = p2Number;
+    }
+    //
+    public void sendSelection(GameObject robot)
+    {
+      
+        if (robot.GetComponent<Robot_Initalization>().getID() == 1)
+        {
+            robot.GetComponent<Robot_Initalization>().setRobotNum(p1Number);
+            
+        }
+        if (robot.GetComponent<Robot_Initalization>().getID() == 2)
+        {
+            robot.GetComponent<Robot_Initalization>().setRobotNum(p2Number);
+        
+        }
     }
 }
     
