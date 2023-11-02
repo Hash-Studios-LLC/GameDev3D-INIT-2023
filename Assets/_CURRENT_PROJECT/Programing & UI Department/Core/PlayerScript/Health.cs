@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
         currentHP -= damage;
 
         //updating the health bar in the UI
-        healthBar.setHealth(currentHP);
+    //check    healthBar.setHealth(currentHP);
 
         Debug.Log("took " + damage);
         if (currentHP <= 0)

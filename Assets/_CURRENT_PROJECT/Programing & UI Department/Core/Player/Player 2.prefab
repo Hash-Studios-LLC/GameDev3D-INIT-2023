@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3036591927526254771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.43, y: 1.2, z: 1.62}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -457,7 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286907c446715bb4a8b5a9210bead275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 9212284133482705444}
+  robotGroup: {fileID: 6949709128514641411}
+  anim: {fileID: 0}
   secondPlayer: 1
   playerMovementInput: {x: 0, y: 0, z: 0}
 --- !u!54 &3167497104629865085
@@ -1426,6 +1427,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3036591927526254771}
     - target: {fileID: 2218254965175670562, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: track
+      value: 
+      objectReference: {fileID: 1667906227634864962}
+    - target: {fileID: 2218254965175670562, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 3167497104629865085}
@@ -1437,10 +1442,22 @@ PrefabInstance:
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 3036591927526254771}
+    - target: {fileID: 2917378396536620101, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: playerref
       value: 
       objectReference: {fileID: 3036591927526254771}
+    - target: {fileID: 4542826175225390567, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 1192950744860143713}
+    - target: {fileID: 4542826175225390567, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1192950744860143713}
     - target: {fileID: 4713550638554880231, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: m_Name
       value: Robot
@@ -1463,8 +1480,24 @@ PrefabInstance:
       objectReference: {fileID: 3167497104629865085}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+--- !u!114 &1667906227634864962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+  m_PrefabInstance: {fileID: 2385701589001602788}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0ef96505cf5434ba9a7715667b7b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3084219848334627555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 853132413645575175, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+  m_PrefabInstance: {fileID: 2385701589001602788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6949709128514641411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4713550638554880231, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
   m_PrefabInstance: {fileID: 2385701589001602788}
   m_PrefabAsset: {fileID: 0}

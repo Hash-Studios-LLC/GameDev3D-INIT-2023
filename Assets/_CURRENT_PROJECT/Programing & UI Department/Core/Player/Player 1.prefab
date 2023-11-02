@@ -900,7 +900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554614046052704080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.84, y: 1.2, z: -0.444}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1001,7 +1001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286907c446715bb4a8b5a9210bead275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 8925489315628387096}
+  robotGroup: {fileID: 2348620882285287735}
+  anim: {fileID: 0}
   secondPlayer: 0
   playerMovementInput: {x: 0, y: 0, z: 0}
 --- !u!54 &8604419241045011870
@@ -1437,10 +1438,22 @@ PrefabInstance:
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 2917378396536620101, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: playerref
       value: 
       objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 4542826175225390567, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 5481454701383878530}
+    - target: {fileID: 4542826175225390567, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 5481454701383878530}
     - target: {fileID: 4713550638554880231, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: m_Name
       value: Robot
@@ -1463,6 +1476,11 @@ PrefabInstance:
       objectReference: {fileID: 8604419241045011870}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+--- !u!1 &2348620882285287735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4713550638554880231, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+  m_PrefabInstance: {fileID: 7061115808730890704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7649627859895162327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 853132413645575175, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}

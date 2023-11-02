@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelectRobot : MonoBehaviour
 {
     public Robot_Initalization robot;
+    public PlayerInput playerInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +17,6 @@ private void selectRobot(int num)
     {
         Transform childTransform = this.gameObject.transform.GetChild(num);
         childTransform.gameObject.SetActive(true);
+      playerInput.setAnimator( childTransform.GetComponent<AnimationStateController>());
     }
 }
