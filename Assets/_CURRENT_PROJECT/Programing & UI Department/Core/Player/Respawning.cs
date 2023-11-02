@@ -4,9 +4,9 @@ using UnityEngine;
 using Cinemachine;
 public class Respawning : MonoBehaviour
 {
-    
+    [Header(" Spawns management")]
     public GameObject[] SpawnList; 
-    public GameObject spawnPlace;
+    
     [SerializeField]
     private GameObject Player1;
     [SerializeField]

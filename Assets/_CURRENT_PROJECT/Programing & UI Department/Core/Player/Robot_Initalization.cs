@@ -25,38 +25,14 @@ public class Robot_Initalization : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    /*
-    public void setRobot(RobotData rb)
-    {
-        rob = rb;
-        // initializasion stuff
-        setRobotModel(0);
-    }**/
+   
+  
     public int getID()
     {
         Debug.Log("id= "+id);
         return id;
     }
-   /*
-    public void setRobotModel(int rob)
-    {
-        switch (rob)
-        {
-            case 0:
-                // enable model 0, disable the rest
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
-    } **/
+
     public void setRobotNum(int num)
     {
         robotNum = num;
