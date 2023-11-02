@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
         currentHP = robotData.playerHealth;
         
        //setting the ui health bar to match the player data
-       healthBar.setMaxHealth(currentHP);
+      // healthBar.setMaxHealth(currentHP);
        respawning= GameObject.Find("Spawn Manager").GetComponent<Respawning>();
         
     }
@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
         currentHP -= damage;
 
         //updating the health bar in the UI
-        healthBar.setHealth(currentHP);
+    //check    healthBar.setHealth(currentHP);
 
         Debug.Log("took " + damage);
         if (currentHP <= 0)
@@ -66,6 +66,7 @@ public class Health : MonoBehaviour
 
         var player = playerRef.GetComponent<Robot_Initalization>();
         int id = player.getID();
+      
         respawning.Spawn(id,playerRef.transform);
     }
 
