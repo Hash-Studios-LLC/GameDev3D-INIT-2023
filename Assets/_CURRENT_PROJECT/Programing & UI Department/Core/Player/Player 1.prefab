@@ -1066,7 +1066,6 @@ MonoBehaviour:
   isPlayer1: 1
   isPlayer2: 0
   robotNum: 0
-  id: 0
 --- !u!1 &8582977911275808059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ba260dbc503814bb75a34ad2164715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
+  currentHP: 70
   playerRef: {fileID: 8554614046052704080}
   respawning: {fileID: 0}
   healthBar: {fileID: 0}
@@ -1362,6 +1361,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1452508829541225028}
     m_Modifications:
+    - target: {fileID: 583191768715842465, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 8554614046052704080}
     - target: {fileID: 853132413645575175, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: m_RootOrder
       value: 1

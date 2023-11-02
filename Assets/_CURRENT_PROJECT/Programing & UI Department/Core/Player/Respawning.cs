@@ -31,11 +31,11 @@ public class Respawning : MonoBehaviour
         target.AddMember(newRobot2.transform, 1, 2);//adds new player to camera
         // selects model
         sendSelection(newRobot2);
-       sendSelection(newRobot);
+        sendSelection(newRobot);
     }
     public void Spawn(int id,Transform player)
     {
-        //checks player id and life and it spawns a robot
+        //checks player id and life and it spawns a robot   
         if (id==1 && Player1Stock >0)
         {
             target.RemoveMember(player);//removes old player from camera
