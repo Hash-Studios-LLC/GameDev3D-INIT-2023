@@ -5,7 +5,7 @@ using Cinemachine;
 public class Respawning : MonoBehaviour
 {
     private bool loc1Taken=false;
-        private bool loc2Taken=false;
+      
     public GameObject spawnPlace;
     [SerializeField]
     private GameObject Player1;
@@ -21,13 +21,15 @@ public class Respawning : MonoBehaviour
     //spawns the player based on the id and location
     [SerializeField] private int p1Number;// only to show it works
     [SerializeField]private int p2Number;// 
-    private void Start()
+     void Start()
     {
         // spawns player for the first time no need to add them to the scene
-        GameObject newRobot = Instantiate(Player1, FirstSpawn().position + FirstSpawn().forward, FirstSpawn().rotation);
+        GameObject newRobot = Instantiate(Player1);
+        FirstSpawn(newRobot);
         target.AddMember(newRobot.transform, 1, 2);//adds new player to camera
         
-        GameObject newRobot2 = Instantiate(Player2, FirstSpawn().position + FirstSpawn().forward, FirstSpawn().rotation);
+        GameObject newRobot2 = Instantiate(Player2);
+        FirstSpawn(newRobot2);
         target.AddMember(newRobot2.transform, 1, 2);//adds new player to camera
         // selects model
         sendSelection(newRobot2);
@@ -80,28 +82,24 @@ public class Respawning : MonoBehaviour
             return spawnPlace.transform;
         }
     }
-    public Transform FirstSpawn()//players may respawn on the same place needs to be fixed
+    public void FirstSpawn(GameObject x)//using a designated place for now
     {
-        int randomIndex = Random.Range(0, 2);
-        Debug.Log("random value: " + randomIndex);
-      
-        if (randomIndex == 0&& !loc1Taken)
+   
+        Transform location1Transform = GameObject.Find("Location 1").transform;
+        Transform location2Transform = GameObject.Find("Location 2").transform;
+        if (!loc1Taken)
         {
-            Transform location1Transform = GameObject.Find("Location 1").transform;//name should be the same in Scene
+            x.transform.position = location1Transform.position;//name should be the same in Scene
+            x.transform.rotation = location1Transform.rotation;
             loc1Taken = true;
-            return location1Transform;
+         
         }
-        else if (randomIndex == 1&&!loc2Taken)
+        else if (loc1Taken)
         {
-
-            Transform location2Transform = GameObject.Find("Location 2").transform;//name should be the same in Scene
-            loc2Taken = true;
-            return location2Transform;
+            x.transform.position = location2Transform.position;//name should be the same in Scene
+            x.transform.rotation = location2Transform.rotation;
         }
-        else
-        {
-            return spawnPlace.transform;
-        }
+     
     }
     //character selection ui  use this to set character
     public void intSelection(int p1Number, int p2Number)

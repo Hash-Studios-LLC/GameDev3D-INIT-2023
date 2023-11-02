@@ -1159,7 +1159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255204083}
   m_LocalRotation: {x: 0, y: 0.71786195, z: 0, w: -0.69618547}
-  m_LocalPosition: {x: 12.542, y: 2.48, z: -11.021}
+  m_LocalPosition: {x: 12.542, y: 1.261, z: -11.021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1354,7 +1354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873349626}
   m_LocalRotation: {x: -0, y: 0.6486758, z: -0, w: 0.7610649}
-  m_LocalPosition: {x: -12.93, y: 2.39, z: 11.69}
+  m_LocalPosition: {x: -12.93, y: 3.71, z: 11.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1557,7 +1557,7 @@ MonoBehaviour:
   Player2Stock: 3
   Player1Stock: 3
   target: {fileID: 522154412}
-  p1Number: 2
+  p1Number: 0
   p2Number: 1
 --- !u!4 &2091310955
 Transform:
