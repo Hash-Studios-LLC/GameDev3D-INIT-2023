@@ -1084,7 +1084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8959643465951362945
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,6 +1361,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1452508829541225028}
     m_Modifications:
+    - target: {fileID: 227757747396488888, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerref
+      value: 
+      objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 370336530112901360, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerref
+      value: 
+      objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 391920997465676107, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 8604419241045011870}
     - target: {fileID: 583191768715842465, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: playerRef
       value: 
@@ -1409,6 +1421,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1796249938616290741, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 2218254965175670562, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 8604419241045011870}
+    - target: {fileID: 2772050346816077235, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 2782275064005155146, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerref
+      value: 
+      objectReference: {fileID: 8554614046052704080}
     - target: {fileID: 4713550638554880231, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: m_Name
       value: Robot
@@ -1417,6 +1449,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5252547983766213421, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerref
+      value: 
+      objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 7297081382402934172, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 8604419241045011870}
+    - target: {fileID: 8946735953036252003, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 8604419241045011870}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
 --- !u!4 &7649627859895162327 stripped
