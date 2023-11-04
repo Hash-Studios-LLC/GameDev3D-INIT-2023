@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
-{
+{   
+
     public static GameManager Instance { get; private set; }
     private void Awake() // singleton stuff. it makes sure this is the only instance of the gamemanager.
     {
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
     }
     // for info on how to use the gamemanager and what it is for,
     // read this: https://gamedevbeginner.com/singletons-in-unity-the-right-way/
@@ -29,7 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

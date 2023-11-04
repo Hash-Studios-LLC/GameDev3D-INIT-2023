@@ -7,41 +7,54 @@ public class RigidBodyMovement : MonoBehaviour
     private Vector3 playerMovementInput;
 
     [Header("Dependencies")]
-    [SerializeField] private PlayerInput playerInput; // component that handles input
-    [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
+    [SerializeField] private PlayerInput playerInput; 
+    [SerializeField] private Rigidbody playerBody; 
     public RobotData robotData;
+
     [Space]
     [Header("Options")]
-    [SerializeField] private float basePlayerSpeed; // the base speed, before the specific speed modifiers for each robot
+    [SerializeField] private float basePlayerSpeed;
 
+    [Space]
+    [Header("Player Settings")]
+    [SerializeField] private int playerNumber; // Set this in the inspector
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        //records the input for the main movement keys
-        playerMovementInput = playerInput.playerMovementInput;
-
-        if (Input.GetKey(KeyCode.X)) // running mode. experimental feature for some extra movement mechanics
-        {
-            movePlayer(basePlayerSpeed * 2 * robotData.playerSpeed);
-        }
-        else
-        {
-            movePlayer(basePlayerSpeed * robotData.playerSpeed);
-        }
+        RespawnPlayer(); 
     }
 
+    void Update()
+    {
+        playerMovementInput = playerInput.playerMovementInput;
+
+        float speedMultiplier = Input.GetKey(KeyCode.X) ? 2f : 1f;
+        movePlayer(basePlayerSpeed * speedMultiplier * robotData.playerSpeed);
+    }
     //for moving the player
     private void movePlayer(float mSpeed)
     {
-        //Vector3 moveVector = transform.TransformDirection(playerMovementInput) * playerSpeed;
-        //playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
         Vector3 moveVector = playerMovementInput * mSpeed;
         playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
 
         if (moveVector != Vector3.zero)
         {
-            playerBody.transform.forward = moveVector; // Changes rotation to match movement direction
+            playerBody.transform.forward = moveVector;
+        }
+    }
+    //spawns the player at the certain points
+    public void RespawnPlayer()
+    {
+        Transform spawnPoint = SpawnManager.Instance.GetPlayerSpawnPoint(playerNumber);
+        if(spawnPoint != null)
+        {
+            Debug.Log("Spawn Point Found: " + spawnPoint.position);
+            playerBody.position = spawnPoint.position;
+            playerBody.rotation = spawnPoint.rotation;
+        }
+        else
+        {
+            Debug.Log("Spawn Point Not Found");
         }
     }
 
