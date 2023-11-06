@@ -12,7 +12,7 @@ public class Robot_Initalization : MonoBehaviour
     private bool isPlayer2;
     [SerializeField]// only to test/ display accuracy
     private int robotNum;
-
+    
   
     private int id;
     // Start is called before the first frame update

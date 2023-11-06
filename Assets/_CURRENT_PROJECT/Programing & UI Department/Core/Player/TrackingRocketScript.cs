@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrackingRocketScript : MonoBehaviour
 {
+    
+    public soundList SL;
     //reference to player
     //TODO: edit with GameManager later maybe?
     //public AnimationStateController anim;
@@ -26,11 +28,11 @@ public class TrackingRocketScript : MonoBehaviour
     private void Start()
     {
         robotData = playerref.GetComponent<Robot_Initalization>().rob;
-      //  shootcooldown = robotData.rocketCooldown;
-      
-      //sam fara: setting highest val of ui cooldown indicator
-      //rocketCD.setMaxCD(shootcooldown);
-       
+        //  shootcooldown = robotData.rocketCooldown;
+
+        //sam fara: setting highest val of ui cooldown indicator
+        //rocketCD.setMaxCD(shootcooldown);
+        
     }
 
     public void shootInput()
@@ -73,7 +75,9 @@ public class TrackingRocketScript : MonoBehaviour
        InstantiateProjectile();
     }
     void InstantiateProjectile(){
-
+        if (SL != null)
+            SL.playShoot();
+       
        var projectileObj = Instantiate(projectileReference, bulletSpawnPoint.transform.position, Quaternion.identity) as GameObject;
 
 

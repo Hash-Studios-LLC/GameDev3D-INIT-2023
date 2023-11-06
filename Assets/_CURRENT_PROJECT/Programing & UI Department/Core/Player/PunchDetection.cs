@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PunchDetection : MonoBehaviour
 {
-   // don't apply the script to player or model,it goes with punchCollider 
-  
-   public RobotData robot;
+    // don't apply the script to player or model,it goes with punchCollider 
    
+   public RobotData robot;
+    public soundList sL;
     void Start()
     {
+        
         robot = GetComponentInParent<Robot_Initalization>().rob;
+        
     }
 
     // Update is called once per frame
@@ -23,6 +25,10 @@ public class PunchDetection : MonoBehaviour
     {
         if (other.GetComponent<Health>() != null)
         {
+            if (sL != null)
+            {
+                sL.playPunch();
+            }
             var health = other.GetComponent<Health>();//gets component
             health.punchHit(robot.punchDamage);//sends damage
             Debug.Log("hit confirmed");
