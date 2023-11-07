@@ -29,6 +29,9 @@ public class AnimationStateController : MonoBehaviour
    [SerializeField] private float rocketCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
     [SerializeField] private float PunchCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
 
+    public PunchCD PCDUI;
+    public RocketCD RCDUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +50,22 @@ public class AnimationStateController : MonoBehaviour
         canShot = true;
         Debug.Log("punch cd: "+punchCD);// check if it matches
         Debug.Log("rocket cd: "+rocketCD);// check if it matches
+
+        int id = GetComponentInParent<Robot_Initalization>().getID();
+        if (id == 1)
+        {
+            PCDUI = GameObject.Find("PunchCoolDownp1").GetComponent<PunchCD>();
+            PCDUI.setMaxCoolDown(punchCD);
+            RCDUI = GameObject.Find("RocketCoolDownp1").GetComponent<RocketCD>();
+            RCDUI.setMaxCD(rocketCD);
+        }
+        else
+        {
+            PCDUI = GameObject.Find("PunchCoolDownp2").GetComponent<PunchCD>();
+            PCDUI.setMaxCoolDown(punchCD);
+            RCDUI = GameObject.Find("RocketCoolDownp2").GetComponent<RocketCD>();
+            RCDUI.setMaxCD(rocketCD);
+        }
     }
 
     // Update is called once per frame
@@ -68,6 +87,8 @@ public class AnimationStateController : MonoBehaviour
             aVelocity = 0.0f;
         }
 
+        
+
     
         // Updates the animators velocity var with the this script's local velocity var
         animator.SetFloat(VelocityHash, aVelocity);
@@ -83,10 +104,14 @@ public class AnimationStateController : MonoBehaviour
             SendCustomEvenDelayedSeconds(ActivatePunchCollider, PunchDelay);
             // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
-            
+
+            PCDUI.resetCoolDown();
+
+
             Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
 
         }
+
     }
     public  void Shoot() {
        
@@ -97,8 +122,11 @@ public class AnimationStateController : MonoBehaviour
         
             SendCustomEvenDelayedSeconds(track.ShootProjectile,shootDelay);// delays the bullet spawn
             StartCoroutine(ShotCd());
-           
-           
+
+            RCDUI.resetCoolDown();
+
+
+
 
         }
     }
@@ -136,7 +164,10 @@ public class AnimationStateController : MonoBehaviour
         canPunch = false;
         yield return new WaitForSeconds(punchCD+PunchCD_AnimTime);
         canPunch = true;
-       // Debug.Log("animation lasted: " + animator.GetCurrentAnimatorStateInfo(1).length);
+
+        PCDUI.setCurrentCDVal(punchCD);
+
+        // Debug.Log("animation lasted: " + animator.GetCurrentAnimatorStateInfo(1).length);
     }
     //makes shot true after x amount of time 
     IEnumerator ShotCd()
@@ -146,8 +177,11 @@ public class AnimationStateController : MonoBehaviour
         canShot = false;
         yield return new WaitForSeconds(rocketCD+rocketCD_AnimTime);
         canShot = true;
-       
-      
+
+        RCDUI.setCurrentCDVal(rocketCD);
+
+
+
     }
    public float getPunchCDTime()
     {
