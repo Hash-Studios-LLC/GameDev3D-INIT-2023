@@ -29,6 +29,7 @@ public class AnimationStateController : MonoBehaviour
    [SerializeField] private float rocketCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
     [SerializeField] private float PunchCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
 
+
     // Start is called before the first frame update
     void Start()
     {
