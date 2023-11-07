@@ -17,6 +17,9 @@ public class TrackingRocketScript : MonoBehaviour
     private Vector3 destination;
     //public float shootcooldown = 0.5f;
 
+    //sam fara: added RocketCD object for ui control
+    public RocketCD rocketCD;
+
     private bool canshoot = true;
 
 
@@ -24,6 +27,9 @@ public class TrackingRocketScript : MonoBehaviour
     {
         robotData = playerref.GetComponent<Robot_Initalization>().rob;
       //  shootcooldown = robotData.rocketCooldown;
+      
+      //sam fara: setting highest val of ui cooldown indicator
+      //rocketCD.setMaxCD(shootcooldown);
        
     }
 
@@ -31,6 +37,8 @@ public class TrackingRocketScript : MonoBehaviour
     {
         /* Woodhouse3d: added offset, you were spawing rigidbodies inside other rigidbodies.
          * use an empty object instead for more control over the spawnpoint.
+         * 
+         * sam fara: added line to set ui cooldwn indicator to 0 (line 49)
          */
 
         if(canshoot){
@@ -38,7 +46,10 @@ public class TrackingRocketScript : MonoBehaviour
          //   anim.Shoot();
          //  StartCoroutine(Shoot());
             canshoot = false;
-            
+
+            rocketCD.resetCoolDown();
+
+
         }
     }
     /*BUG: MASSIVE BUG WITH THE SHOOTPROJECTILE OR THE INSTANTIATE PROJECTILE FUNCTIONS
@@ -52,6 +63,8 @@ public class TrackingRocketScript : MonoBehaviour
         ShootProjectile();
         yield return new WaitForSeconds(shootcooldown);
         canshoot = true;
+
+        rocketCD.setCurrentCDVal(shootcooldown);
     }
    **/
 

@@ -83,6 +83,8 @@ public class AnimationStateController : MonoBehaviour
             // the cd starts once the animation begins needs to be adjsuted
             StartCoroutine(PunchCd());
             
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(1).length);// i was trying to get the animation time idk if it is accurate
+
         }
     }
     public  void Shoot() {
@@ -146,7 +148,13 @@ public class AnimationStateController : MonoBehaviour
        
       
     }
-   
-
+   public float getPunchCDTime()
+    {
+        return punchCD + PunchCD_AnimTime;
+    }
+    public float getShotCDTime()
+    {
+        return rocketCD+rocketCD_AnimTime;
+    }
 
 }
