@@ -59,6 +59,7 @@ public class Health : MonoBehaviour
 
     private void playerDie()
     {
+        FindAnyObjectByType<VFXList>().DeathExplosion(playerRef);
         Debug.Log("ded");
         // do something else like despawning the player
          currentHP++;
