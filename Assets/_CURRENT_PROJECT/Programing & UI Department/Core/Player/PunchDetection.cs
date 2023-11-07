@@ -7,7 +7,7 @@ public class PunchDetection : MonoBehaviour
     // don't apply the script to player or model,it goes with punchCollider 
    
    public RobotData robot;
-    public soundList sL;
+   
     void Start()
     {
         
@@ -25,10 +25,7 @@ public class PunchDetection : MonoBehaviour
     {
         if (other.GetComponent<Health>() != null)
         {
-            if (sL != null)
-            {
-                sL.playPunch();
-            }
+            FindObjectOfType<AudioManager>().Play("Punch");
             var health = other.GetComponent<Health>();//gets component
             health.punchHit(robot.punchDamage);//sends damage
             Debug.Log("hit confirmed");

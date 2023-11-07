@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TrackingRocketScript : MonoBehaviour
 {
-    
-    public soundList SL;
+   
     //reference to player
     //TODO: edit with GameManager later maybe?
     //public AnimationStateController anim;
@@ -75,8 +74,7 @@ public class TrackingRocketScript : MonoBehaviour
        InstantiateProjectile();
     }
     void InstantiateProjectile(){
-        if (SL != null)
-            SL.playShoot();
+        FindObjectOfType<AudioManager>().Play("Shot");
        
        var projectileObj = Instantiate(projectileReference, bulletSpawnPoint.transform.position, Quaternion.identity) as GameObject;
 
