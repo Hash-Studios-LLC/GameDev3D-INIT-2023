@@ -14,15 +14,13 @@ public class VFXList : MonoBehaviour
     public void DeathExplosion(GameObject player)
     {
        
-        Instantiate(list[0],player.transform.position,player.transform.rotation);
+      Destroy(  Instantiate(list[0],player.transform.position,player.transform.rotation),2.0f);
         
     }
     // Update is called once per frame
-    public void MisileTrail(GameObject item)
+    public void MisileExplosion(GameObject item)
     {
-     GameObject trail = Instantiate(list[1], item.transform);
-        trail.transform.position = item.transform.position;
-        trail.transform.rotation = item.transform.rotation;
-      //  trail.transform.LookAt(item.transform);
+       var x= Instantiate(list[1], item.transform.position, item.transform.rotation);
+        Destroy(x, 0.5f);
     }
 }

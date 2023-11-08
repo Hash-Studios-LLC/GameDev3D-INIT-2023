@@ -60,6 +60,7 @@ public class Health : MonoBehaviour
     private void playerDie()
     {
         FindAnyObjectByType<VFXList>().DeathExplosion(playerRef);
+        FindObjectOfType<AudioManager>().Play("death Explosion");
         Debug.Log("ded");
         // do something else like despawning the player
          currentHP++;

@@ -78,7 +78,6 @@ public class TrackingRocketScript : MonoBehaviour
        
        var projectileObj = Instantiate(projectileReference, bulletSpawnPoint.transform.position, Quaternion.identity) as GameObject;
 
-       // FindAnyObjectByType<VFXList>().MisileTrail(projectileObj);
         // set bullet properties
         projectileObj.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * robotData.rocketSpeed * baseRocketSpeed;
         projectileObj.GetComponent<Bullet>().damage = robotData.rocketDamage;
