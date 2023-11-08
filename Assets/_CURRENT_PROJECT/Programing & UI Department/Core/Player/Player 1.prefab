@@ -1386,6 +1386,10 @@ PrefabInstance:
       propertyPath: playerref
       value: 
       objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 370336530112901360, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: projectileReference
+      value: 
+      objectReference: {fileID: 5510882276736976886, guid: 43784c8194fd2074196810b3718c50b3, type: 3}
     - target: {fileID: 391920997465676107, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: playerBody
       value: 

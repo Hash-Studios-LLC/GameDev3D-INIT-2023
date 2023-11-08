@@ -1589,7 +1589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77899d1c51ff43d41bc6e6dabdffb229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  - {fileID: 1000012600307132, guid: 2dfc7fe3d04343447894461f3bc415d5, type: 3}
 --- !u!1001 &2129044879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1597,6 +1599,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2055518139820015845, guid: 471be6b5b42390c4693f40156a897e0e, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055518139820015845, guid: 471be6b5b42390c4693f40156a897e0e, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e557369165dcc6a43b77dd5f534d5656, type: 3}
+    - target: {fileID: 2055518139820015845, guid: 471be6b5b42390c4693f40156a897e0e, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055518139820015845, guid: 471be6b5b42390c4693f40156a897e0e, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: pepe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055518139820015845, guid: 471be6b5b42390c4693f40156a897e0e, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1.067
+      objectReference: {fileID: 0}
     - target: {fileID: 2055518139820015845, guid: 471be6b5b42390c4693f40156a897e0e, type: 3}
       propertyPath: sounds.Array.data[2].volume
       value: 0

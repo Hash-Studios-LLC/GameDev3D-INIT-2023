@@ -18,5 +18,11 @@ public class VFXList : MonoBehaviour
         
     }
     // Update is called once per frame
-
+    public void MisileTrail(GameObject item)
+    {
+     GameObject trail = Instantiate(list[1], item.transform);
+        trail.transform.position = item.transform.position;
+        trail.transform.rotation = item.transform.rotation;
+      //  trail.transform.LookAt(item.transform);
+    }
 }
