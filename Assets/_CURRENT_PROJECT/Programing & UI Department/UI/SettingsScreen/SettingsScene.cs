@@ -54,11 +54,11 @@ public class SettingsScene : MonoBehaviour
         #region ChangeResolution
         public void changeResolutionUp() 
         {
-            //string currentResText;
+            string currentResText;
             string currentRes = Screen.width.ToString() + "x" + Screen.height.ToString();
             int index = resolutionListString.IndexOf(currentRes); //getting the index of the current resolution
             
-            if (index == resolutionListString.Count-1 ) //if the list is in the first position restart the list
+            if (index == resolutionListString.Count()-1 ) //if the list is in the first position restart the list
                 {
                     index = 0;
                 }
@@ -69,9 +69,9 @@ public class SettingsScene : MonoBehaviour
                 }
             resolutionToSet = getResolutionWHhz(resolutionListString[index]); // gets item from the resolution list created earlier and returns 3 ints, width, height, refresh rate
             Screen.SetResolution(resolutionToSet[0], resolutionToSet[1], true); //setting the new resolution, the paramater true is a fullscreen boolean
-            //currentResText = resolutionListString[index]; //this will be used to debug
-            Debug.Log(resolutionToSet[0]);
-            Debug.Log(resolutionToSet[1]);
+            currentResText = resolutionListString[index]; //this will be used to debug
+            Debug.Log(currentResText);
+            
         }
 
         public void changeResolutionDown() 
@@ -81,7 +81,7 @@ public class SettingsScene : MonoBehaviour
                 int index = resolutionListString.IndexOf(currentRes); //getting the index of the current resolution
                 if (index == 0 ) //if the list is in the first position restart the list
                 {
-                    index = resolutionListString.Count - 1;
+                    index = resolutionListString.Count() - 1;
                 }
                 //if the index of the list is in a valid position go back on the list
                 else
