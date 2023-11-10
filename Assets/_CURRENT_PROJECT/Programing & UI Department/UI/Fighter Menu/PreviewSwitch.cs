@@ -31,8 +31,8 @@ public class PreviewSwitch : MonoBehaviour
 
     public void Previous()
     {
-        if (selectedIndex == 0) return;
-        selectedIndex--;
+        if (selectedIndex == 0) selectedIndex = fighters.Length - 1;
+        else selectedIndex--;
         selectedFighter = fighters[selectedIndex];
         previewCam.transform.position = new Vector3(selectedFighter.transform.position.x, 549.907f, -6.041f);
         fighterName.text = names[selectedIndex];
@@ -40,8 +40,8 @@ public class PreviewSwitch : MonoBehaviour
 
     public void Next()
     {
-        if (selectedIndex == fighters.Length - 1) return;
-        selectedIndex++;
+        if (selectedIndex == fighters.Length-1) selectedIndex = 0;
+        else selectedIndex++;
         selectedFighter = fighters[selectedIndex];
         previewCam.transform.position = new Vector3(selectedFighter.transform.position.x, 549.907f, -6.041f);
         fighterName.text = names[selectedIndex];
