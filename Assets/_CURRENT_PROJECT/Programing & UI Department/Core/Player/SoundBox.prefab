@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2592529121589419535
+--- !u!1 &1373421522863592931
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4857263135224944225}
-  - component: {fileID: 2055518139820015845}
+  - component: {fileID: 8331002966965656973}
+  - component: {fileID: 3203034338643954441}
   m_Layer: 0
   m_Name: SoundBox
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4857263135224944225
+--- !u!4 &8331002966965656973
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2592529121589419535}
+  m_GameObject: {fileID: 1373421522863592931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2055518139820015845
+--- !u!114 &3203034338643954441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2592529121589419535}
+  m_GameObject: {fileID: 1373421522863592931}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22aa49e174b96474fb1eaa3e9f2ff622, type: 3}
@@ -46,20 +46,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Shot
-    clip: {fileID: 8300000, guid: c12d40421acc84a4b90823d6080bbad1, type: 3}
-    volume: 0.741
-    pitch: 1
+    clip: {fileID: 8300000, guid: 414163fd87d9cf44d847d3f8041a4ec5, type: 3}
+    volume: 1
+    pitch: 0.776
     source: {fileID: 0}
     loop: 0
   - name: Punch
-    clip: {fileID: 8300000, guid: 37c9133889e2bfc4296ead93a281acc2, type: 3}
-    volume: 0.741
-    pitch: 1
+    clip: {fileID: 8300000, guid: 379dfc32bfbe8f148b7b8beee91856f0, type: 3}
+    volume: 1
+    pitch: 0.534
     source: {fileID: 0}
     loop: 0
   - name: Main Theme
-    clip: {fileID: 8300000, guid: e557369165dcc6a43b77dd5f534d5656, type: 3}
-    volume: 0.9
+    clip: {fileID: 8300000, guid: de67285d1baf2ef498c8d97ed9dcca6d, type: 3}
+    volume: 0.799
     pitch: 1.067
+    source: {fileID: 0}
+    loop: 1
+  - name: rocket Explosion
+    clip: {fileID: 8300000, guid: b1b1a0aa80afddc4c87d2492fe7c89eb, type: 3}
+    volume: 1
+    pitch: 1.009
+    source: {fileID: 0}
+    loop: 0
+  - name: death Explosion
+    clip: {fileID: 8300000, guid: 4c219b5eeffb7414cad2bda3ceb24bf6, type: 3}
+    volume: 1
+    pitch: 1.009
+    source: {fileID: 0}
+    loop: 0
+  - name: battle theme
+    clip: {fileID: 8300000, guid: 5e8507f96ee8a804da486f2151f4d05c, type: 3}
+    volume: 0.112
+    pitch: 1.009
     source: {fileID: 0}
     loop: 1
