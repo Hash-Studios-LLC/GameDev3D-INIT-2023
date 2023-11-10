@@ -74,6 +74,7 @@ public class AnimationStateController : MonoBehaviour
 
         if (playerBody.velocity != Vector3.zero && aVelocity < 1.0f) // whenever the player's velocity is not equal to 0, the animator rapidly changes from idle to running
         {
+          //  animator.applyRootMotion = false;
             aVelocity += Time.deltaTime * aAcceleration;
         }
 
@@ -84,6 +85,7 @@ public class AnimationStateController : MonoBehaviour
 
         if (playerBody.velocity == Vector3.zero && aVelocity < 0.0f) // contingency incase velocity ever drops below 0 (it shouldn't)
         {
+        //    animator.applyRootMotion=true;
             aVelocity = 0.0f;
         }
 
