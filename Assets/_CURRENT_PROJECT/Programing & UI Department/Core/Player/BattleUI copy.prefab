@@ -1668,7 +1668,7 @@ GameObject:
   - component: {fileID: 7921698941251045253}
   - component: {fileID: 7921698941251045252}
   m_Layer: 5
-  m_Name: BattleUI
+  m_Name: BattleUI copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
