@@ -337,10 +337,10 @@ RectTransform:
   m_Father: {fileID: 923669212}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 665, y: -410}
-  m_SizeDelta: {x: 430, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26924317
 MonoBehaviour:
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 996886550}
+      - m_Target: {fileID: 600498946}
         m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
         m_MethodName: Next
         m_Mode: 1
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 803057143}
+      - m_Target: {fileID: 198649061}
         m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
         m_MethodName: Previous
         m_Mode: 1
@@ -1545,7 +1545,8 @@ GameObject:
   m_Component:
   - component: {fileID: 198649057}
   - component: {fileID: 198649059}
-  - component: {fileID: 198649058}
+  - component: {fileID: 198649061}
+  - component: {fileID: 198649060}
   m_Layer: 5
   m_Name: Fighter Viewport
   m_TagString: Untagged
@@ -1573,7 +1574,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 69}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &198649058
+--- !u!222 &198649059
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198649056}
+  m_CullTransparentMesh: 1
+--- !u!114 &198649060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1582,7 +1591,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 198649056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1593,21 +1602,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 436c92e3bbe1109468f9450d2eb50b84, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &198649059
-CanvasRenderer:
+  m_Sprite: {fileID: 21300000, guid: c0f62d9d8cb0c8248973f9aba5283166, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &198649061
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198649056}
-  m_CullTransparentMesh: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a123638be63e76c4ab5f23d41cb5484f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighters:
+  - {fileID: 21300000, guid: c0f62d9d8cb0c8248973f9aba5283166, type: 3}
+  - {fileID: 21300000, guid: d1807451123eddf4e8035834d15c0dee, type: 3}
+  - {fileID: 21300000, guid: c67d8c4e4b332d84ea4ebc4af5f73288, type: 3}
+  - {fileID: 21300000, guid: bfb085a2a62d7534eace303459e88a69, type: 3}
+  fighterName: {fileID: 140762268}
+  fighterPreview: {fileID: 198649060}
 --- !u!1 &204947377
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,7 +3219,8 @@ GameObject:
   m_Component:
   - component: {fileID: 600498942}
   - component: {fileID: 600498944}
-  - component: {fileID: 600498943}
+  - component: {fileID: 600498946}
+  - component: {fileID: 600498945}
   m_Layer: 5
   m_Name: Fighter Viewport
   m_TagString: Untagged
@@ -3224,7 +3248,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 69}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &600498943
+--- !u!222 &600498944
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600498941}
+  m_CullTransparentMesh: 1
+--- !u!114 &600498945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3233,7 +3265,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 600498941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -3244,21 +3276,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 62b3c9a055ec0854fa6f6e7b9777ed32, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &600498944
-CanvasRenderer:
+  m_Sprite: {fileID: 21300000, guid: 54b8edb8eadacad43b861731189ca25d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &600498946
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600498941}
-  m_CullTransparentMesh: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a123638be63e76c4ab5f23d41cb5484f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighters:
+  - {fileID: 21300000, guid: 54b8edb8eadacad43b861731189ca25d, type: 3}
+  - {fileID: 21300000, guid: ec370b11fe4da70409a0d4d5b500b0bc, type: 3}
+  - {fileID: 21300000, guid: d6e246923ede2d34da88187f5bbdf336, type: 3}
+  - {fileID: 21300000, guid: b2ee2dd73e7b52949b72581a9db668ec, type: 3}
+  fighterName: {fileID: 1898233512}
+  fighterPreview: {fileID: 600498945}
 --- !u!1 &607004256
 GameObject:
   m_ObjectHideFlags: 0
@@ -4586,7 +4632,6 @@ GameObject:
   - component: {fileID: 803057140}
   - component: {fileID: 803057142}
   - component: {fileID: 803057141}
-  - component: {fileID: 803057143}
   m_Layer: 5
   m_Name: Fighter Preview P1
   m_TagString: Untagged
@@ -4653,25 +4698,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803057139}
   m_CullTransparentMesh: 1
---- !u!114 &803057143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803057139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a123638be63e76c4ab5f23d41cb5484f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fighters:
-  - {fileID: 919132147993040779}
-  - {fileID: 4889431937957000077}
-  - {fileID: 3107296443599923555}
-  - {fileID: 4904842413839746120}
-  previewCam: {fileID: 1929777398}
-  fighterName: {fileID: 140762268}
 --- !u!1 &814472296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5069,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 803057143}
+      - m_Target: {fileID: 198649061}
         m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
         m_MethodName: Next
         m_Mode: 1
@@ -5496,7 +5522,6 @@ GameObject:
   - component: {fileID: 996886547}
   - component: {fileID: 996886549}
   - component: {fileID: 996886548}
-  - component: {fileID: 996886550}
   m_Layer: 5
   m_Name: Fighter Preview P2
   m_TagString: Untagged
@@ -5563,25 +5588,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996886546}
   m_CullTransparentMesh: 1
---- !u!114 &996886550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996886546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a123638be63e76c4ab5f23d41cb5484f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fighters:
-  - {fileID: 966059079}
-  - {fileID: 1017790047}
-  - {fileID: 1094733634}
-  - {fileID: 126830126}
-  previewCam: {fileID: 1898533034}
-  fighterName: {fileID: 1898233512}
 --- !u!1 &1002340939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6367,10 +6373,10 @@ RectTransform:
   m_Father: {fileID: 1329759758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -410}
-  m_SizeDelta: {x: 430, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283830437
 MonoBehaviour:
@@ -7061,10 +7067,10 @@ RectTransform:
   m_Father: {fileID: 923669212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -410}
-  m_SizeDelta: {x: 430, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359071969
 MonoBehaviour:
@@ -7855,7 +7861,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 996886550}
+      - m_Target: {fileID: 600498946}
         m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
         m_MethodName: Previous
         m_Mode: 1
@@ -7971,10 +7977,10 @@ RectTransform:
   m_Father: {fileID: 1329759758}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 665, y: -410}
-  m_SizeDelta: {x: 430, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772354765
 MonoBehaviour:
