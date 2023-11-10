@@ -782,7 +782,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 129039185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996886550}
+        m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &129039185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,7 +915,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 139886108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 803057143}
+        m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
+        m_MethodName: Previous
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139886108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,10 +1051,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 37.95
   m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4562,6 +4586,7 @@ GameObject:
   - component: {fileID: 803057140}
   - component: {fileID: 803057142}
   - component: {fileID: 803057141}
+  - component: {fileID: 803057143}
   m_Layer: 5
   m_Name: Fighter Preview P1
   m_TagString: Untagged
@@ -4628,6 +4653,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803057139}
   m_CullTransparentMesh: 1
+--- !u!114 &803057143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803057139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a123638be63e76c4ab5f23d41cb5484f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighters:
+  - {fileID: 919132147993040779}
+  - {fileID: 4889431937957000077}
+  - {fileID: 3107296443599923555}
+  - {fileID: 4904842413839746120}
+  previewCam: {fileID: 1929777398}
+  fighterName: {fileID: 140762268}
 --- !u!1 &814472296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,7 +5042,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 893859398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 803057143}
+        m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &893859398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,6 +5496,7 @@ GameObject:
   - component: {fileID: 996886547}
   - component: {fileID: 996886549}
   - component: {fileID: 996886548}
+  - component: {fileID: 996886550}
   m_Layer: 5
   m_Name: Fighter Preview P2
   m_TagString: Untagged
@@ -5506,6 +5563,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996886546}
   m_CullTransparentMesh: 1
+--- !u!114 &996886550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996886546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a123638be63e76c4ab5f23d41cb5484f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighters:
+  - {fileID: 966059079}
+  - {fileID: 1017790047}
+  - {fileID: 1094733634}
+  - {fileID: 126830126}
+  previewCam: {fileID: 1898533034}
+  fighterName: {fileID: 1898233512}
 --- !u!1 &1002340939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6764,11 +6840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "112,284 views  Aug 24, 2017  Short Unity Tutorials\r\n#UnityTutorial #SimpleUnityGame
-    #unitytextscroll\r\nIn this video I will show you how to create scrollable UI
-    text area in your Unity game.\r\n\r\nTO BLAST! - My New Fun Relaxing Puzzle Game
-    Available On Google Play Store\r\nhttps://play.google.com/store/apps/de...\r\n\r\nConsider
-    purchasing my ULTIMATE UDEMY COURSE with great discount\r"
+  m_text: Place holder text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9daccef3a9b4f54c8534d7974b964c6, type: 2}
   m_sharedMaterial: {fileID: 140049864958897442, guid: d9daccef3a9b4f54c8534d7974b964c6, type: 2}
@@ -7782,7 +7854,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1765427561}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996886550}
+        m_TargetAssemblyTypeName: PreviewSwitch, Assembly-CSharp
+        m_MethodName: Previous
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1765427561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8120,11 +8204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "112,284 views  Aug 24, 2017  Short Unity Tutorials\r\n#UnityTutorial #SimpleUnityGame
-    #unitytextscroll\r\nIn this video I will show you how to create scrollable UI
-    text area in your Unity game.\r\n\r\nTO BLAST! - My New Fun Relaxing Puzzle Game
-    Available On Google Play Store\r\nhttps://play.google.com/store/apps/de...\r\n\r\nConsider
-    purchasing my ULTIMATE UDEMY COURSE with great discount\r"
+  m_text: Place holder text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9daccef3a9b4f54c8534d7974b964c6, type: 2}
   m_sharedMaterial: {fileID: 140049864958897442, guid: d9daccef3a9b4f54c8534d7974b964c6, type: 2}
@@ -8460,10 +8540,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 37.95
   m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
