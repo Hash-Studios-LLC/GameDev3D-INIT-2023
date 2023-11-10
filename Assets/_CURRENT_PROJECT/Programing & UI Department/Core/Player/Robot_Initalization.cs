@@ -12,7 +12,9 @@ public class Robot_Initalization : MonoBehaviour
     private bool isPlayer2;
     [SerializeField]// only to test/ display accuracy
     private int robotNum;
-    
+
+    public RobotData[]robotList;
+
   
     private int id;
     // Start is called before the first frame update
@@ -25,8 +27,11 @@ public class Robot_Initalization : MonoBehaviour
     }
 
     // Update is called once per frame
-   
-  
+    private void Start()
+    {
+        rob = robotList[getRobotNum()];
+    }
+
     public int getID()
     {
         Debug.Log("id= "+id);
