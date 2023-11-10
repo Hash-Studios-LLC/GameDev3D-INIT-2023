@@ -523,6 +523,11 @@ MonoBehaviour:
   isPlayer1: 0
   isPlayer2: 1
   robotNum: 0
+  robotList:
+  - {fileID: 11400000, guid: 27e62baac68be0747a48e19280ec262a, type: 2}
+  - {fileID: 11400000, guid: 86bbff0a05ec7924d800e91fc0ba5284, type: 2}
+  - {fileID: 11400000, guid: 083f62b54d7e39d4e9a8595ca778e188, type: 2}
+  - {fileID: 11400000, guid: 80eea7ea4faaf794898f7672f4be500c, type: 2}
 --- !u!1 &3167497104681781925
 GameObject:
   m_ObjectHideFlags: 0

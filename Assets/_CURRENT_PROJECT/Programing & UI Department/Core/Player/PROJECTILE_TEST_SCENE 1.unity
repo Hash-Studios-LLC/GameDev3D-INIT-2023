@@ -1559,7 +1559,7 @@ MonoBehaviour:
   Player2Stock: 3
   Player1Stock: 3
   target: {fileID: 522154412}
-  p1Number: 2
+  p1Number: 0
   p2Number: 0
 --- !u!4 &2091310955
 Transform:
