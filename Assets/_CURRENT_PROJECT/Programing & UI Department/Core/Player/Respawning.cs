@@ -5,8 +5,9 @@ using Cinemachine;
 public class Respawning : MonoBehaviour
 {
     [Header(" Spawns management")]
-    public GameObject[] SpawnList; 
-    
+    public GameObject[] SpawnList;
+    [SerializeField]
+    private float respawnTime;
     [SerializeField]
     private GameObject Player1;
     [SerializeField]
@@ -44,20 +45,15 @@ public class Respawning : MonoBehaviour
         //checks player id and life and it spawns a robot   
         if (id==1 && Player1Stock >0)
         {
-            target.RemoveMember(player);//removes old player from camera
-            GameObject newRobot = Instantiate(Player1, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
-            target.AddMember(newRobot.transform, 1, 2);//adds new player to camera                                         
-            sendSelection(newRobot);
+            StartCoroutine(SpawnDelay(player,Player1));
+
             Debug.Log("player 1 spawnned");
             Player1Stock--;
 
         }
         if (id==2 && Player2Stock > 0)
         {
-            target.RemoveMember(player);//removes old player from camera
-            GameObject newRobot = Instantiate(Player2, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
-            target.AddMember(newRobot.transform, 1, 2);//adds new player to camera
-              sendSelection(newRobot);
+            StartCoroutine(SpawnDelay(player,Player2));
             Debug.Log("player 2 spawnned");
             Player2Stock--;
       
@@ -94,7 +90,7 @@ public class Respawning : MonoBehaviour
     //
     public void sendSelection(GameObject robot)
     {
-      
+                // sends the value store respawn script
         if (robot.GetComponent<Robot_Initalization>().getID() == 1)
         {
             robot.GetComponent<Robot_Initalization>().setRobotNum(p1Number);
@@ -106,5 +102,17 @@ public class Respawning : MonoBehaviour
         
         }
     }
+
+    IEnumerator SpawnDelay(Transform player,GameObject playerN)
+    {
+        yield return new WaitForSeconds(respawnTime);
+        target.RemoveMember(player);//removes old player from camera
+        GameObject newRobot = Instantiate(playerN, SpawnLocation().position + SpawnLocation().forward, SpawnLocation().rotation);
+        target.AddMember(newRobot.transform, 1, 2);//adds new player to camera                                         
+        sendSelection(newRobot);
+        
+       
+    }
+
 }
     

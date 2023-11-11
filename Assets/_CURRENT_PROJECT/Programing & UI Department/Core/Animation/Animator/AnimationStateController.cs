@@ -193,5 +193,10 @@ public class AnimationStateController : MonoBehaviour
     {
         return rocketCD+rocketCD_AnimTime;
     }
+    public void Death()
+    {
+        animator.applyRootMotion = true;
+        animator.SetTrigger("dead");
+    }
 
 }
