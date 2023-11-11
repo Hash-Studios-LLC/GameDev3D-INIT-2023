@@ -6,18 +6,20 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private int currentHP;
-
+    [SerializeField]
+    private AnimationStateController animator;
     private RobotData robotData;
     public GameObject playerRef;
-   
+    public float animationDeathTime;// time that lasts death animation
     public Respawning respawning;
     public HPbar healthBar;
         
     void Start()
     {
+        animationDeathTime = Random.Range(3.0f, 4.0f);
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
-
+        animator=GetComponentInParent<AnimationStateController>();
         //setting the ui health bar to match the player data
         var player = playerRef.GetComponent<Robot_Initalization>();
         int id = player.getID();
@@ -42,7 +44,7 @@ public class Health : MonoBehaviour
     {
         if (currentHP <= 0)
         {
-            playerDie();
+            StartCoroutine(DestroyPlayer());
         }
 
     }
@@ -67,10 +69,7 @@ public class Health : MonoBehaviour
         healthBar.setHealth(currentHP);
 
         Debug.Log("took " + damage);
-        if (currentHP <= 0)
-        {
-            playerDie();
-        }
+
     }
 
     private void playerDie()
@@ -87,5 +86,11 @@ public class Health : MonoBehaviour
       
         respawning.Spawn(id,playerRef.transform);
     }
-
+   IEnumerator DestroyPlayer()
+    {
+         playerRef.GetComponent<PlayerInput>().enabled=false;
+        animator.Death();
+        yield return new WaitForSeconds(animationDeathTime);
+        playerDie();
+    }
 }

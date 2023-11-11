@@ -793,11 +793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3823199851874375894, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4349967
+      value: -0.4349938
       objectReference: {fileID: 0}
     - target: {fileID: 3823199851874375894, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.391987
+      value: 16.9
       objectReference: {fileID: 0}
     - target: {fileID: 3823199851874375894, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalRotation.w
@@ -817,11 +817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3823199852076647680, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4349967
+      value: -0.4349938
       objectReference: {fileID: 0}
     - target: {fileID: 3823199852076647680, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.391987
+      value: 16.9
       objectReference: {fileID: 0}
     - target: {fileID: 3823199852076647680, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1555,13 +1555,14 @@ MonoBehaviour:
   SpawnList:
   - {fileID: 1255204083}
   - {fileID: 1873349626}
+  respawnTime: 3
   Player1: {fileID: 8554614046052704080, guid: e037b26a82889bd48ad12bd6a94808b1, type: 3}
   Player2: {fileID: 3036591927526254771, guid: 734678a91767989449bc73c72b4e491e, type: 3}
   Player2Stock: 3
   Player1Stock: 3
   target: {fileID: 522154412}
-  p1Number: 0
-  p2Number: 0
+  p1Number: 3
+  p2Number: 2
 --- !u!4 &2091310955
 Transform:
   m_ObjectHideFlags: 0
