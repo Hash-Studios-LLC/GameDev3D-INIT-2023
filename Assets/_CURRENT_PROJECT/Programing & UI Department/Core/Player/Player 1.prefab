@@ -1538,6 +1538,10 @@ PrefabInstance:
       propertyPath: playerref
       value: 
       objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: projectileReference
+      value: 
+      objectReference: {fileID: 5510882276736976886, guid: 43784c8194fd2074196810b3718c50b3, type: 3}
     - target: {fileID: 4542826175225390567, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: list
       value: 
@@ -1562,6 +1566,10 @@ PrefabInstance:
       propertyPath: playerref
       value: 
       objectReference: {fileID: 8554614046052704080}
+    - target: {fileID: 5252547983766213421, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: projectileReference
+      value: 
+      objectReference: {fileID: 5510882276736976886, guid: 43784c8194fd2074196810b3718c50b3, type: 3}
     - target: {fileID: 6926390497767441662, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: sL
       value: 
