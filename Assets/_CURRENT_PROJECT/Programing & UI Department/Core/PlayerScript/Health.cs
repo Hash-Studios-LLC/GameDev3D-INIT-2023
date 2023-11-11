@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         
     void Start()
     {
-        animationDeathTime = Random.Range(3.0f, 4.0f);
+        animationDeathTime = Random.Range(3.5f, 4.0f);
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
         animator=GetComponentInParent<AnimationStateController>();

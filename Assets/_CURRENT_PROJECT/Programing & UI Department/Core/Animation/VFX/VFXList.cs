@@ -13,9 +13,10 @@ public class VFXList : MonoBehaviour
     }
     public void DeathExplosion(GameObject player)
     {
-       
-      Destroy(  Instantiate(list[0],player.transform.position,player.transform.rotation),2.0f);
-        
+     if ( player.GetComponent<Robot_Initalization>().getID()==1)
+      Destroy(  Instantiate(list[2],player.transform.position,player.transform.rotation),2.0f);
+      if (player.GetComponent<Robot_Initalization>().getID() == 2)
+       Destroy(Instantiate(list[0], player.transform.position, player.transform.rotation), 2.0f);
     }
     // Update is called once per frame
     public void MisileExplosion(GameObject item)
