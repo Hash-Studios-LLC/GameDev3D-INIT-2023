@@ -5,7 +5,6 @@ using UnityEngine;
 public class SelectRobot : MonoBehaviour
 {
     [Header("Colors")]
-
     [SerializeField] private Color playerOneColor = Color.red;
     [SerializeField] private Color playerTwoColor = Color.blue;
 

@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: d97544d7cf57fc545845957a8d4a63ae
+guid: 10c01c99cea7bfd499e78ad7b433b385
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
-    materialName: 1
+    materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
@@ -218,23 +218,23 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Dasher(Clone)
+    - name: DasherRenamed(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Dasher
-      parentName: Dasher(Clone)
+      parentName: DasherRenamed(Clone)
       position: {x: -0, y: 0, z: -0.000000039477356}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 100, y: 100, z: 100}
-    - name: Dasheleton
-      parentName: Dasher(Clone)
+    - name: Dasherskeleton
+      parentName: DasherRenamed(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 100, y: 100, z: 100}
     - name: root
-      parentName: Dasheleton
+      parentName: Dasherskeleton
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071069}
       scale: {x: 1, y: 0.99999976, z: 0.99999976}
