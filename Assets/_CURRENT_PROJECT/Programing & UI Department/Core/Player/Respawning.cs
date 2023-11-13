@@ -24,9 +24,11 @@ public class Respawning : MonoBehaviour
     [SerializeField]private int p2Number;// 
      void Start()
     {
-
-        FindAnyObjectByType<AudioManager>().Stop("Main Theme");
-        FindAnyObjectByType<AudioManager>().Play("battle theme");
+       if ( FindAnyObjectByType<AudioManager>() != null) {
+            FindAnyObjectByType<AudioManager>().Stop("Main Theme");
+            FindAnyObjectByType<AudioManager>().Play("battle theme");
+        }
+        
         // spawns player for the first time no need to add them to the scene
         GameObject newRobot = Instantiate(Player1);
         GameObject newRobot2 = Instantiate(Player2);
