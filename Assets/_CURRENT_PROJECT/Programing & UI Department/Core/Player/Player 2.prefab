@@ -1387,7 +1387,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
+  animator: {fileID: 0}
   playerRef: {fileID: 3036591927526254771}
+  animationDeathTime: 0
   respawning: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!136 &3167497104681781927
