@@ -79,6 +79,22 @@ public class C_MenuScript : MonoBehaviour
         }
     }
 
+    public void resetMap()
+    {
+        if(mapSelection != -1)
+        {
+            int temp = mapSelection;
+            mapSelection = -1;
+            MapContinueButton.interactable = false;
+            continueButtonCanvasGroup.alpha = 0.5f;
+
+            PlayAnimationForMap(temp, "Hide");
+
+            // Update the selected state
+            mapSelected = false;
+        }
+    }
+
     private void PlayAnimationForMap(int mapIndex, string animationName)
     {
         foreach (C_MapToSelect mapScript in mapScripts)
