@@ -47,5 +47,9 @@ public class RigidBodyMovement : MonoBehaviour
             playerBody.transform.forward = moveVector; // Changes rotation to match movement direction
         }
     }
-
+    public void stopMovement()
+    {
+        playerBody.velocity =Vector3.zero;
+        basePlayerSpeed = 0;
+    }
 }
