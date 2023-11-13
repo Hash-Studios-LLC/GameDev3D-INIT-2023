@@ -24,7 +24,8 @@ public class PunchDetection : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Health>() != null)
-        {
+        {   
+            if (FindObjectOfType<AudioManager>()!=null)
             FindObjectOfType<AudioManager>().Play("Punch");
             var health = other.GetComponent<Health>();//gets component
             health.punchHit(robot.punchDamage);//sends damage

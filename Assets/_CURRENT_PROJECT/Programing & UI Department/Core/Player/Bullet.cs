@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(lifespan);
         FindAnyObjectByType<VFXList>().MisileExplosion(gameObject);
+        if(FindAnyObjectByType<AudioManager>()!=null)
         FindAnyObjectByType<AudioManager>().Play("rocket Explosion");
         destroyProjectile();
     }
@@ -35,6 +36,7 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if(FindAnyObjectByType<AudioManager>())
         FindAnyObjectByType<AudioManager>().Play("rocket Explosion");
         Debug.Log("hit object");
         if (other.tag == "Hitbox")
