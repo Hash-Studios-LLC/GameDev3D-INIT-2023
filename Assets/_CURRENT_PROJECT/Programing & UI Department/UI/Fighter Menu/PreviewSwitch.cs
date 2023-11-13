@@ -95,7 +95,7 @@ public class PreviewSwitch : MonoBehaviour
         else
         {
             menuScript.player_2_classSelection = selectedIndex;
-            PlayerPrefs.SetInt("Player2-Class", selectedIndex);
+            PlayerPrefs.SetInt("Player-2-Class", selectedIndex);
             PlayerPrefs.Save();
         }
     }
