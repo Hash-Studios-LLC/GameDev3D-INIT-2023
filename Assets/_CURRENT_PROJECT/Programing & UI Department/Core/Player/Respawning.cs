@@ -85,6 +85,7 @@ public class Respawning : MonoBehaviour
             winCond.DisplayWinScreenP2();
             Debug.Log("player 2 wins");
             p2script.enabled = false;
+            p2script.GetComponent<RigidBodyMovement>().stopMovement();
         }
         if ( Player2Stock == 0)
         {

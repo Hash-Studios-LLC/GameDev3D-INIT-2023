@@ -5236,19 +5236,26 @@ MonoBehaviour:
   ContinueButton: {fileID: 1745899240}
   menuScript: {fileID: 1343163724}
   characterDescriptions:
-  - "In the world of Nyxian Veil, the Dasher Mech emerges as a dazzling embodiment
-    of speed and agility, originally crafted for the high-speed thrills of racing
-    but repurposed as a battle mech during the epoch-defining \"Paradise War.\" \r\n\r\nThe
-    Dasher Mech, with its sleek, aerodynamic design, is a spectacle of velocity.
-    Built for breakneck speeds, it darts across the battlefield with an unmatched
-    swiftness, making it an elusive target. Its nimble frame and rapid maneuvers
-    allow it to gain tactical positions quickly, outflanking opponents before they
-    can react.\r\n\r\nHowever, this focus on speed comes with trade-offs. The Dasher
-    Mech is inherently fragile, lacking the heavier armor and robust parts common
-    in more balanced mechs. It\u2019s a glass cannon, capable of swift, decisive
-    strikes but vulnerable to direct hits. Pilots of the Dasher Mech must rely on
-    their agility and cunning to avoid damage, as sustained engagements can quickly
-    turn perilous.\r\n\r\n"
+  - 'Originally crafted for the thrill of racing, the Dasher Mech found its true
+    calling in the heat of the "Paradise War." This term, coined by the colonizers
+    who emerged triumphant, reflects their belief in their destined right to win,
+    overshadowing the darker shades of the conflict that reshaped two worlds.
+
+    
+
+    The
+    Dasher Mech, with its streamlined, lightweight design, epitomizes speed and agility.
+    It zips across battlefields with an elegance and velocity unmatched by its counterparts.
+    Its design is purpose-built for nimble maneuvers and quick strikes, enabling
+    pilots to execute hit-and-run tactics with stunning efficiency.
+
+    
+
+    This
+    focus on speed, however, means the Dasher Mech is lighter on defenses. Lacking
+    in the heavy armor and reinforced shielding of its more balanced adversaries,
+    it relies on its swiftness to avoid taking hits. It''s a delicate balance of
+    risk and reward, challenging pilots to leverage agility over raw power.'
   - 'Emerging from the shadows of the Paradise War, the Juggernaut Mech stands as
     a surviving commander unit of the defeated "Harmonia Coalition." Its presence
     in the arena is a living relic, a testament to the resilience and tactics of
@@ -5326,27 +5333,9 @@ MonoBehaviour:
     Mech offers a harmonious mix of health, power, and abilities. This equilibrium
     makes it a formidable choice for pilots seeking versatility. Its arsenal is adaptable,
     allowing for a wide range of combat strategies, from aggressive assaults to tactical
-    defenses.'
-  - 'Designed exclusively for the electrifying arenas of Nyxian Veil, the Warrior
-    Mech stands as a perfect blend of style and combat efficacy. Unlike its war-born
-    counterparts, this mech was never intended for real-world conflict; instead,
-    it was crafted for the spectacle and strategy of arena battles.
+    defenses.
 
-    
-
-    Adorned
-    with a prominent crest and vibrant colored accessories, the Warrior Mech is not
-    just a tool for battle but a statement of artistry and flair. Its design speaks
-    of a showman''s spirit, captivating onlookers with its aesthetic appeal as much
-    as with its combat prowess.
-
-    
-
-    Balanced in every sense, the Warrior
-    Mech offers a harmonious mix of health, power, and abilities. This equilibrium
-    makes it a formidable choice for pilots seeking versatility. Its arsenal is adaptable,
-    allowing for a wide range of combat strategies, from aggressive assaults to tactical
-    defenses.'
+'
   characterStats_Sliders:
   - {fileID: 1349550989}
   - {fileID: 2045837830}
@@ -27814,6 +27803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975977240}
   - component: {fileID: 1975977239}
+  - component: {fileID: 1975977241}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -27898,6 +27888,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 15.286, y: 20.684, z: 27.919}
+--- !u!114 &1975977241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975977238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1979553491
 GameObject:
   m_ObjectHideFlags: 0
@@ -29775,19 +29785,26 @@ MonoBehaviour:
   ContinueButton: {fileID: 1745899240}
   menuScript: {fileID: 1343163724}
   characterDescriptions:
-  - "In the world of Nyxian Veil, the Dasher Mech emerges as a dazzling embodiment
-    of speed and agility, originally crafted for the high-speed thrills of racing
-    but repurposed as a battle mech during the epoch-defining \"Paradise War.\" \r\n\r\nThe
-    Dasher Mech, with its sleek, aerodynamic design, is a spectacle of velocity.
-    Built for breakneck speeds, it darts across the battlefield with an unmatched
-    swiftness, making it an elusive target. Its nimble frame and rapid maneuvers
-    allow it to gain tactical positions quickly, outflanking opponents before they
-    can react.\r\n\r\nHowever, this focus on speed comes with trade-offs. The Dasher
-    Mech is inherently fragile, lacking the heavier armor and robust parts common
-    in more balanced mechs. It\u2019s a glass cannon, capable of swift, decisive
-    strikes but vulnerable to direct hits. Pilots of the Dasher Mech must rely on
-    their agility and cunning to avoid damage, as sustained engagements can quickly
-    turn perilous.\r\n\r\n"
+  - 'Originally crafted for the thrill of racing, the Dasher Mech found its true
+    calling in the heat of the "Paradise War." This term, coined by the colonizers
+    who emerged triumphant, reflects their belief in their destined right to win,
+    overshadowing the darker shades of the conflict that reshaped two worlds.
+
+    
+
+    The
+    Dasher Mech, with its streamlined, lightweight design, epitomizes speed and agility.
+    It zips across battlefields with an elegance and velocity unmatched by its counterparts.
+    Its design is purpose-built for nimble maneuvers and quick strikes, enabling
+    pilots to execute hit-and-run tactics with stunning efficiency.
+
+    
+
+    This
+    focus on speed, however, means the Dasher Mech is lighter on defenses. Lacking
+    in the heavy armor and reinforced shielding of its more balanced adversaries,
+    it relies on its swiftness to avoid taking hits. It''s a delicate balance of
+    risk and reward, challenging pilots to leverage agility over raw power.'
   - 'Emerging from the shadows of the Paradise War, the Juggernaut Mech stands as
     a surviving commander unit of the defeated "Harmonia Coalition." Its presence
     in the arena is a living relic, a testament to the resilience and tactics of
@@ -29865,27 +29882,9 @@ MonoBehaviour:
     Mech offers a harmonious mix of health, power, and abilities. This equilibrium
     makes it a formidable choice for pilots seeking versatility. Its arsenal is adaptable,
     allowing for a wide range of combat strategies, from aggressive assaults to tactical
-    defenses.'
-  - 'Designed exclusively for the electrifying arenas of Nyxian Veil, the Warrior
-    Mech stands as a perfect blend of style and combat efficacy. Unlike its war-born
-    counterparts, this mech was never intended for real-world conflict; instead,
-    it was crafted for the spectacle and strategy of arena battles.
+    defenses.
 
-    
-
-    Adorned
-    with a prominent crest and vibrant colored accessories, the Warrior Mech is not
-    just a tool for battle but a statement of artistry and flair. Its design speaks
-    of a showman''s spirit, captivating onlookers with its aesthetic appeal as much
-    as with its combat prowess.
-
-    
-
-    Balanced in every sense, the Warrior
-    Mech offers a harmonious mix of health, power, and abilities. This equilibrium
-    makes it a formidable choice for pilots seeking versatility. Its arsenal is adaptable,
-    allowing for a wide range of combat strategies, from aggressive assaults to tactical
-    defenses.'
+'
   characterStats_Sliders:
   - {fileID: 1036252228}
   - {fileID: 547055043}
