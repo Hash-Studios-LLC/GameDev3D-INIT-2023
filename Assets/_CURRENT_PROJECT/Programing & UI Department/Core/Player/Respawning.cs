@@ -32,7 +32,9 @@ public class Respawning : MonoBehaviour
     [SerializeField] private int p2Number;// 
     void Start()
     {
-       if ( FindAnyObjectByType<AudioManager>() != null) {
+      p1Number=  PlayerPrefs.GetInt("Player-1-Class", 0);
+        p2Number=PlayerPrefs.GetInt("Player-2-Class", 0);
+        if ( FindAnyObjectByType<AudioManager>() != null) {
             FindAnyObjectByType<AudioManager>().Stop("Main Theme");
             FindAnyObjectByType<AudioManager>().Play("battle theme");
         }
