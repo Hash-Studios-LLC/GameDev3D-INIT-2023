@@ -32,9 +32,11 @@ public class Respawning : MonoBehaviour
     [SerializeField] private int p2Number;// 
     void Start()
     {
-
-        FindAnyObjectByType<AudioManager>().Stop("Main Theme");
-        FindAnyObjectByType<AudioManager>().Play("battle theme");
+       if ( FindAnyObjectByType<AudioManager>() != null) {
+            FindAnyObjectByType<AudioManager>().Stop("Main Theme");
+            FindAnyObjectByType<AudioManager>().Play("battle theme");
+        }
+        
         // spawns player for the first time no need to add them to the scene
         GameObject newRobot = Instantiate(Player1);
         GameObject newRobot2 = Instantiate(Player2);
@@ -53,7 +55,7 @@ public class Respawning : MonoBehaviour
         //checks player id and life and it spawns a robot   
         if (id == 1 && Player1Stock > 0)
         {
-            StartCoroutine(SpawnDelay(player, Player1, false));
+            StartCoroutine(SpawnDelay(player, Player1));
 
             Debug.Log("player 1 spawnned");
             Player1Stock--;
@@ -62,7 +64,7 @@ public class Respawning : MonoBehaviour
         }
         if (id == 2 && Player2Stock > 0)
         {
-            StartCoroutine(SpawnDelay(player, Player2, true));
+            StartCoroutine(SpawnDelay(player, Player2));
             Debug.Log("player 2 spawnned");
             Player2Stock--;
 
@@ -131,7 +133,7 @@ public class Respawning : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnDelay(Transform player, GameObject playerN, bool secondPlayer)
+    IEnumerator SpawnDelay(Transform player, GameObject playerN)
     {
         yield return new WaitForSeconds(respawnTime);
         target.RemoveMember(player);//removes old player from camera

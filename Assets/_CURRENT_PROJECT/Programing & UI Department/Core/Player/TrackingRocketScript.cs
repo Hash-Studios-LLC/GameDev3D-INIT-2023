@@ -74,6 +74,7 @@ public class TrackingRocketScript : MonoBehaviour
        InstantiateProjectile();
     }
     void InstantiateProjectile(){
+        if(FindObjectOfType<AudioManager>())
         FindObjectOfType<AudioManager>().Play("Shot");
        
        var projectileObj = Instantiate(projectileReference, bulletSpawnPoint.transform.position, Quaternion.identity) as GameObject;
