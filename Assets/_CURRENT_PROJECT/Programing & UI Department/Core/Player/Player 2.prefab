@@ -2288,6 +2288,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3036591927526254771}
     - target: {fileID: 227757747396488888, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: baseRocketSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 227757747396488888, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 8749203554378102972}
@@ -2299,6 +2303,10 @@ PrefabInstance:
       propertyPath: playerref
       value: 
       objectReference: {fileID: 3036591927526254771}
+    - target: {fileID: 370336530112901360, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: baseRocketSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 370336530112901360, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
@@ -2428,6 +2436,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3036591927526254771}
     - target: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: baseRocketSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908597896392476070, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 3547942638962059756}
@@ -2455,6 +2467,10 @@ PrefabInstance:
       propertyPath: playerref
       value: 
       objectReference: {fileID: 3036591927526254771}
+    - target: {fileID: 5252547983766213421, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
+      propertyPath: baseRocketSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5252547983766213421, guid: 924c66d827b69a44bbfd32105a38c1e0, type: 3}
       propertyPath: bulletSpawnPoint
       value: 

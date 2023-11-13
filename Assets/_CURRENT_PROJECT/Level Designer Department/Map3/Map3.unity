@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1f582ee628ad747a26c2f35b19d73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winCond: {fileID: 0}
+  winCond: {fileID: 2127182668}
   SpawnList:
   - {fileID: 1895651354}
   - {fileID: 621941090}

@@ -69,15 +69,15 @@ public class PreviewSwitch : MonoBehaviour
         ContinueButton.interactable = false;
         if(forWhichPlayer == 0)
         {
-            menuScript.player_2_classSelection = selectedIndex;
-            PlayerPrefs.SetInt("Player-2-Class", selectedIndex);
+            menuScript.player_1_classSelection = selectedIndex;
+            PlayerPrefs.SetInt("Player-1-Class", selectedIndex);
             PlayerPrefs.Save();
             menuScript.LoadMap_Delayed();
         }
         else
         {
-            menuScript.player_1_classSelection = selectedIndex;
-            PlayerPrefs.SetInt("Player-1-Class", selectedIndex);
+            menuScript.player_2_classSelection = selectedIndex;
+            PlayerPrefs.SetInt("Player2-Class", selectedIndex);
             PlayerPrefs.Save();
         }
     }
