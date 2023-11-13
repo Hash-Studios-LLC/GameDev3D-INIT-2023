@@ -6,28 +6,45 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private int currentHP;
-
+    [SerializeField]
+    private AnimationStateController animator;
     private RobotData robotData;
     public GameObject playerRef;
-   
+    public float animationDeathTime;// time that lasts death animation
     public Respawning respawning;
     public HPbar healthBar;
         
     void Start()
     {
+        animationDeathTime = Random.Range(3.5f, 4.0f);
         robotData = playerRef.GetComponent<Robot_Initalization>().rob;
         currentHP = robotData.playerHealth;
-        
-       //setting the ui health bar to match the player data
-      // healthBar.setMaxHealth(currentHP);
-       respawning= GameObject.Find("Spawn Manager").GetComponent<Respawning>();
+        animator=GetComponentInParent<AnimationStateController>();
+        //setting the ui health bar to match the player data
+        var player = playerRef.GetComponent<Robot_Initalization>();
+        int id = player.getID();
+
+        if (id == 1)
+        {
+            healthBar = GameObject.Find("HealthBarP1").GetComponent<HPbar>();
+            healthBar.setMaxHealth(currentHP);
+        }
+        else
+        {
+            healthBar = GameObject.Find("HealthBarP2").GetComponent<HPbar>();
+            healthBar.setMaxHealth(currentHP);
+        }
+
+
+
+        respawning = GameObject.Find("Spawn Manager").GetComponent<Respawning>();
         
     }
     private void Update()
     {
         if (currentHP <= 0)
         {
-            playerDie();
+            StartCoroutine(DestroyPlayer());
         }
 
     }
@@ -48,17 +65,19 @@ public class Health : MonoBehaviour
         currentHP -= damage;
 
         //updating the health bar in the UI
-    //check    healthBar.setHealth(currentHP);
+        //check
+        healthBar.setHealth(currentHP);
 
         Debug.Log("took " + damage);
-        if (currentHP <= 0)
-        {
-            playerDie();
-        }
+
     }
 
     private void playerDie()
     {
+        
+        FindAnyObjectByType<VFXList>().DeathExplosion(playerRef);
+        if(FindObjectOfType<AudioManager>())
+        FindObjectOfType<AudioManager>().Play("death Explosion");
         Debug.Log("ded");
         // do something else like despawning the player
          currentHP++;
@@ -69,5 +88,11 @@ public class Health : MonoBehaviour
       
         respawning.Spawn(id,playerRef.transform);
     }
-
+   IEnumerator DestroyPlayer()
+    {
+         playerRef.GetComponent<PlayerInput>().enabled=false;
+        animator.Death();
+        yield return new WaitForSeconds(animationDeathTime);
+        playerDie();
+    }
 }
