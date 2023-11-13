@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 175
   playerSpeed: 0.75
-  punchDamage: 25
+  punchDamage: 40
   punchCooldown: 1.5
   rocketDamage: 10
   rocketSpeed: 1
