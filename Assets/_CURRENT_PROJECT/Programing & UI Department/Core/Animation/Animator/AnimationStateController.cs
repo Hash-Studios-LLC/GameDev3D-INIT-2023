@@ -197,6 +197,7 @@ public class AnimationStateController : MonoBehaviour
     {
         animator.applyRootMotion = true;
         animator.SetTrigger("dead");
+        playerBody.GetComponent<RigidBodyMovement>().stopMovement();
     }
 
 }

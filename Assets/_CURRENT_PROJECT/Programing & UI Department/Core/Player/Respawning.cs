@@ -91,6 +91,7 @@ public class Respawning : MonoBehaviour
             winCond.DisplayWinScreenP1();
             Debug.Log("player 1 wins");
             p1script.enabled = false;
+            p1script.GetComponent<RigidBodyMovement>().stopMovement();
         }
 
     }
