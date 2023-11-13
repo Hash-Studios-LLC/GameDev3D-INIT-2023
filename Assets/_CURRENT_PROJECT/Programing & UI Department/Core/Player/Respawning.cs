@@ -22,9 +22,9 @@ public class Respawning : MonoBehaviour
 
     //player life
     [SerializeField]
-    private int Player2Stock = 3;
+     private int Player1Stock = 3;
     [SerializeField]
-    private int Player1Stock = 3;
+   private int Player2Stock = 3;
     public CinemachineTargetGroup target;
     private int selection;
     //spawns the player based on the id and location
@@ -53,32 +53,38 @@ public class Respawning : MonoBehaviour
     public void Spawn(int id, Transform player)
     {
         //checks player id and life and it spawns a robot   
-        if (id == 1 && Player1Stock > 0)
+        if (id == 1 )
         {
-            StartCoroutine(SpawnDelay(player, Player1));
-
-            Debug.Log("player 1 spawnned");
             Player1Stock--;
+            if (Player1Stock >= 1)
+            {
+                StartCoroutine(SpawnDelay(player, Player1));
+
+                Debug.Log("player 1 spawnned");
+            }
 
 
         }
-        if (id == 2 && Player2Stock > 0)
+        if (id == 2 )
         {
-            StartCoroutine(SpawnDelay(player, Player2));
-            Debug.Log("player 2 spawnned");
             Player2Stock--;
-
+            if (Player2Stock >= 1)
+            {
+                StartCoroutine(SpawnDelay(player, Player2));
+                Debug.Log("player 2 spawnned");
+               
+            }
 
         }
 
         //CZ: checks if player 1 or 2 are out of stocks, and sends the message to display the appropriate win screen
-        if (id == 1 && Player1Stock == 0)
+        if ( Player1Stock == 0)
         {
             winCond.DisplayWinScreenP2();
             Debug.Log("player 2 wins");
             p2script.enabled = false;
         }
-        if (id == 2 && Player2Stock == 0)
+        if ( Player2Stock == 0)
         {
             winCond.DisplayWinScreenP1();
             Debug.Log("player 1 wins");
@@ -114,8 +120,10 @@ public class Respawning : MonoBehaviour
     //character selection ui  use this to set character
     public void intSelection(int p1Number, int p2Number)
     {
-        this.p1Number = p1Number;
-        this.p2Number = p2Number;
+        PlayerPrefs.GetInt("Player-1-Class", 0);
+        PlayerPrefs.GetInt("Player-2-Class", 0);
+        //this.p1Number = p1Number;
+        //this.p2Number = p2Number;
     }
     //
     public void sendSelection(GameObject robot)

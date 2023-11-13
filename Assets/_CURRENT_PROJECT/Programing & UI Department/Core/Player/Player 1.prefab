@@ -1031,7 +1031,7 @@ MonoBehaviour:
   playerInput: {fileID: 5481454701383878530}
   playerBody: {fileID: 8604419241045011870}
   robotData: {fileID: 11400000, guid: 80eea7ea4faaf794898f7672f4be500c, type: 2}
-  basePlayerSpeed: 5
+  basePlayerSpeed: 7
 --- !u!114 &5481454701383878530
 MonoBehaviour:
   m_ObjectHideFlags: 0
