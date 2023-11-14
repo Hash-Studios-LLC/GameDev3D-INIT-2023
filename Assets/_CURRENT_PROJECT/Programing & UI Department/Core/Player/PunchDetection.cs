@@ -30,7 +30,8 @@ public class PunchDetection : MonoBehaviour
             var health = other.GetComponent<Health>();//gets component
             health.punchHit(robot.punchDamage);//sends damage
             Debug.Log("hit confirmed");
+            gameObject.GetComponent<Collider>().enabled = false;
         }
         }
-
+       
 }

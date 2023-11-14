@@ -24,14 +24,16 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(lifespan);
         FindAnyObjectByType<VFXList>().MisileExplosion(gameObject);
-        if(FindAnyObjectByType<AudioManager>()!=null)
+        if (FindAnyObjectByType<AudioManager>()!=null)
         FindAnyObjectByType<AudioManager>().Play("rocket Explosion");
         destroyProjectile();
     }
 
     void destroyProjectile() // this function is here in case you want to add any stuff to the destroy behavior.
     {
+   
         Destroy(this.gameObject);
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -42,15 +44,15 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Hitbox")
         {
             other.GetComponent<Health>().bulletHit(damage);
-          
+            Destroy(this.gameObject);
         }
-        if (other.tag != "Player" && other.tag != "PunchHitbox")
+            else
         {
           
             Destroy(this.gameObject);
         }
-         FindAnyObjectByType<VFXList>().MisileExplosion(gameObject);
-        
+        FindAnyObjectByType<VFXList>().MisileExplosion(gameObject);
+
     }
 
 
