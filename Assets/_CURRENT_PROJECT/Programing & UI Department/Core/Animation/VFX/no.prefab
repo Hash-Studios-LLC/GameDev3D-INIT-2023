@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 198000012942003240}
   - component: {fileID: 199000010939959374}
   m_Layer: 0
-  m_Name: SmallExplosionEffect
+  m_Name: no
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

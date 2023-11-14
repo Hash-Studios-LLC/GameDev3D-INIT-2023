@@ -21,7 +21,8 @@ public class VFXList : MonoBehaviour
     // Update is called once per frame
     public void MisileExplosion(GameObject item)
     {
+       
        var x= Instantiate(list[1], item.transform.position, item.transform.rotation);
-        Destroy(x, 0.5f);
+        Destroy(x, 1f);
     }
 }

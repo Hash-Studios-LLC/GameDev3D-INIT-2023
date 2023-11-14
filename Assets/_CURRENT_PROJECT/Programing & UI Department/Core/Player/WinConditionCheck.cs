@@ -18,7 +18,7 @@ public class WinConditionCheck : MonoBehaviour
         _title.text = "EPIC WIN P1!!!!";
         ShowUi();
         winnerText.text = "PLAYER 1 WON";
-        winnerText.color = Color.blue;
+        winnerText.color = Color.red;
     }
 
     public void DisplayWinScreenP2()
@@ -26,7 +26,7 @@ public class WinConditionCheck : MonoBehaviour
         _title.text = "EPIC WIN P2!!!!";
         ShowUi();
         winnerText.text = "PLAYER 2 WON";
-        winnerText.color = Color.red;
+        winnerText.color = Color.blue;
     }
 
     private void ShowUi()
