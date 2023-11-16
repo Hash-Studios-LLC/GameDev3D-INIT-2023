@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public int damage;
 
     // Start is called before the first frame update
+    public GameObject rocketTrail;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,7 +32,7 @@ public class Bullet : MonoBehaviour
 
     void destroyProjectile() // this function is here in case you want to add any stuff to the destroy behavior.
     {
-   
+        TrailParent();
         Destroy(this.gameObject);
         
     }
@@ -52,8 +53,13 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
         FindAnyObjectByType<VFXList>().MisileExplosion(gameObject);
-
+        TrailParent();
     }
 
-
+   public void TrailParent()
+    {
+        rocketTrail.transform.parent = null;
+        
+       Destroy(rocketTrail, 3f);
+    }
 }
