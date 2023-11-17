@@ -675,6 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 1408753573}
   winnerText: {fileID: 1408753573}
+  cameraWinner: {fileID: 3823199851383963181}
 --- !u!114 &594900893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,6 +2236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3823199851383963180}
   - component: {fileID: 3823199851383963183}
+  - component: {fileID: 3823199851383963184}
   m_Layer: 0
   m_Name: Camera System
   m_TagString: Untagged
@@ -2256,6 +2258,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetGroupScript: {fileID: 3823199850536866050}
   cVirtualCamera: {fileID: 3823199851692312554}
+--- !u!114 &3823199851383963184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823199851383963181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb92911f6f132af4cb942911fb23b826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winnerFighter: {fileID: 0}
+  virtualCamera: {fileID: 3823199851692312554}
+  rotationSpeed: 1
+  ViewDistance: 40
 --- !u!114 &3823199851692312554
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class Respawning : MonoBehaviour
     private PlayerInput p1script;
     private PlayerInput p2script;
 
+    private Transform p1WinnerLocation;
+    private Transform p2WinnerLocation;
     //player life
     [SerializeField]
      private int Player1Stock = 3;
@@ -82,14 +84,14 @@ public class Respawning : MonoBehaviour
         //CZ: checks if player 1 or 2 are out of stocks, and sends the message to display the appropriate win screen
         if ( Player1Stock == 0)
         {
-            winCond.DisplayWinScreenP2();
+            winCond.DisplayWinScreenP2(p2WinnerLocation);
             Debug.Log("player 2 wins");
             p2script.enabled = false;
             p2script.GetComponent<RigidBodyMovement>().stopMovement();
         }
         if ( Player2Stock == 0)
         {
-            winCond.DisplayWinScreenP1();
+            winCond.DisplayWinScreenP1(p1WinnerLocation);
             Debug.Log("player 1 wins");
             p1script.enabled = false;
             p1script.GetComponent<RigidBodyMovement>().stopMovement();
@@ -120,7 +122,9 @@ public class Respawning : MonoBehaviour
         p1script = p1.GetComponent<PlayerInput>();
         p2script = p2.GetComponent<PlayerInput>();
 
-    }
+        p1WinnerLocation=p1.GetComponent<Transform>();     
+        p2WinnerLocation=p2.GetComponent<Transform>();
+}
     //character selection ui  use this to set character
     public void intSelection(int p1Number, int p2Number)
     {

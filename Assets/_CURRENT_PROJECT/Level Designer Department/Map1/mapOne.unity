@@ -307,9 +307,25 @@ PrefabInstance:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 3823199851874375888, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823199851874375888, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823199851874375888, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3823199851874375894, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4349938
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823199851874375894, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 3823199851874375894, guid: 106648c001bb549408a4cb9559c10381, type: 3}
       propertyPath: m_LocalPosition.z
@@ -971,6 +987,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370056048}
   m_CullTransparentMesh: 1
+--- !u!1 &406408363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3823199850967186624, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+  m_PrefabInstance: {fileID: 26290472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &406408366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406408363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb92911f6f132af4cb942911fb23b826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winnerFighter: {fileID: 0}
+  virtualCamera: {fileID: 1816046244}
+  rotationSpeed: 1
+  ViewDistance: 40
 --- !u!1 &460123278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,6 +2724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 1518910463}
   winnerText: {fileID: 1518910463}
+  cameraWinner: {fileID: 406408363}
 --- !u!114 &1525821669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3552,6 +3590,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815677494}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1816046244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3823199852076647687, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+  m_PrefabInstance: {fileID: 26290472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1854671546
 GameObject:
   m_ObjectHideFlags: 0
@@ -4135,6 +4184,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938348274}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1975929385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3823199851874375893, guid: 106648c001bb549408a4cb9559c10381, type: 3}
+  m_PrefabInstance: {fileID: 26290472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1975929390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975929385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &2035518788
 GameObject:
   m_ObjectHideFlags: 0
