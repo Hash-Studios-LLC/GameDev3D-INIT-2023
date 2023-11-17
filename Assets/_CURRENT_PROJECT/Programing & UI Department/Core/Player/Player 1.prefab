@@ -87,7 +87,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60e31f75ad69f14890aadb85764724d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchSlider: {fileID: 3046856666515067261}
+  punchSlider: {fileID: 4473577483107149777}
 --- !u!1 &3046856666588558556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2c118590ac4de41a1cdbf221193db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketSlider: {fileID: 3236461988586170707}
+  rocketSlider: {fileID: 7603409180154003177}
+  usingRocket: 0
 --- !u!1 &3769097600201506072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,7 +2149,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
