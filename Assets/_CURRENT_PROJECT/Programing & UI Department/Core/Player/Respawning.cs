@@ -36,6 +36,8 @@ public class Respawning : MonoBehaviour
     {
       p1Number=  PlayerPrefs.GetInt("Player-1-Class", 0);
         p2Number=PlayerPrefs.GetInt("Player-2-Class", 0);
+        Player1Stock = PlayerPrefs.GetInt("Player-Lives", 1);
+        Player2Stock = PlayerPrefs.GetInt("Player-Lives", 1);
         if ( FindAnyObjectByType<AudioManager>() != null) {
             FindAnyObjectByType<AudioManager>().Stop("Main Theme");
             FindAnyObjectByType<AudioManager>().Play("battle theme");
