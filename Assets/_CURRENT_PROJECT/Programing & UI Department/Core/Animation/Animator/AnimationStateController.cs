@@ -54,16 +54,16 @@ public class AnimationStateController : MonoBehaviour
         int id = GetComponentInParent<Robot_Initalization>().getID();
         if (id == 1)
         {
-            PCDUI = GameObject.Find("PunchCoolDownp1").GetComponent<PunchCD>();
+       
             PCDUI.setMaxCoolDown(punchCD);
-            RCDUI = GameObject.Find("RocketCoolDownp1").GetComponent<RocketCD>();
+          
             RCDUI.setMaxCD(rocketCD);
         }
         else
         {
-            PCDUI = GameObject.Find("PunchCoolDownp2").GetComponent<PunchCD>();
+           
             PCDUI.setMaxCoolDown(punchCD);
-            RCDUI = GameObject.Find("RocketCoolDownp2").GetComponent<RocketCD>();
+           
             RCDUI.setMaxCD(rocketCD);
         }
     }
