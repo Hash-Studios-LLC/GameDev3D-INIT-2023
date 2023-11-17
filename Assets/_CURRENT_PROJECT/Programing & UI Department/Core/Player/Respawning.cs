@@ -24,9 +24,9 @@ public class Respawning : MonoBehaviour
     private Transform p2WinnerLocation;
     //player life
     [SerializeField]
-     private int Player1Stock = 3;
+    private int Player1Stock = 3;
     [SerializeField]
-   private int Player2Stock = 3;
+    private int Player2Stock = 3;
     public CinemachineTargetGroup target;
     private int selection;
     //spawns the player based on the id and location
@@ -65,7 +65,7 @@ public class Respawning : MonoBehaviour
             if (Player1Stock >= 1)
             {
                 StartCoroutine(SpawnDelay(player, Player1));
-
+                
                 Debug.Log("player 1 spawnned");
             }
 
@@ -160,4 +160,13 @@ public class Respawning : MonoBehaviour
         sendSelection(newRobot);
     }
 
+    public int getP1Stock()
+    {
+        return Player1Stock;
+    }
+
+    public int getP2Stock()
+    {
+        return Player2Stock;
+    }
 }
