@@ -49,7 +49,7 @@ public class Respawning : MonoBehaviour
         FirstSpawn(newRobot, newRobot2);
         target.AddMember(newRobot.transform, 1, 2);//adds new player to camera
 
-
+        
 
         target.AddMember(newRobot2.transform, 1, 2);//adds new player to camera
         // selects model
