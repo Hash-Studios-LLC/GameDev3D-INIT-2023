@@ -16,12 +16,16 @@ public class C_MenuScript : MonoBehaviour
     public CanvasGroup continueButtonCanvasGroup; // Assign your canvas group here
     public string[] sceneNames;
     public C_MapToSelect[] mapScripts;
+    public int lives = -1;
+    public TextMeshProUGUI livesText;
 
     // Start is called before the first frame update
     void Start()
     {
         MapContinueButton.interactable = false;
         continueButtonCanvasGroup.alpha = 0.5f;
+        lives = 3;
+        livesText.text = "Lives: " + lives;
     }
 
     private IEnumerator RunFunctionAfterDelay(float delayInSeconds, System.Action functionToRun)
@@ -113,5 +117,42 @@ public class C_MenuScript : MonoBehaviour
         {
             SceneManager.LoadScene(sceneNames[mapSelection]);
         }
+    }
+
+    //If at index 0, loop around to end of array and show the last fighter
+    public void PreviousLives()
+    {
+        if (lives <= 1)
+        {
+            lives = 99;
+            livesText.text = "Lives: " + lives;
+        }
+        else
+        {
+            lives--;
+            livesText.text = "Lives: " + lives;
+        }
+    }
+
+    //If at last index, loop around to front of array and show the first fighter
+    public void NextLives()
+    {
+        if (lives >= 99)
+        {
+            lives = 1;
+            livesText.text = "Lives: " + lives;
+        }
+        else
+        {
+            lives++;
+            livesText.text = "Lives: " + lives;
+        }
+    }
+
+    public void SaveLives()
+    {
+        lives = Mathf.Clamp(lives, 1, 99);
+        PlayerPrefs.SetInt("Player-Lives", lives);
+        PlayerPrefs.Save();
     }
 }
