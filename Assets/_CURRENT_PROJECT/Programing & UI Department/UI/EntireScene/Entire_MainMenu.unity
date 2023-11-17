@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7cabe411b9d65da4490ea8dc15cf4f93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cedcc6815746c0f4c99aa17fb8dcc3bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5352,7 +5352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33c4b38ed8d379f48adabe9bbb71dcec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62dcf5bac7146aa4d82281ebfee8ef63, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8370,7 +8370,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GARTEN OF BAN BAN
+  m_text: 'CARGO
+
+    SHIP'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9daccef3a9b4f54c8534d7974b964c6, type: 2}
   m_sharedMaterial: {fileID: 140049864958897442, guid: d9daccef3a9b4f54c8534d7974b964c6, type: 2}
@@ -11171,7 +11173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &771138196
 Transform:
   m_ObjectHideFlags: 0
@@ -19647,7 +19649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f07f628197ca89643bc9f2cd78032d5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16748d96ae45f2840b63ed3c0cef8e07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23496,7 +23498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1549788308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25249,7 +25251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ANGEL
+  m_text: 'SPACE
 
     CITY'
   m_isRightToLeft: 0
