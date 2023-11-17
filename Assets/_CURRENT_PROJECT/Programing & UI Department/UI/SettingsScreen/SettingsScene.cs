@@ -14,6 +14,7 @@ public class SettingsScene : MonoBehaviour
     List<string> resolutionListString = new List<string>();
     private Resolution[] resolutionList;
     private List<int> resolutionToSet;
+
     private List<string> graphicsQualityList = new List<string>();
 
     public AudioMixer audioMixer;
@@ -28,8 +29,7 @@ public class SettingsScene : MonoBehaviour
         initializeGraphicsList();
         resText = GameObject.Find("labelResolutionOption").GetComponent<TextMeshProUGUI>();
         graText = GameObject.Find("labelGraphicQualityOption").GetComponent<TextMeshProUGUI>();
-
-        currGraphicsQuality = QualitySettings.currentLevel.ToString(); // this is hard coded, should be changed later
+        currGraphicsQuality = "high"; // this is hard coded, should be changed later
         
     }
 
@@ -47,12 +47,9 @@ public class SettingsScene : MonoBehaviour
     }
     private void initializeGraphicsList()
     {
-        graphicsQualityList.Add("Very Low");
-        graphicsQualityList.Add("Low");
-        graphicsQualityList.Add("Medium");
-        graphicsQualityList.Add("High");
-        graphicsQualityList.Add("Very High");
-        graphicsQualityList.Add("Ultra");
+        graphicsQualityList.Add("low");
+        graphicsQualityList.Add("medium");
+        graphicsQualityList.Add("high");
     }
         #region ChangeResolution
         public void changeResolutionUp() 
@@ -156,7 +153,6 @@ public class SettingsScene : MonoBehaviour
         }
 
         currGraphicsQuality = graphicsQualityList[index];
-        QualitySettings.SetQualityLevel(index);
     }
 
     public void changeGraphicsUp()
@@ -175,7 +171,6 @@ public class SettingsScene : MonoBehaviour
         }
 
         currGraphicsQuality = graphicsQualityList[index];
-        QualitySettings.SetQualityLevel(index);
     }
     #endregion
 }
