@@ -18,6 +18,8 @@ public class C_MenuScript : MonoBehaviour
     public C_MapToSelect[] mapScripts;
     public int lives = -1;
     public TextMeshProUGUI livesText;
+    public ScrollRect scrollRect_P1;
+    public ScrollRect scrollRect_P2;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class C_MenuScript : MonoBehaviour
         continueButtonCanvasGroup.alpha = 0.5f;
         lives = 3;
         livesText.text = "Lives: " + lives;
+        resetScrollP1();
+        resetScrollP2();
     }
 
     private IEnumerator RunFunctionAfterDelay(float delayInSeconds, System.Action functionToRun)
@@ -154,5 +158,15 @@ public class C_MenuScript : MonoBehaviour
         lives = Mathf.Clamp(lives, 1, 99);
         PlayerPrefs.SetInt("Player-Lives", lives);
         PlayerPrefs.Save();
+    }
+
+    public void resetScrollP1()
+    {
+        scrollRect_P1.verticalNormalizedPosition = 1f;
+    }
+
+    public void resetScrollP2()
+    {
+        scrollRect_P2.verticalNormalizedPosition = 1f;
     }
 }
