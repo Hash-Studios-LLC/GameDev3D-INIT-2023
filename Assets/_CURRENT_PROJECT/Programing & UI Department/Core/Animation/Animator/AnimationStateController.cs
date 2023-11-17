@@ -55,16 +55,17 @@ public class AnimationStateController : MonoBehaviour
         if (id == 1)
         {
        
-            PCDUI.setMaxCoolDown(punchCD);
-          
-            RCDUI.setMaxCD(rocketCD);
+            PCDUI.setMaximun(getPunchCDTime());
+            RCDUI.setMaximun(getShotCDTime());
+
+
         }
         else
         {
            
-            PCDUI.setMaxCoolDown(punchCD);
-           
-            RCDUI.setMaxCD(rocketCD);
+            PCDUI.setMaximun(punchCD);
+
+            RCDUI.setMaximun(getShotCDTime());
         }
     }
 
@@ -167,7 +168,7 @@ public class AnimationStateController : MonoBehaviour
         yield return new WaitForSeconds(punchCD+PunchCD_AnimTime);
         canPunch = true;
 
-        PCDUI.setCurrentCDVal(punchCD);
+   
 
         // Debug.Log("animation lasted: " + animator.GetCurrentAnimatorStateInfo(1).length);
     }
@@ -180,7 +181,7 @@ public class AnimationStateController : MonoBehaviour
         yield return new WaitForSeconds(rocketCD+rocketCD_AnimTime);
         canShot = true;
 
-        RCDUI.setCurrentCDVal(rocketCD);
+      
 
 
 

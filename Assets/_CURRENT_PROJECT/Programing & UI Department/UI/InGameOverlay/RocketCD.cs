@@ -6,38 +6,37 @@ using UnityEngine.UI;
 public class RocketCD : MonoBehaviour
 {
     public Slider rocketSlider;
-    private bool isReady;
+    [SerializeField]
+    private bool usingRocket;
 
-    /*
+
+
+
+
     void Update()
     {
-        if (!isReady)
+        if (rocketSlider.value>0 )
         {
-            raiseSlider();
+            rocketSlider.value -= Time.deltaTime;
+           
         }
-        else
-        {
-            isReady = true;
-        }
-    }
-    */
-
-    public void setMaxCD(float CD)
-    {
-        rocketSlider.maxValue = CD;
-        rocketSlider.value = CD;
+        
     }
 
-    public void setCurrentCDVal(float CD)
+
+    public void setMaximun(float cd)
     {
-        rocketSlider.value = CD;
+        rocketSlider.maxValue = cd;
     }
+
+ 
 
     public void resetCoolDown()
     {
-        rocketSlider.value = 0;
-        isReady = false;
+        rocketSlider.value = rocketSlider.maxValue;
+     
         Debug.Log("gun CD is 0 now...");
+    
     }
     /*
     IEnumerator raiseSlider()

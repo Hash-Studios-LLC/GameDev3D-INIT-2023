@@ -7,21 +7,29 @@ public class PunchCD : MonoBehaviour
 {
     public Slider punchSlider;
 
-    public void setMaxCoolDown(float coolDown)
+    void Update()
     {
-        punchSlider.maxValue = coolDown;
-        punchSlider.value = coolDown;
+        if (punchSlider.value > 0)
+        {
+            punchSlider.value -= Time.deltaTime;
+
+        }
+
     }
 
-    public void setCurrentCDVal(float CD)
+
+    public void setMaximun(float cd)
     {
-        punchSlider.value = CD;
-        Debug.Log("Punch CD slider was changed...");
+       punchSlider.maxValue = cd;
     }
+
+
 
     public void resetCoolDown()
     {
-        punchSlider.value = 0;
-        Debug.Log("Punch CD is 0...");
+        punchSlider.value = punchSlider.maxValue;
+
+        Debug.Log("gun CD is 0 now...");
+       
     }
 }
