@@ -11,6 +11,8 @@ public class AnimationStateController : MonoBehaviour
     RobotData robotData;
     [SerializeField] private Rigidbody playerBody; //reference to player's rigidbody
 
+    [SerializeField] private PlayerInput pInput;
+
     public float aAcceleration = 10.0f; // determines rate at which aVelocity increases
     public float aDecceleration = 10.0f; // c'mon, you took physics in high school, right?
 
@@ -26,7 +28,7 @@ public class AnimationStateController : MonoBehaviour
     public GameObject punchCollider;
     [SerializeField] private float shootDelay;//  how much the delay to spawn the bullet
     [SerializeField] private float PunchDelay;// how much time it takes the punch collider to appear
-   [SerializeField] private float rocketCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
+    [SerializeField] private float rocketCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
     [SerializeField] private float PunchCD_AnimTime;// currently i don't have a way to check animation time so we have to add manually
 
     public PunchCD PCDUI;
@@ -69,22 +71,25 @@ public class AnimationStateController : MonoBehaviour
         }
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(playerBody.velocity == Vector3.zero);
 
-        if (playerBody.velocity != Vector3.zero && aVelocity < 1.0f) // whenever the player's velocity is not equal to 0, the animator rapidly changes from idle to running
+        if (pInput.playerMovementInput != Vector3.zero && aVelocity < 1.0f) // whenever the player's velocity is not equal to 0, the animator rapidly changes from idle to running
         {
           //  animator.applyRootMotion = false;
             aVelocity += Time.deltaTime * aAcceleration;
         }
 
-        if (playerBody.velocity == Vector3.zero && aVelocity > 0.0f) // whenever the player's velocity equal to 0, the animator rapidly changes from running to idle
+        if (pInput.playerMovementInput == Vector3.zero && aVelocity > 0.0f) // whenever the player's velocity equal to 0, the animator rapidly changes from running to idle
         {
             aVelocity -= Time.deltaTime * aDecceleration;
         }
 
-        if (playerBody.velocity == Vector3.zero && aVelocity < 0.0f) // contingency incase velocity ever drops below 0 (it shouldn't)
+        if (pInput.playerMovementInput == Vector3.zero && aVelocity < 0.0f) // contingency incase velocity ever drops below 0 (it shouldn't)
         {
         //    animator.applyRootMotion=true;
             aVelocity = 0.0f;
