@@ -24,12 +24,22 @@ public class C_MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager audioManagerScript = FindObjectOfType<AudioManager>();
+        if(audioManagerScript != null)
+        {
+            audioManagerScript.gameObject.SetActive(false);
+        }
         MapContinueButton.interactable = false;
         continueButtonCanvasGroup.alpha = 0.5f;
         lives = 3;
         livesText.text = "Lives: " + lives;
         resetScrollP1();
         resetScrollP2();
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
     }
 
     private IEnumerator RunFunctionAfterDelay(float delayInSeconds, System.Action functionToRun)

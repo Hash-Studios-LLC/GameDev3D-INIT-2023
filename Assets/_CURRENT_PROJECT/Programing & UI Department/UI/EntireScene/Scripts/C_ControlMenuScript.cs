@@ -11,7 +11,19 @@ public class C_ControlMenuScript : MonoBehaviour
     public TextMeshProUGUI playerText;
     public TextMeshProUGUI controllerText;
     int playerInt = 0;
-    int controllerInt = 0;
+    int controllerInt = 1;
+
+    public void Start()
+    {
+        checkForValue();
+    }
+
+    public void openMenu()
+    {
+        playerInt = 0;
+        controllerInt = 1;
+        checkForValue();
+    }
 
     public void checkForValue()
     {
@@ -37,14 +49,14 @@ public class C_ControlMenuScript : MonoBehaviour
             if(playerInt == 0)
             {
                 // show player 1 keyboard
-                imageToChange.sprite = playerControls[0];
+                imageToChange.sprite = playerControls[2];
                 playerText.text = "Player 1";
                 controllerText.text = "Keyboard";
             }
             else
             {
                 // show player 2 keyboard
-                imageToChange.sprite = playerControls[1];
+                imageToChange.sprite = playerControls[3];
                 playerText.text = "Player 2";
                 controllerText.text = "Keyboard";
             }
@@ -55,14 +67,14 @@ public class C_ControlMenuScript : MonoBehaviour
             if (playerInt == 0)
             {
                 // show player 1 controller
-                imageToChange.sprite = playerControls[2];
+                imageToChange.sprite = playerControls[0];
                 playerText.text = "Player 1";
                 controllerText.text = "Controller";
             }
             else
             {
                 // show player 2 controller
-                imageToChange.sprite = playerControls[3];
+                imageToChange.sprite = playerControls[1];
                 playerText.text = "Player 2";
                 controllerText.text = "Controller";
             }
