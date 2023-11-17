@@ -91,6 +91,7 @@ public class Health : MonoBehaviour
    IEnumerator DestroyPlayer()
     {
          playerRef.GetComponent<PlayerInput>().enabled=false;
+        playerRef.GetComponent<Rigidbody>().isKinematic = true;
         animator.Death();
         yield return new WaitForSeconds(animationDeathTime);
         playerDie();
