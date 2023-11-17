@@ -13,7 +13,9 @@ public class Health : MonoBehaviour
     public float animationDeathTime;// time that lasts death animation
     public Respawning respawning;
     public HPbar healthBar;
-        
+
+
+
     void Start()
     {
         animationDeathTime = Random.Range(3.5f, 4.0f);
@@ -82,6 +84,7 @@ public class Health : MonoBehaviour
         // do something else like despawning the player
          currentHP++;
         Destroy(playerRef);
+  
 
         var player = playerRef.GetComponent<Robot_Initalization>();
         int id = player.getID();

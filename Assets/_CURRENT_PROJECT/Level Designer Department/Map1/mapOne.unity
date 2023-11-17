@@ -3185,8 +3185,8 @@ MonoBehaviour:
   respawnTime: 3
   Player1: {fileID: 8554614046052704080, guid: e037b26a82889bd48ad12bd6a94808b1, type: 3}
   Player2: {fileID: 3036591927526254771, guid: 734678a91767989449bc73c72b4e491e, type: 3}
-  Player1Stock: 3
-  Player2Stock: 3
+  Player1Stock: 99
+  Player2Stock: 99
   target: {fileID: 949635358}
   p1Number: 2
   p2Number: 2
